@@ -1,0 +1,10 @@
+# HomeWaterMath
+
+Free, source-backed calculators for home water: water softeners and private wells. Every formula and source is shown.
+
+## Calculators
+- https://homewatermath.com/water-softener-size-calculator/: Size a water softener in grains for your home and hardness.
+- https://homewatermath.com/water-softener-cost/: Water softener cost: unit, install, salt and a 10-year total.
+- https://homewatermath.com/water-softener-salt-calculator/: Salt use per month and year, bags and cost.
+- https://homewatermath.com/water-hardness-converter/: Convert hardness between gpg, ppm, mg/L, mmol/L and degrees.
+- https://homewatermath.com/well-pressure-tank-size-calculator/: Size a well pressure tank from pump flow, horsepower and switch.

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://homewatermath.com/sitemap.xml
