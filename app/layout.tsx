@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import Analytics from '@/components/Analytics';
 import ConsentBanner from '@/components/ConsentBanner';
+import OutboundTracker from '@/components/OutboundTracker';
 import { graph, organizationLd, websiteLd } from '@/lib/seo';
 import { SITE_URL, SITE_NAME } from '@/lib/data/pages';
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Analytics />
         <ConsentBanner />
+        <OutboundTracker />
       </body>
     </html>
   );

@@ -40,7 +40,7 @@ export default function HomePage() {
             {/* Reserve the mobile block height so a web-font swap can't reflow
                 the text and push the hero image (kills layout shift) and keeps
                 the text block the largest element (LCP) on mobile. */}
-            <div className="container-hw flex min-h-[640px] flex-col justify-center py-10 md:min-h-0 md:py-16">
+            <div className="hero-text flex min-h-[640px] flex-col justify-center py-10 md:min-h-0 md:py-16">
               <h1 className="max-w-[16ch] text-[30px] font-medium leading-[1.15] tracking-[-0.01em] md:text-[40px]">
                 {getPage('/')?.h1}
               </h1>
@@ -146,6 +146,8 @@ export default function HomePage() {
           <p className="mb-6 max-w-prose68 text-[16px] text-ink">{HOME.wellIntro}</p>
           <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
             <PhotoTile slug="/well-pressure-tank-size-calculator/" />
+            <PhotoTile slug="/water-softener-size-calculator/" />
+            <PhotoTile slug="/water-hardness-converter/" />
           </div>
         </div>
       </section>

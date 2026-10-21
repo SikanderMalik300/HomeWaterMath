@@ -9,4 +9,6 @@ npm-debug.log*
 /.vitest
 /scripts/.photo-cache
 /scripts/lh
+/scripts/indexnow-payload.json
+/scripts/image-weight-report.json
 /homewatermath-repo-files.zip

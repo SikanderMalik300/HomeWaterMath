@@ -9,6 +9,9 @@ import ResultCard, { type ResultRow } from './ResultCard';
 import ShowTheMath from './ShowTheMath';
 import CopyShareBar from './CopyShareBar';
 import StickyResultBar from './StickyResultBar';
+import { useToolEvents } from './useToolEvents';
+
+const SLUG = '/well-pressure-tank-size-calculator/';
 
 interface Raw {
   gpm: string;
@@ -45,7 +48,11 @@ function compute(raw: Raw) {
 
 export default function CalculatorPressureTank() {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => setRaw((r) => ({ ...r, [k]: v }));
+  const { onInteract, onResult } = useToolEvents(SLUG);
+  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
+    onInteract();
+    setRaw((r) => ({ ...r, [k]: v }));
+  };
   const debounced = useDebounced(raw, 150);
   const computed = useMemo(() => compute(debounced), [debounced]);
   const [last, setLast] = useState(() => compute(DEFAULTS));
@@ -54,6 +61,9 @@ export default function CalculatorPressureTank() {
   }, [computed]);
   const shown = computed.valid ? computed : last;
   const invalid = !computed.valid;
+  useEffect(() => {
+    onResult(shown.params);
+  }, [shown.params, onResult]);
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -143,7 +153,7 @@ export default function CalculatorPressureTank() {
           invalidMessage="Enter a pump flow rate above zero to size a tank."
         >
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} />
+          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
         </ResultCard>
       </div>
 

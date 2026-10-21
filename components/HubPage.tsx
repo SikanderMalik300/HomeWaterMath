@@ -3,6 +3,7 @@ import ReferenceTable from './ReferenceTable';
 import PhotoTile from './PhotoTile';
 import Faq from './Faq';
 import AuthorBox from './AuthorBox';
+import SourcesBlock from './SourcesBlock';
 import JsonLd from './JsonLd';
 import { graph, collectionPageLd, breadcrumbLd, faqLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
@@ -46,6 +47,12 @@ export default function HubPage({
       <div className="mt-12">
         <Faq items={faq} />
       </div>
+
+      {page.sources.length > 0 && (
+        <div className="mt-12">
+          <SourcesBlock sources={page.sources} />
+        </div>
+      )}
 
       <div className="mt-10">
         <AuthorBox lastUpdated={page.lastUpdated} />

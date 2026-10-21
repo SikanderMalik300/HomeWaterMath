@@ -9,6 +9,9 @@ import ResultCard, { type ResultRow } from './ResultCard';
 import ShowTheMath from './ShowTheMath';
 import CopyShareBar from './CopyShareBar';
 import StickyResultBar from './StickyResultBar';
+import { useToolEvents } from './useToolEvents';
+
+const SLUG = '/water-softener-size-calculator/';
 
 interface Raw {
   people: string;
@@ -86,7 +89,11 @@ function compute(raw: Raw): Computed {
 
 export default function CalculatorSize() {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => setRaw((r) => ({ ...r, [k]: v }));
+  const { onInteract, onResult } = useToolEvents(SLUG);
+  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
+    onInteract();
+    setRaw((r) => ({ ...r, [k]: v }));
+  };
 
   const debounced = useDebounced(raw, 150);
   const computed = useMemo(() => compute(debounced), [debounced]);
@@ -96,6 +103,10 @@ export default function CalculatorSize() {
   }, [computed]);
   const shown = computed.valid ? computed : last;
   const invalid = !computed.valid;
+
+  useEffect(() => {
+    onResult(shown.params);
+  }, [shown.params, onResult]);
 
   const resultRef = useRef<HTMLDivElement>(null);
 
@@ -253,7 +264,7 @@ export default function CalculatorSize() {
           invalidMessage="Enter the people, hardness and days to see a size."
         >
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} />
+          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
         </ResultCard>
 
         <div className="mt-6 overflow-x-auto rounded-card border border-line">

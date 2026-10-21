@@ -5,8 +5,10 @@ import { getPage } from '@/lib/data/pages';
 import Picture from './Picture';
 
 // One shared tile: whole tile is a single link. Photo 1:1 with focal-point crop,
-// name + arrow, one muted blurb line. Until a photo is approved, a mist square
-// stands in (never a stock or AI placeholder).
+// name + arrow, one muted blurb line. The arrow is inline at the end of the name
+// text, joined by a non-breaking space so it always follows the last word even
+// when the name wraps. Until a photo is approved, a mist square stands in
+// (never a stock or AI placeholder).
 export default function PhotoTile({ slug }: { slug: string }) {
   const page = getPage(slug);
   if (!page) return null;
@@ -38,9 +40,10 @@ export default function PhotoTile({ slug }: { slug: string }) {
           )}
         </div>
       </div>
-      <div className="mt-2 flex items-center gap-1">
-        <span className="text-[16px] font-medium text-ink group-hover:underline">{name}</span>
-        <ArrowRight className="h-4 w-4 text-brand" strokeWidth={1.5} aria-hidden="true" />
+      <div className="mt-2">
+        <span className="text-[16px] font-medium text-ink group-hover:underline">
+          {name}&nbsp;<ArrowRight className="inline h-4 w-4 align-[-2px] text-brand" strokeWidth={1.5} aria-hidden="true" />
+        </span>
       </div>
       {blurb && <p className="mt-0.5 text-[14px] text-muted">{blurb}</p>}
     </Link>

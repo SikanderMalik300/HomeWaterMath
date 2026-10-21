@@ -2,14 +2,17 @@
 
 import { useState } from 'react';
 import { Copy, Share2, Printer, Check } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 // Copy result text, Share a link with the current query params, Print.
 export default function CopyShareBar({
   resultText,
   query,
+  tool,
 }: {
   resultText: string;
   query: string; // e.g. "people=4&hardness=15"
+  tool?: string;
 }) {
   const [copied, setCopied] = useState<null | 'result' | 'link'>(null);
 
@@ -19,6 +22,7 @@ export default function CopyShareBar({
   };
 
   const copyResult = async () => {
+    if (tool) track('copy_result', { tool });
     try {
       await navigator.clipboard.writeText(resultText);
       flash('result');
@@ -28,6 +32,7 @@ export default function CopyShareBar({
   };
 
   const shareLink = async () => {
+    if (tool) track('share_link', { tool });
     const base = typeof window !== 'undefined' ? window.location.origin + window.location.pathname : '';
     const url = query ? `${base}?${query}` : base;
     try {

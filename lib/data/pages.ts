@@ -73,7 +73,7 @@ export const PAGES: PageMeta[] = [
     related: [],
     lastUpdated: DATE,
     published: DATE,
-    sources: [],
+    sources: ['epa-privatewells'],
     photoId: null,
     ownerNote: null,
     notCovered: [],

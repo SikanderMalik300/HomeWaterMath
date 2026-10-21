@@ -1,0 +1,69 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Wait for Cloudflare deploy and verify key
+        run: |
+          sleep 180
+          ok=0
+          for i in $(seq 1 10); do
+            body=$(curl -fsS "https://homewatermath.com/7239ecb4b098e1d2afc0abeff215d484.txt" || true)
+            if [ "$body" = "7239ecb4b098e1d2afc0abeff215d484" ]; then
+              echo "Key file is live."
+              ok=1
+              break
+            fi
+            echo "Attempt $i: key not live yet, waiting 30s..."
+            sleep 30
+          done
+          if [ "$ok" != "1" ]; then
+            echo "Key file did not go live in time."
+            exit 1
+          fi
+
+      - name: Build URL list
+        id: urls
+        run: node scripts/indexnow-urls.mjs
+
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.count != '0'
+        run: |
+          status=$(curl -s -o /tmp/indexnow.out -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data @scripts/indexnow-payload.json)
+          echo "IndexNow HTTP status: $status"
+          cat /tmp/indexnow.out || true
+          if [ "$status" = "200" ] || [ "$status" = "202" ]; then
+            echo "IndexNow submission accepted."
+          else
+            echo "IndexNow submission failed with status $status."
+            exit 1
+          fi
+
+      - name: Nothing to submit
+        if: steps.urls.outputs.count == '0'
+        run: echo "No changed URLs to submit; skipping."

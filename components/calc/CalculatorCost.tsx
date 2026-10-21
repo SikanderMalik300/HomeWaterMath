@@ -9,6 +9,9 @@ import ResultCard, { type ResultRow } from './ResultCard';
 import ShowTheMath from './ShowTheMath';
 import CopyShareBar from './CopyShareBar';
 import StickyResultBar from './StickyResultBar';
+import { useToolEvents } from './useToolEvents';
+
+const SLUG = '/water-softener-cost/';
 
 interface Raw {
   type: SystemType;
@@ -78,7 +81,11 @@ const QUOTE_TEXT: Record<'below' | 'within' | 'above', string> = {
 
 export default function CalculatorCost() {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => setRaw((r) => ({ ...r, [k]: v }));
+  const { onInteract, onResult } = useToolEvents(SLUG);
+  const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
+    onInteract();
+    setRaw((r) => ({ ...r, [k]: v }));
+  };
   const debounced = useDebounced(raw, 150);
   const computed = useMemo(() => compute(debounced), [debounced]);
   const [last, setLast] = useState(() => compute(DEFAULTS));
@@ -87,6 +94,9 @@ export default function CalculatorCost() {
   }, [computed]);
   const shown = computed.valid ? computed : last;
   const invalid = !computed.valid;
+  useEffect(() => {
+    onResult(shown.params);
+  }, [shown.params, onResult]);
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -216,7 +226,7 @@ export default function CalculatorCost() {
           invalidMessage="Enter your household and hardness to see a cost."
         >
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} />
+          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
         </ResultCard>
 
         <div className="mt-6 overflow-x-auto rounded-card border border-line">

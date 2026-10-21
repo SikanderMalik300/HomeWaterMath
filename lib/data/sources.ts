@@ -83,6 +83,12 @@ export const SOURCES = {
     url: 'https://www.epa.gov/watersense/statistics-and-facts',
     accessed: ACCESSED,
   },
+  'epa-privatewells': {
+    id: 'epa-privatewells',
+    name: 'US EPA, Private Drinking Water Wells',
+    url: 'https://www.epa.gov/privatewells',
+    accessed: '2026-10-21',
+  },
   'nelsen-sizing': {
     id: 'nelsen-sizing',
     name: 'Nelsen Corp., Softener Sizing',

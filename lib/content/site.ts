@@ -88,7 +88,7 @@ export const SOFTENERS_HUB = {
 
 export const WELL_HUB = {
   intro: [
-    'Millions of American homes get their water from a private well, and the owners are responsible for its pump, tank and treatment. The calculators here cover the parts that are easy to get wrong.',
+    'More than 23 million US households get their drinking water from a private well, and the owners are responsible for its pump, tank and treatment. The calculators here cover the parts that are easy to get wrong.',
     "The pressure tank is the first. A tank that's too small makes the pump start and stop every few seconds, which wears it out. Size the tank from your pump's flow rate and horsepower, set the air pre-charge correctly, and the pump runs long enough each cycle to stay cool. Well water also tends to be harder and more likely to carry iron than city water, so the water softener calculators apply here too.",
   ],
   whichTable: {
