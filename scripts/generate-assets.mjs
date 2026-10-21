@@ -29,7 +29,7 @@ const PAGES = [
   { slug: '/water-softener-salt-calculator/', h1: 'Water Softener Salt Calculator', photo: { base: 'coarse-white-salt-crystals', kind: 'tile' } },
   { slug: '/water-hardness-converter/', h1: 'Water Hardness Converter', photo: { base: 'water-sample-in-beaker', kind: 'tile' } },
   { slug: '/well-pressure-tank-size-calculator/', h1: 'Well Pressure Tank Size Calculator', photo: { base: 'water-pressure-gauge-psi', kind: 'tile' } },
-  { slug: '/well-pump-replacement-cost/', h1: 'Well Pump Replacement Cost Calculator' },
+  { slug: '/well-pump-replacement-cost/', h1: 'Well Pump Replacement Cost Calculator', photo: { base: 'rural-home-green-lawn', kind: 'tile' } },
   { slug: '/water-softener-vs-salt-free-cost/', h1: 'Salt vs Salt-Free Water Softener Cost Calculator', photo: { base: 'chrome-faucet-water-droplet-scale', kind: 'tile' } },
   { slug: '/reverse-osmosis-system-cost/', h1: 'Reverse Osmosis System Cost Calculator', photo: { base: 'chrome-kitchen-faucet-double-sink', kind: 'tile' } },
   { slug: '/whole-house-water-filter-cost/', h1: 'Whole House Water Filter Cost Calculator', photo: { base: 'rain-shower-head-water', kind: 'tile' } },

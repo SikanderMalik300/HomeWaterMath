@@ -18,11 +18,12 @@ const PHOTOS = [
   { base: 'rain-shower-head-water', url: 'https://images.unsplash.com/photo-1698724624855-e9dbc5a0bddb?fm=jpg&q=90&w=2560', focalX: 0.5, focalY: 0.4 },
   { base: 'chrome-faucet-water-droplet-scale', url: 'https://images.pexels.com/photos/2583028/pexels-photo-2583028.jpeg', focalX: 0.45, focalY: 0.55 },
   { base: 'plumber-hands-pipe-fitting', url: 'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg', focalX: 0.5, focalY: 0.45 },
+  { base: 'rural-home-green-lawn', url: 'https://images.pexels.com/photos/226407/pexels-photo-226407.jpeg', focalX: 0.4, focalY: 0.45 },
 ];
 
 const AR = 1; // tiles only
 const WIDTHS = [300, 600];
-const AVIF_Q = 50;
+const AVIF_Q = 46;
 const WEBP_Q = 75;
 const JPEG_Q = 80;
 const AVIF_EFFORT = 6;

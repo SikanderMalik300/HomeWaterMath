@@ -118,10 +118,23 @@ export const PHOTOS: Record<string, Photo> = {
     usedOn: ['/well-pressure-tank-size-calculator/', '/well-water/'],
     status: 'approved',
   },
-  // --- Batch 02 photos (2 approved by browser agent, 2 chosen by coding agent).
-  // tool-well-pump intentionally omitted: no free-stock photo met the rules
-  // (all were vintage hand pumps, farm irrigation or community boreholes), so
-  // that slot keeps the mist square.
+  // --- Batch 02 photos (2 approved by browser agent, 3 chosen by coding agent).
+  'tool-well-pump': {
+    id: 'tool-well-pump',
+    baseName: 'rural-home-green-lawn',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/house-surrounded-by-green-grass-below-clouds-and-sky-226407/',
+    downloadUrl: 'https://images.pexels.com/photos/226407/pexels-photo-226407.jpeg',
+    photographer: 'Dianne',
+    photographerUrl: 'https://www.pexels.com/@dianne-60973/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A country home with a large green lawn in daylight',
+    focalX: 0.4,
+    focalY: 0.45,
+    usedOn: ['/well-pump-replacement-cost/'],
+    status: 'approved',
+  },
   'tool-ro': {
     id: 'tool-ro',
     baseName: 'chrome-kitchen-faucet-double-sink',
@@ -180,7 +193,7 @@ export const PHOTOS: Record<string, Photo> = {
     photographerUrl: 'https://www.pexels.com/@anilkarakaya/',
     source: 'Pexels',
     license: 'Pexels License',
-    alt: 'Hands tightening a brass pipe fitting under a sink',
+    alt: 'Hands tightening a brass fitting on a water pipe',
     focalX: 0.5,
     focalY: 0.45,
     usedOn: ['/water-softener-installation-cost/'],

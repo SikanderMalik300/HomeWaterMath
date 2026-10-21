@@ -94,7 +94,9 @@ const WARN: Record<'saltFreeGpg' | 'saltFreeIron' | 'ironMax', string> = {
 function Column({ title, upfront, perYear, tenYear }: { title: string; upfront: number; perYear: number; tenYear: number }) {
   return (
     <div className="rounded-card border border-line p-4">
-      <h3 className="text-[16px] font-medium text-ink">{title}</h3>
+      {/* Styled as a paragraph, not a heading, so the result card does not add
+          an h3 before the page's first h2 (sequential heading order a11y). */}
+      <p className="text-[16px] font-medium text-ink">{title}</p>
       <dl className="mt-3 space-y-2 text-[15px]">
         <div className="flex justify-between gap-4"><dt className="text-muted">Upfront</dt><dd className="font-medium tnum">{formatDollars(upfront)}</dd></div>
         <div className="flex justify-between gap-4"><dt className="text-muted">Per year</dt><dd className="font-medium tnum">{formatDollars(perYear)}</dd></div>
