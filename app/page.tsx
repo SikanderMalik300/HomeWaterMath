@@ -148,8 +148,28 @@ export default function HomePage() {
           <p className="mb-6 max-w-prose68 text-[16px] text-ink">{HOME.wellIntro}</p>
           <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
             <PhotoTile slug="/well-pressure-tank-size-calculator/" />
+            <PhotoTile slug="/well-pump-replacement-cost/" />
             <PhotoTile slug="/water-softener-size-calculator/" />
             <PhotoTile slug="/water-hardness-converter/" />
+          </div>
+        </div>
+      </section>
+
+      {/* Water filters band */}
+      <section className="bg-band-3 py-12 md:py-16" aria-labelledby="filters-heading">
+        <div className="container-hw">
+          <div className="mb-2 flex items-baseline justify-between gap-4">
+            <h2 id="filters-heading" className="text-[28px] font-medium">
+              Water filters
+            </h2>
+            <Link href="/water-filters/" prefetch={false} className="inline-flex items-center gap-1 text-[15px] font-medium text-brand hover:underline">
+              View all <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+            </Link>
+          </div>
+          <p className="mb-6 max-w-prose68 text-[16px] text-ink">{HOME.filtersIntro}</p>
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            <PhotoTile slug="/reverse-osmosis-system-cost/" />
+            <PhotoTile slug="/whole-house-water-filter-cost/" />
           </div>
         </div>
       </section>

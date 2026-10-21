@@ -4,8 +4,13 @@ const CALCULATORS = [
   { label: 'Water softener size calculator', href: '/water-softener-size-calculator/' },
   { label: 'Water softener cost calculator', href: '/water-softener-cost/' },
   { label: 'Water softener salt calculator', href: '/water-softener-salt-calculator/' },
+  { label: 'Water softener installation cost', href: '/water-softener-installation-cost/' },
+  { label: 'Salt vs salt-free cost', href: '/water-softener-vs-salt-free-cost/' },
   { label: 'Water hardness converter', href: '/water-hardness-converter/' },
   { label: 'Well pressure tank size calculator', href: '/well-pressure-tank-size-calculator/' },
+  { label: 'Well pump replacement cost', href: '/well-pump-replacement-cost/' },
+  { label: 'Reverse osmosis system cost', href: '/reverse-osmosis-system-cost/' },
+  { label: 'Whole house water filter cost', href: '/whole-house-water-filter-cost/' },
 ];
 const SITE = [
   { label: 'About', href: '/about/' },

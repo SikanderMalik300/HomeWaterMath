@@ -89,13 +89,18 @@ export function breadcrumbLd(slug: string) {
   };
 }
 
+/** Strip inline markdown links to plain text so schema matches the visible text. */
+export function stripMarkdownLinks(s: string): string {
+  return s.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+}
+
 export function faqLd(faq: { q: string; a: string }[]) {
   return {
     '@type': 'FAQPage',
     mainEntity: faq.map((f) => ({
       '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
+      name: stripMarkdownLinks(f.q),
+      acceptedAnswer: { '@type': 'Answer', text: stripMarkdownLinks(f.a) },
     })),
   };
 }

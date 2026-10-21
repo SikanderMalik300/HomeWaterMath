@@ -4,9 +4,16 @@
 
 import type { SourceId } from './sources';
 import { SIZE, SALT, HARDNESS, COST, PRESSURE } from '@/lib/content/tools';
+import {
+  WELL_PUMP,
+  SALT_FREE,
+  RO_COPY,
+  WHOLE_HOUSE,
+  SOFTENER_INSTALL,
+} from '@/lib/content/tools2';
 
 export type PageType = 'tool' | 'hub' | 'trust' | 'home';
-export type Category = 'softeners' | 'well' | null;
+export type Category = 'softeners' | 'well' | 'filters' | null;
 
 export interface PageMeta {
   slug: string; // with trailing slash, e.g. "/water-softener-cost/"
@@ -23,6 +30,8 @@ export interface PageMeta {
   ownerNote: string | null;
   notCovered: string[];
   cardBlurb: string | null;
+  // Optional short breadcrumb label for the current page crumb; defaults to h1.
+  breadcrumb?: string;
 }
 
 const DATE = '2026-10-20';
@@ -54,7 +63,7 @@ export const PAGES: PageMeta[] = [
     h1: 'Water softener calculators',
     category: 'softeners',
     related: [],
-    lastUpdated: DATE,
+    lastUpdated: '2026-10-21',
     published: DATE,
     sources: [],
     photoId: null,
@@ -67,11 +76,11 @@ export const PAGES: PageMeta[] = [
     type: 'hub',
     title: 'Well Water Calculators | HomeWaterMath',
     metaDescription:
-      "Calculators for private well owners, starting with pressure tank sizing from your pump's flow rate, horsepower and pressure switch setting.",
+      'Calculators for private well owners: pressure tank sizing and well pump replacement cost, plus water hardness and softener sizing for well water.',
     h1: 'Well water calculators',
     category: 'well',
     related: [],
-    lastUpdated: DATE,
+    lastUpdated: '2026-10-21',
     published: DATE,
     sources: ['epa-privatewells'],
     photoId: null,
@@ -126,7 +135,7 @@ export const PAGES: PageMeta[] = [
       '/water-softener-salt-calculator/',
       '/water-hardness-converter/',
     ],
-    lastUpdated: DATE,
+    lastUpdated: '2026-10-21',
     published: DATE,
     sources: [
       'thisoldhouse-cost',
@@ -213,11 +222,11 @@ export const PAGES: PageMeta[] = [
     h1: 'Well Pressure Tank Size Calculator',
     category: 'well',
     related: [
+      '/well-pump-replacement-cost/',
       '/water-hardness-converter/',
       '/water-softener-size-calculator/',
-      '/water-softener-cost/',
     ],
-    lastUpdated: DATE,
+    lastUpdated: '2026-10-21',
     published: DATE,
     sources: [
       'amtrol-mc10188',
@@ -231,6 +240,137 @@ export const PAGES: PageMeta[] = [
     ownerNote: null,
     notCovered: PRESSURE.notCovered,
     cardBlurb: "Tank size and pre-charge from your pump's gpm, horsepower and switch setting.",
+  },
+  // Batch 02: cost calculators + water filters hub
+  {
+    slug: '/well-pump-replacement-cost/',
+    type: 'tool',
+    title: 'Well Pump Replacement Cost Calculator (2026) | HomeWaterMath',
+    metaDescription:
+      'Estimate well pump replacement cost by pump type and well depth, with pipe, wire, pressure tank and emergency call-out. Plus a repair-or-replace check.',
+    h1: 'Well Pump Replacement Cost Calculator',
+    breadcrumb: 'Well pump replacement cost',
+    category: 'well',
+    related: ['/well-pressure-tank-size-calculator/', '/water-hardness-converter/', '/whole-house-water-filter-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [
+      'homeguide-pump', 'homeguide-repair', 'forbes-pump', 'homeadvisor-pump', 'homeadvisor-repair',
+      'angi-pump', 'consumeraffairs-pump', 'ahs-pump', 'thisoldhouse-pump', 'hd-poly-pipe',
+      'supplyhouse-poly-pipe', 'nassau-103-wire', 'backwoods-103-wire', 'hd-everbilt-pumps', 'hd-ecoflo-15',
+      'homeguide-tank', 'forbes-tank', 'psu-water-needs', 'goulds-residential', 'thumbtack-pump',
+    ],
+    photoId: 'tool-well-pump',
+    ownerNote: null,
+    notCovered: WELL_PUMP.notCovered,
+    cardBlurb: 'Pump, pipe, wire, tank and call-out by type and depth, plus repair-or-replace.',
+  },
+  {
+    slug: '/water-softener-vs-salt-free-cost/',
+    type: 'tool',
+    // Spec title/meta were 62/158 chars; trimmed to meet the A3 <=60 / <=155 MUST.
+    title: 'Salt vs Salt-Free Softener: 10-Year Cost | HomeWaterMath',
+    metaDescription:
+      'Compare the 10-year cost of a salt-based softener and a salt-free conditioner: install, salt, water, media and filters, plus what each one does.',
+    h1: 'Salt vs Salt-Free Water Softener Cost Calculator',
+    breadcrumb: 'Salt vs salt-free cost',
+    category: 'softeners',
+    related: ['/water-softener-cost/', '/water-softener-salt-calculator/', '/water-hardness-converter/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [
+      'wrrf-08-06', 'wrrf-08-06-report', 'wcp-z601-2014', 'epa-trm-softeners', 'epa-watersense-softener-2026',
+      'watts-oneflow', 'springwell-futuresoft', 'springwell-fs-manual', 'aquasana-simplysoft', 'aquasana-simplysoft-media',
+      'waterfilterguru-futuresoft', 'pentair-autotrol-368', 'wateronline-scv-2011', 'thisoldhouse-cost', 'homeguide-cost',
+      'wqa-getting-smart-2024',
+    ],
+    photoId: 'tool-salt-free',
+    ownerNote: null,
+    notCovered: SALT_FREE.notCovered,
+    cardBlurb: 'Salt vs salt-free over 10 years for your home, with what each one does.',
+  },
+  {
+    slug: '/reverse-osmosis-system-cost/',
+    type: 'tool',
+    title: 'Reverse Osmosis System Cost Calculator | HomeWaterMath',
+    metaDescription:
+      'Estimate reverse osmosis system cost: unit, install, filters and the water sent to drain, with a 10-year total and cost per gallon of RO water.',
+    h1: 'Reverse Osmosis System Cost Calculator',
+    breadcrumb: 'Reverse osmosis system cost',
+    category: 'filters',
+    related: ['/whole-house-water-filter-cost/', '/water-hardness-converter/', '/water-softener-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [
+      'homeguide-ro', 'angi-ro', 'thisoldhouse-ro', 'forbes-ro', 'epa-ro-spec', 'epa-ro-statement',
+      'apec-ro-sets', 'apec-faq', 'ispring-f7', 'expresswater-ro-sets', 'expresswater-membrane',
+      'slabwise-quartz', 'filmtec-tw30',
+    ],
+    photoId: 'tool-ro',
+    ownerNote: null,
+    notCovered: RO_COPY.notCovered,
+    cardBlurb: 'Under-sink, tankless or countertop, with filters and water sent to drain.',
+  },
+  {
+    slug: '/whole-house-water-filter-cost/',
+    type: 'tool',
+    title: 'Whole House Water Filter Cost Calculator | HomeWaterMath',
+    metaDescription:
+      "Estimate whole house water filter cost by type: installed price, cartridge or media changes based on your household's water use, and a 10-year total.",
+    h1: 'Whole House Water Filter Cost Calculator',
+    breadcrumb: 'Whole house water filter cost',
+    category: 'filters',
+    related: ['/reverse-osmosis-system-cost/', '/water-softener-cost/', '/well-pump-replacement-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [
+      'homeadvisor-wf', 'homeguide-wf', 'angi-wf', 'bobvila-wf', 'waterfilterguru-wf',
+      'expresswater-sediment', 'expresswater-carbon', 'ispring-f4wgb22b', 'aquasana-rhino',
+      'aquasana-rhino-media', 'aquasana-uv-lamp', 'epa-watersense-stats',
+    ],
+    photoId: 'tool-whole-house-filter',
+    ownerNote: null,
+    notCovered: WHOLE_HOUSE.notCovered,
+    cardBlurb: 'Cartridge, carbon tank or well system, with media changes for your use.',
+  },
+  {
+    slug: '/water-softener-installation-cost/',
+    type: 'tool',
+    title: 'Water Softener Installation Cost Calculator | HomeWaterMath',
+    metaDescription:
+      'Estimate water softener installation cost itemized: plumber labor, softener loop, drain, outlet, removal and permit. Check a quote against typical prices.',
+    h1: 'Water Softener Installation Cost Calculator',
+    breadcrumb: 'Water softener installation cost',
+    category: 'softeners',
+    related: ['/water-softener-cost/', '/water-softener-size-calculator/', '/water-softener-vs-salt-free-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [
+      'thisoldhouse-cost', 'fixr-cost', 'angi-install', 'homeadvisor-install', 'homeguide-cost',
+      'homeguide-repair-softener', 'homeguide-ro', 'homeguide-wf', 'homeguide-outlet', 'angi-plumber',
+      'lahabra-permit', 'stpaul-permit', 'hd-pentair-kit',
+    ],
+    photoId: 'tool-softener-install',
+    ownerNote: null,
+    notCovered: SOFTENER_INSTALL.notCovered,
+    cardBlurb: 'Itemized install labor: loop, drain, outlet, removal and permit.',
+  },
+  {
+    slug: '/water-filters/',
+    type: 'hub',
+    title: 'Water Filter Cost Calculators | HomeWaterMath',
+    metaDescription:
+      'Calculators for home water filters: reverse osmosis and whole house filter cost, including filters, media changes and water use over 10 years.',
+    h1: 'Water filter calculators',
+    category: 'filters',
+    related: [],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: [],
+    photoId: null,
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: null,
   },
   // Trust and legal pages
   {
@@ -425,12 +565,13 @@ export const toolPages = PAGES.filter((p) => p.type === 'tool');
 export const hubPages = PAGES.filter((p) => p.type === 'hub');
 export const trustPages = PAGES.filter((p) => p.type === 'trust');
 
-export const HUB_FOR_CATEGORY: Record<'softeners' | 'well', string> = {
+export const HUB_FOR_CATEGORY: Record<'softeners' | 'well' | 'filters', string> = {
   softeners: '/water-softeners/',
   well: '/well-water/',
+  filters: '/water-filters/',
 };
 
-export function toolsInCategory(category: 'softeners' | 'well'): PageMeta[] {
+export function toolsInCategory(category: 'softeners' | 'well' | 'filters'): PageMeta[] {
   return toolPages.filter((p) => p.category === category);
 }
 
@@ -464,7 +605,7 @@ export function breadcrumbsFor(slug: string): Crumb[] {
     const hub = getPage(hubSlug);
     if (hub) crumbs.push({ name: hub.h1, slug: hubSlug });
   }
-  crumbs.push({ name: page.h1, slug: null });
+  crumbs.push({ name: page.breadcrumb ?? page.h1, slug: null });
   return crumbs;
 }
 
@@ -478,6 +619,7 @@ export function latestUpdates(max = 6): PageMeta[] {
 export const NAV_ITEMS = [
   { label: 'Water softeners', href: '/water-softeners/' },
   { label: 'Well water', href: '/well-water/' },
+  { label: 'Water filters', href: '/water-filters/' },
   { label: 'How we calculate', href: '/how-we-calculate/' },
   { label: 'About', href: '/about/' },
 ];

@@ -18,6 +18,8 @@ export default function Page() {
         '/water-softener-cost/',
         '/water-softener-salt-calculator/',
         '/water-hardness-converter/',
+        '/water-softener-installation-cost/',
+        '/water-softener-vs-salt-free-cost/',
       ]}
     />
   );

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import * as tools from '@/lib/content/tools';
+import * as tools2 from '@/lib/content/tools2';
 import * as site from '@/lib/content/site';
 import * as trust from '@/lib/content/trust';
 import { PAGES } from '@/lib/data/pages';
@@ -75,6 +76,7 @@ function collectStrings(value: unknown, out: string[]): void {
 function allPageText(): string[] {
   const out: string[] = [];
   collectStrings(tools, out);
+  collectStrings(tools2, out);
   collectStrings(site, out);
   collectStrings(trust, out);
   // Also scan registry-visible strings (titles, metas, h1, blurbs).

@@ -1,5 +1,6 @@
 import type { FaqItem } from '@/lib/content/types';
 import { Plus, Minus } from 'lucide-react';
+import InlineText from './InlineText';
 
 // Accordion built on <details>/<summary> so every answer is in the HTML and
 // works without JS. Plus/minus icon toggles with [open].
@@ -25,7 +26,9 @@ export default function Faq({ items, heading = 'FAQ' }: { items: FaqItem[]; head
                 aria-hidden="true"
               />
             </summary>
-            <div className="pb-4 pr-8 text-[16px] text-ink">{item.a}</div>
+            <div className="pb-4 pr-8 text-[16px] text-ink">
+              <InlineText text={item.a} />
+            </div>
           </details>
         ))}
       </div>

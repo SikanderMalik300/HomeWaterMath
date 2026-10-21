@@ -10,7 +10,8 @@ export const HOME = {
     { label: 'Softener size', href: '/water-softener-size-calculator/' },
     { label: 'Softener cost', href: '/water-softener-cost/' },
     { label: 'Salt use', href: '/water-softener-salt-calculator/' },
-    { label: 'Hardness converter', href: '/water-hardness-converter/' },
+    { label: 'Well pump cost', href: '/well-pump-replacement-cost/' },
+    { label: 'RO cost', href: '/reverse-osmosis-system-cost/' },
   ],
   softenersIntro:
     'Hard water above 7 gpg leaves scale in heaters and fixtures. Start with your hardness, then size, price and run your softener.',
@@ -18,6 +19,8 @@ export const HOME = {
     'Private well? Size the pressure tank so your pump runs long enough each cycle.',
   pressureTankBlurb:
     "Tank size and pre-charge from your pump's gpm, horsepower and switch setting.",
+  filtersIntro:
+    'Drinking water or every tap? Price a reverse osmosis system or a whole house filter, filters included.',
   popularAnswers: [
     {
       number: '48,000 grains',
@@ -68,6 +71,8 @@ export const SOFTENERS_HUB = {
       ['What it will cost, installed and over 10 years', 'Water softener cost calculator'],
       ['How much salt it will use', 'Water softener salt calculator'],
       ['How to turn ppm or mg/L into gpg', 'Water hardness converter'],
+      ['What installation will cost', 'Water softener installation cost'],
+      ['Salt or salt-free', 'Salt vs salt-free cost'],
     ],
   } as SimpleTable,
   faq: [
@@ -96,6 +101,7 @@ export const WELL_HUB = {
     headers: ['If you want to know', 'Use'],
     rows: [
       ['What size pressure tank for my well', 'Well pressure tank size calculator'],
+      ['Pump replacement cost', 'Well pump replacement cost'],
       ['Hardness on a well', 'Water hardness converter'],
       ['A softener for well water', 'Water softener size calculator'],
     ],
@@ -112,6 +118,37 @@ export const WELL_HUB = {
     {
       q: 'Does well water need a softener?',
       a: 'Only if it\'s hard. Test hardness and iron first. If it\'s above about 7 gpg, or has iron, a softener or iron filter is worth pricing.',
+    },
+  ] as FaqItem[],
+};
+
+export const FILTERS_HUB = {
+  intro: [
+    "A filter removes things from your water; a softener removes hardness. Which filter you need depends on what's in your water, so start with a test from a certified lab or your utility's yearly water quality report.",
+    'The calculators here price the two most common choices: an under-sink reverse osmosis system for drinking water, and a whole house filter for every tap. Both include the running costs that make up much of the real price: cartridges, media changes and, for reverse osmosis, the water sent to the drain.',
+  ],
+  whichTable: {
+    caption: 'Which calculator do I need?',
+    headers: ['If you want to know', 'Use'],
+    rows: [
+      ['Drinking and cooking water only', 'Reverse osmosis system cost'],
+      ['Chlorine taste and smell at every tap', 'Whole house water filter cost'],
+      ['Well water with sediment, iron or sulfur', 'Whole house water filter cost'],
+      ['Hard water and scale', 'Water softener cost'],
+    ],
+  } as SimpleTable,
+  faq: [
+    {
+      q: "What's the difference between a water filter and a water softener?",
+      a: 'A softener swaps hardness minerals for sodium or potassium so scale doesn\'t form. A filter removes other things, such as sediment, chlorine, lead or bacteria, depending on its type. Many homes on hard water use both.',
+    },
+    {
+      q: 'Do I need a whole house filter or an under-sink filter?',
+      a: 'If the problem is taste, smell or sediment at every tap, a whole house filter. If you only want cleaner drinking and cooking water, an under-sink filter or reverse osmosis system is cheaper.',
+    },
+    {
+      q: 'Should I test my water before buying a filter?',
+      a: 'Yes. On city water, read your utility\'s annual water quality report. On a well, test at least once a year with a certified lab.',
     },
   ] as FaqItem[],
 };

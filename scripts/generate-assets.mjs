@@ -29,6 +29,12 @@ const PAGES = [
   { slug: '/water-softener-salt-calculator/', h1: 'Water Softener Salt Calculator', photo: { base: 'coarse-white-salt-crystals', kind: 'tile' } },
   { slug: '/water-hardness-converter/', h1: 'Water Hardness Converter', photo: { base: 'water-sample-in-beaker', kind: 'tile' } },
   { slug: '/well-pressure-tank-size-calculator/', h1: 'Well Pressure Tank Size Calculator', photo: { base: 'water-pressure-gauge-psi', kind: 'tile' } },
+  { slug: '/well-pump-replacement-cost/', h1: 'Well Pump Replacement Cost Calculator' },
+  { slug: '/water-softener-vs-salt-free-cost/', h1: 'Salt vs Salt-Free Water Softener Cost Calculator', photo: { base: 'chrome-faucet-water-droplet-scale', kind: 'tile' } },
+  { slug: '/reverse-osmosis-system-cost/', h1: 'Reverse Osmosis System Cost Calculator', photo: { base: 'chrome-kitchen-faucet-double-sink', kind: 'tile' } },
+  { slug: '/whole-house-water-filter-cost/', h1: 'Whole House Water Filter Cost Calculator', photo: { base: 'rain-shower-head-water', kind: 'tile' } },
+  { slug: '/water-softener-installation-cost/', h1: 'Water Softener Installation Cost Calculator', photo: { base: 'plumber-hands-pipe-fitting', kind: 'tile' } },
+  { slug: '/water-filters/', h1: 'Water filter calculators' },
   { slug: '/about/', h1: 'About HomeWaterMath' },
   { slug: '/how-we-calculate/', h1: 'How we calculate' },
   { slug: '/editorial-policy/', h1: 'Editorial policy' },
@@ -45,8 +51,13 @@ const TOOL_LINES = [
   ['/water-softener-size-calculator/', 'Size a water softener in grains for your home and hardness.'],
   ['/water-softener-cost/', 'Water softener cost: unit, install, salt and a 10-year total.'],
   ['/water-softener-salt-calculator/', 'Salt use per month and year, bags and cost.'],
+  ['/water-softener-installation-cost/', 'Itemized install cost: loop, drain, outlet, removal and permit.'],
+  ['/water-softener-vs-salt-free-cost/', 'Salt vs salt-free softener cost over 10 years for your home.'],
   ['/water-hardness-converter/', 'Convert hardness between gpg, ppm, mg/L, mmol/L and degrees.'],
   ['/well-pressure-tank-size-calculator/', 'Size a well pressure tank from pump flow, horsepower and switch.'],
+  ['/well-pump-replacement-cost/', 'Well pump replacement cost by type and depth, with repair-or-replace.'],
+  ['/reverse-osmosis-system-cost/', 'Reverse osmosis cost: unit, filters and water sent to drain.'],
+  ['/whole-house-water-filter-cost/', 'Whole house filter cost with cartridge or media changes.'],
 ];
 
 const LOGO_FILES = [

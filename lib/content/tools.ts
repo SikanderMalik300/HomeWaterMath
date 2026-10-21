@@ -310,7 +310,7 @@ export const COST: ToolCopy = {
     },
   ],
   notCovered: [
-    'Plumbing changes when your home has no softener loop, long pipe runs or needs a new drain or outlet. These push labor toward the top of the range.',
+    'Plumbing changes when your home has no softener loop, long pipe runs or needs a new drain or outlet. Our [installation cost calculator](/water-softener-installation-cost/) itemizes these.',
     'Permits, where your city requires one.',
     'Water used during regeneration.',
     'Iron filters, whole-house filters or reverse osmosis bought with the softener.',
@@ -343,7 +343,7 @@ export const COST: ToolCopy = {
     },
     {
       q: 'Are salt-free water softeners cheaper?',
-      a: "Not upfront. Installed salt-free conditioners run about $1,500 to $4,500, but they need no salt. They also don't remove hardness minerals, so they aren't a direct swap for a softener.",
+      a: "Not upfront. Installed salt-free conditioners run about $1,500 to $4,500, but they need no salt. They also don't remove hardness minerals, so they aren't a direct swap for a softener. [Compare the 10-year cost](/water-softener-vs-salt-free-cost/).",
     },
     {
       q: 'How long does a water softener last?',

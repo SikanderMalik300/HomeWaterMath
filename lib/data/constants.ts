@@ -131,4 +131,95 @@ export const CONSTANTS_TABLE: ConstantMeta[] = [
   { key: 'ATM_PSI', label: 'Atmospheric pressure (sea level)', value: '14.7', unit: 'psi', sources: ['goulds-crsgtank'] },
   { key: 'PRECHARGE_BELOW_CUTIN', label: 'Pre-charge below cut-in pressure', value: '2', unit: 'psi', sources: ['goulds-crsgtank', 'driller-pelikan-2006'] },
   { key: 'RUN_MINUTES', label: 'Minimum pump run time', value: '1 (up to 3/4 hp), 2 (above)', unit: 'minutes', sources: ['amtrol-mc10188', 'goulds-crsgtank'] },
+  // Batch 02
+  { key: 'PUMP_INSTALLED', label: 'Submersible pump, installed', value: '1,000 to 2,500', unit: 'US dollars', sources: ['homeguide-pump', 'ahs-pump'] },
+  { key: 'PIPE_PER_FT', label: 'Drop pipe, 1-1/4 in poly, per foot', value: '1.48 to 4.74', unit: 'US dollars', sources: ['hd-poly-pipe', 'supplyhouse-poly-pipe'] },
+  { key: 'WIRE_PER_FT', label: '10/3 submersible pump cable, per foot', value: '1.92 to 4.00', unit: 'US dollars', sources: ['nassau-103-wire', 'backwoods-103-wire'] },
+  { key: 'PUMP_LIFESPAN', label: 'Well pump lifespan', value: '8 to 15', unit: 'years', sources: ['homeadvisor-pump', 'forbes-pump'] },
+  { key: 'SALT_FREE_MEDIA', label: 'Salt-free media life and cost', value: '1,000,000 gal, $1,548', unit: 'gallons / US dollars', sources: ['aquasana-simplysoft', 'aquasana-simplysoft-media'] },
+  { key: 'PREFILTER_PER_YEAR', label: 'Salt-free pre-filter per year', value: '27', unit: 'US dollars', sources: ['waterfilterguru-futuresoft'] },
+  { key: 'REGEN_GAL', label: 'Water per softener regeneration', value: '50 (20 to 70)', unit: 'gallons', sources: ['epa-watersense-softener-2026'] },
+  { key: 'RO_EFF_STANDARD', label: 'RO efficiency, typical point-of-use', value: '15% (10 to 20%)', unit: 'efficiency', sources: ['epa-ro-statement'] },
+  { key: 'RO_EFF_WATERSENSE', label: 'RO efficiency, WaterSense minimum', value: '30%', unit: 'efficiency', sources: ['epa-ro-spec'] },
+  { key: 'RO_FILTERS_PER_YEAR', label: 'RO filters per year', value: '50', unit: 'US dollars', sources: ['apec-ro-sets', 'forbes-ro'] },
+  { key: 'CARTRIDGE_SET', label: 'Whole-house cartridge set (sediment + carbon)', value: '76.98', unit: 'US dollars', sources: ['expresswater-sediment', 'expresswater-carbon'] },
+  { key: 'CARTRIDGE_GAL', label: 'Cartridge rated life', value: '100,000', unit: 'gallons', sources: ['ispring-f4wgb22b'] },
+  { key: 'CARBON_TANK_MEDIA', label: 'Carbon tank media replacement', value: '1,898 (1,000,000 gal or 10 yr)', unit: 'US dollars', sources: ['aquasana-rhino-media'] },
+  { key: 'UV_LAMP', label: 'UV lamp, yearly', value: '125.99', unit: 'US dollars', sources: ['aquasana-uv-lamp'] },
+  { key: 'INSTALL_LOOP', label: 'New softener loop', value: '200 to 2,000', unit: 'US dollars', sources: ['thisoldhouse-cost', 'fixr-cost'] },
+  { key: 'INSTALL_DRAIN', label: 'New drain line', value: '300 to 800', unit: 'US dollars', sources: ['homeguide-ro', 'homeguide-wf'] },
+  { key: 'INSTALL_OUTLET', label: 'New 120 V outlet', value: '150 to 300', unit: 'US dollars', sources: ['homeguide-outlet'] },
 ];
+
+// --- Batch 02: well pump replacement ---
+export const PUMP_INSTALLED: Record<string, [number, number]> = {
+  submersible: [1000, 2500], // homeguide-pump; ahs-pump
+  shallowJet: [400, 1000], // homeguide-pump; forbes-pump
+  deepJet: [500, 1400], // homeguide-pump; ahs-pump
+  constantPressure: [2000, 5000], // homeguide-pump; forbes-pump; homeadvisor-pump; ahs-pump
+};
+export const PIPE_PER_FT: [number, number] = [1.48, 4.74]; // hd-poly-pipe; supplyhouse-poly-pipe
+export const WIRE_PER_FT: [number, number] = [1.92, 4.0]; // nassau-103-wire; backwoods-103-wire
+export const PUMP_TANK_INSTALLED: [number, number] = [200, 1500];
+export const PUMP_TANK_TYPICAL = 850; // mean of forbes-tank/homeguide-tank averages
+export const AFTER_HOURS: [number, number] = [250, 1000]; // homeadvisor-pump; homeguide-pump
+export const SHALLOW_JET_MAX_FT = 25; // goulds-residential
+export const DEEP_JET_MAX_FT = 150; // homeadvisor-pump
+export const HOIST_FT = 200; // thumbtack-pump
+export const PUMP_LIFESPAN: [number, number] = [8, 15]; // homeadvisor-pump; forbes-pump; homeguide-repair
+
+// --- Batch 02: salt vs salt-free ---
+export const SALT_FREE_MEDIA_GAL = 1_000_000; // aquasana-simplysoft
+export const SALT_FREE_MEDIA_COST = 1548; // aquasana-simplysoft-media
+export const PREFILTER_PER_YEAR = 27; // waterfilterguru-futuresoft
+export const REGEN_GAL_DEFAULT = 50; // epa-watersense-softener-2026
+export const REGEN_GAL_RANGE: [number, number] = [20, 70];
+export const CONTROLLER_WATTS = 3; // pentair-autotrol-368 -> ~26 kWh/yr
+export const SALT_FREE_MAX_GPG = 75; // watts-oneflow; springwell-futuresoft
+export const SALT_FREE_MAX_IRON = 0.3;
+export const TAC_SCALE_REDUCTION = '>88%'; // wrrf-08-06
+
+// --- Batch 02: reverse osmosis ---
+export const RO: Record<string, { unit: [number, number]; installed?: [number, number] }> = {
+  tank: { unit: [150, 350], installed: [300, 700] }, // homeguide-ro
+  tankless: { unit: [300, 600], installed: [450, 950] }, // homeguide-ro; angi-ro
+  counter: { unit: [200, 700] }, // angi-ro
+};
+export const RO_EXTRAS: Record<string, [number, number]> = {
+  fridge: [75, 130],
+  stoneHole: [50, 250],
+  drain: [300, 800],
+};
+export const RO_FILTERS_PER_YEAR = 50; // apec-ro-sets; forbes-ro
+export const RO_EFF_STANDARD = 0.15; // epa-ro-statement
+export const RO_EFF_WATERSENSE = 0.3; // epa-ro-spec
+export const RO_GAL_PER_PERSON_DAY = 1; // epa-ro-statement
+export const WHOLE_HOUSE_RO: [number, number] = [1000, 8000]; // table only (thisoldhouse-ro/angi-ro/homeguide-ro)
+
+// --- Batch 02: whole house filter ---
+export const WHF_INSTALLED: Record<string, [number, number]> = {
+  cartridge: [500, 1200], // homeadvisor-wf
+  carbonTank: [800, 1500],
+  well: [1000, 4000], // bobvila-wf; waterfilterguru-wf
+};
+export const UV_ADD: [number, number] = [500, 1500]; // homeadvisor-wf; bobvila-wf
+export const WHF_LABOR: [number, number] = [200, 600]; // homeguide-wf
+export const CARTRIDGE_SET = 76.98; // expresswater sediment 32.99 + carbon 43.99
+export const CARTRIDGE_GAL = 100_000; // expresswater; ispring-f4wgb22b
+export const SEDIMENT_ONLY = 32.99; // well pre-filter
+export const CARBON_TANK_GAL = 1_000_000;
+export const CARBON_TANK_YEARS = 10;
+export const CARBON_TANK_MEDIA = 1898; // aquasana-rhino-media
+export const UV_LAMP = 125.99; // aquasana-uv-lamp
+export const WHF_GAL_PER_PERSON = 82; // epa-watersense-stats
+
+// --- Batch 02: softener installation ---
+export const INSTALL_BASE_LABOR: [number, number] = [150, 1000]; // thisoldhouse-cost; fixr-cost; angi-install
+export const INSTALL_BASE_TYPICAL = 600;
+export const INSTALL_REMOVAL: [number, number] = [50, 100]; // fixr-cost; homeguide-repair-softener
+export const INSTALL_LOOP: [number, number] = [200, 2000]; // thisoldhouse-cost; fixr-cost
+export const INSTALL_LOOP_TYPICAL = 900; // mean of the two midpoints
+export const INSTALL_DRAIN: [number, number] = [300, 800]; // homeguide-ro; homeguide-wf
+export const INSTALL_OUTLET: [number, number] = [150, 300]; // homeguide-outlet
+export const INSTALL_HOURS: [number, number] = [2, 4]; // angi-install; homeadvisor-install
+export const INSTALL_PLUMBER_RATE: [number, number] = [45, 200]; // angi-plumber

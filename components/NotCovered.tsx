@@ -1,3 +1,5 @@
+import InlineText from './InlineText';
+
 export default function NotCovered({ items }: { items: string[] }) {
   return (
     <section aria-labelledby="notcovered-heading">
@@ -6,7 +8,9 @@ export default function NotCovered({ items }: { items: string[] }) {
       </h2>
       <ul className="list-disc space-y-2 pl-6 text-[16px]">
         {items.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li key={i}>
+            <InlineText text={item} />
+          </li>
         ))}
       </ul>
     </section>

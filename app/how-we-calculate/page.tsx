@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import TrustLayout from '@/components/TrustLayout';
 import { HOW_WE_CALCULATE } from '@/lib/content/trust';
 import { SIZE, COST, SALT, HARDNESS, PRESSURE } from '@/lib/content/tools';
+import { WELL_PUMP, SALT_FREE, RO_COPY, WHOLE_HOUSE, SOFTENER_INSTALL } from '@/lib/content/tools2';
+import type { ToolCopy } from '@/lib/content/types';
 import { CONSTANTS_TABLE } from '@/lib/data/constants';
 import { getSource, type SourceId } from '@/lib/data/sources';
 import { buildMetadata } from '@/lib/seo';
@@ -9,12 +11,19 @@ import { buildMetadata } from '@/lib/seo';
 const SLUG = '/how-we-calculate/';
 export const metadata: Metadata = buildMetadata(SLUG);
 
+const lines = (c: ToolCopy) => c.formulaLines ?? c.formulaEquations;
+
 const SECTIONS = [
-  { h: 'Water softener size calculator', eqs: SIZE.formulaEquations },
-  { h: 'Water softener cost calculator', eqs: COST.formulaEquations },
-  { h: 'Water softener salt calculator', eqs: SALT.formulaEquations },
-  { h: 'Water hardness converter', eqs: HARDNESS.formulaEquations },
-  { h: 'Well pressure tank size calculator', eqs: PRESSURE.formulaEquations },
+  { h: 'Water softener size calculator', eqs: lines(SIZE) },
+  { h: 'Water softener cost calculator', eqs: lines(COST) },
+  { h: 'Water softener salt calculator', eqs: lines(SALT) },
+  { h: 'Water softener installation cost calculator', eqs: lines(SOFTENER_INSTALL) },
+  { h: 'Salt vs salt-free water softener cost calculator', eqs: lines(SALT_FREE) },
+  { h: 'Water hardness converter', eqs: lines(HARDNESS) },
+  { h: 'Well pressure tank size calculator', eqs: lines(PRESSURE) },
+  { h: 'Well pump replacement cost calculator', eqs: lines(WELL_PUMP) },
+  { h: 'Reverse osmosis system cost calculator', eqs: lines(RO_COPY) },
+  { h: 'Whole house water filter cost calculator', eqs: lines(WHOLE_HOUSE) },
 ];
 
 function Checked({ ids }: { ids: SourceId[] }) {

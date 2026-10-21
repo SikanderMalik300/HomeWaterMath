@@ -15,6 +15,7 @@ export default function Page() {
       faq={WELL_HUB.faq}
       tileSlugs={[
         '/well-pressure-tank-size-calculator/',
+        '/well-pump-replacement-cost/',
         '/water-softener-size-calculator/',
         '/water-hardness-converter/',
       ]}

@@ -6,5 +6,10 @@ Free, source-backed calculators for home water: water softeners and private well
 - https://homewatermath.com/water-softener-size-calculator/: Size a water softener in grains for your home and hardness.
 - https://homewatermath.com/water-softener-cost/: Water softener cost: unit, install, salt and a 10-year total.
 - https://homewatermath.com/water-softener-salt-calculator/: Salt use per month and year, bags and cost.
+- https://homewatermath.com/water-softener-installation-cost/: Itemized install cost: loop, drain, outlet, removal and permit.
+- https://homewatermath.com/water-softener-vs-salt-free-cost/: Salt vs salt-free softener cost over 10 years for your home.
 - https://homewatermath.com/water-hardness-converter/: Convert hardness between gpg, ppm, mg/L, mmol/L and degrees.
 - https://homewatermath.com/well-pressure-tank-size-calculator/: Size a well pressure tank from pump flow, horsepower and switch.
+- https://homewatermath.com/well-pump-replacement-cost/: Well pump replacement cost by type and depth, with repair-or-replace.
+- https://homewatermath.com/reverse-osmosis-system-cost/: Reverse osmosis cost: unit, filters and water sent to drain.
+- https://homewatermath.com/whole-house-water-filter-cost/: Whole house filter cost with cartridge or media changes.

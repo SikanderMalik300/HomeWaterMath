@@ -66,6 +66,9 @@ export default function ContactForm() {
         </label>
         <textarea id="contact-message" name="message" required rows={5} className="w-full rounded-card border border-line bg-surface px-3 py-2 text-[16px] outline-none focus:border-brand" />
       </div>
+      {/* Hidden fields so messages are identifiable in a shared Web3Forms inbox. */}
+      <input type="hidden" name="subject" value="New message from HomeWaterMath" />
+      <input type="hidden" name="from_name" value="HomeWaterMath contact form" />
       {/* Honeypot */}
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button

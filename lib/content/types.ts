@@ -22,13 +22,15 @@ export interface SimpleTable {
 export interface ToolCopy {
   quickAnswer: string;
   howToUse: string[];
-  formulaIntro: string;
-  formulaEquations: string[];
-  formulaAfter?: string;
+  formulaIntro: string; // may hold multiple paragraphs separated by a blank line
+  formulaEquations: string[]; // rendered as highlighted boxes; empty to skip
+  formulaAfter?: string; // may hold multiple paragraphs separated by a blank line
   examples: WorkedExample[];
   exampleNote?: string;
   notCovered: string[];
   tips: string[];
   tipsNote?: string;
   faq: FaqItem[];
+  // Formula lines for the "How we calculate" page; defaults to formulaEquations.
+  formulaLines?: string[];
 }
