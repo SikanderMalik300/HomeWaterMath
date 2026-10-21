@@ -1,24 +1,30 @@
 {
   "heroAlignment": {
     "1280": {
+      "logoLeft": 80,
       "h1Left": 80,
       "h2Left": 80,
-      "diff": 0
+      "h1MinusLogo": 0,
+      "h1MinusH2": 0
     },
     "1440": {
+      "logoLeft": 160,
       "h1Left": 160,
       "h2Left": 160,
-      "diff": 0
+      "h1MinusLogo": 0,
+      "h1MinusH2": 0
     },
     "1920": {
+      "logoLeft": 400,
       "h1Left": 400,
       "h2Left": 400,
-      "diff": 0
+      "h1MinusLogo": 0,
+      "h1MinusH2": 0
     }
   },
   "dataLayerBefore": {
-    "gtag": "function",
-    "dataLayer": true
+    "gtag": "undefined",
+    "dataLayer": false
   },
-  "dataLayer": "[[\"consent\",\"default\",{\"analytics_storage\":\"granted\",\"ad_storage\":\"granted\"}],[\"js\",\"2026-10-21T00:01:12.095Z\"],[\"config\",\"G-CGFP53MT4T\",{\"anonymize_ip\":true}],[],[],[\"event\",\"tool_used\",{\"tool\":\"/water-softener-size-calculator/\"}],[\"event\",\"tool_result_shown\",{\"tool\":\"/water-softener-size-calculator/\"}]]"
+  "dataLayer": "[]"
 }

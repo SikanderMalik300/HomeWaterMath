@@ -15,6 +15,11 @@ export default function PhotoTile({ slug }: { slug: string }) {
   const photo = getPhotoForSlug(slug);
   const name = page.h1;
   const blurb = page.cardBlurb ?? '';
+  // Split off the last word so the name can wrap freely while the last word and
+  // the arrow stay on one line together (whitespace-nowrap below).
+  const lastSpace = name.lastIndexOf(' ');
+  const nameHead = lastSpace === -1 ? '' : name.slice(0, lastSpace + 1);
+  const nameLast = lastSpace === -1 ? name : name.slice(lastSpace + 1);
 
   return (
     <Link
@@ -42,7 +47,10 @@ export default function PhotoTile({ slug }: { slug: string }) {
       </div>
       <div className="mt-2">
         <span className="text-[16px] font-medium text-ink group-hover:underline">
-          {name}&nbsp;<ArrowRight className="inline h-4 w-4 align-[-2px] text-brand" strokeWidth={1.5} aria-hidden="true" />
+          {nameHead}
+          <span className="whitespace-nowrap">
+            {nameLast}&nbsp;<ArrowRight className="inline h-4 w-4 align-[-2px] text-brand" strokeWidth={1.5} aria-hidden="true" />
+          </span>
         </span>
       </div>
       {blurb && <p className="mt-0.5 text-[14px] text-muted">{blurb}</p>}

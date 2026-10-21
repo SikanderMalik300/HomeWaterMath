@@ -62,16 +62,28 @@ async function main() {
   for (const w of [1280, 1440, 1920]) {
     await page.setViewport({ width: w, height: 1000, deviceScaleFactor: 1 });
     await page.goto(`${base}/`, { waitUntil: 'load' });
+    // Force a classic 15px scrollbar that reserves layout width (as on Windows
+    // Chrome) so a 100vw-based bug would surface as a left-offset.
+    await page.addStyleTag({
+      content:
+        'html{overflow-y:scroll} ::-webkit-scrollbar{width:15px;background:#eee} ::-webkit-scrollbar-thumb{background:#999}',
+    });
     await delay(400);
     const m = await page.evaluate(() => {
       const h1 = document.querySelector('h1');
       const h2 = document.getElementById('popular-heading');
+      const logo = document.querySelector('header a[aria-label="HomeWaterMath home"]');
       return {
+        logoLeft: logo ? Math.round(logo.getBoundingClientRect().left) : null,
         h1Left: h1 ? Math.round(h1.getBoundingClientRect().left) : null,
         h2Left: h2 ? Math.round(h2.getBoundingClientRect().left) : null,
       };
     });
-    aligns[w] = { ...m, diff: m.h1Left != null && m.h2Left != null ? m.h1Left - m.h2Left : null };
+    aligns[w] = {
+      ...m,
+      h1MinusLogo: m.h1Left != null && m.logoLeft != null ? m.h1Left - m.logoLeft : null,
+      h1MinusH2: m.h1Left != null && m.h2Left != null ? m.h1Left - m.h2Left : null,
+    };
   }
   results.heroAlignment = aligns;
 
@@ -90,6 +102,13 @@ async function main() {
   // Well band element (contains the pressure tank tile) at 390.
   const wellBand = await page.$('section[aria-labelledby="well-heading"]');
   if (wellBand) await wellBand.screenshot({ path: path.join(SHOTS, 'well-band-390.png') });
+
+  // Well band at 1440 (pressure tank tile arrow must stay on the name line).
+  await page.setViewport({ width: 1440, height: 950, deviceScaleFactor: 1 });
+  await page.goto(`${base}/`, { waitUntil: 'load' });
+  await delay(500);
+  const wellBand1440 = await page.$('section[aria-labelledby="well-heading"]');
+  if (wellBand1440) await wellBand1440.screenshot({ path: path.join(SHOTS, 'well-band-1440.png') });
 
   // dataLayer after changing one input on the size calculator.
   await page.setViewport({ width: 1200, height: 900, deviceScaleFactor: 1 });

@@ -33,72 +33,74 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-line">
-        <div className="grid md:grid-cols-[55%_45%]">
-          <div className="order-1 bg-band-1">
-            {/* Reserve the mobile block height so a web-font swap can't reflow
-                the text and push the hero image (kills layout shift) and keeps
-                the text block the largest element (LCP) on mobile. */}
-            <div className="hero-text flex min-h-[640px] flex-col justify-center py-10 md:min-h-0 md:py-16">
-              <h1 className="max-w-[16ch] text-[30px] font-medium leading-[1.15] tracking-[-0.01em] md:text-[40px]">
-                {getPage('/')?.h1}
-              </h1>
-              <p className="mt-4 max-w-prose68 text-[17px] text-ink">{HOME.heroIntro}</p>
-              <div className="mt-6">
-                <HeroSearch placeholder={HOME.searchPlaceholder} />
-              </div>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {HOME.chips.map((chip) => (
-                  <li key={chip.href}>
-                    <Link
-                      href={chip.href}
-                      prefetch={false}
-                      className="inline-flex min-h-[40px] items-center rounded-pill border border-line bg-surface px-4 text-[14px] font-medium text-ink hover:border-brand"
-                    >
-                      {chip.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+      {/* Hero. Full-bleed mist background; the photo is edge-to-edge on the
+          right. The text sits inside the shared container (no 100vw math) so its
+          left edge always matches the logo and the section headings below, even
+          with a vertical scrollbar present. */}
+      <section className="relative overflow-hidden border-b border-line bg-band-1">
+        {hero && (
+          /* Preload so the hero paints fast and isn't deprioritized as a lazy
+             image (which inflated LCP). */
+          <link
+            rel="preload"
+            as="image"
+            type="image/avif"
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...({
+              imageSrcSet: `/photos/${hero.baseName}-640.avif 640w, /photos/${hero.baseName}-1280.avif 1280w`,
+              imageSizes: '(min-width: 768px) 45vw, 100vw',
+              fetchPriority: 'high',
+            } as any)}
+          />
+        )}
+        <div className="container-hw relative">
+          {/* Reserve a min height so a web-font swap can't reflow the text, and
+              so the absolutely placed desktop photo has a height to fill. */}
+          <div className="flex min-h-[420px] flex-col justify-center py-10 md:min-h-[440px] md:w-[55%] md:py-16 md:pr-10">
+            <h1 className="max-w-[16ch] text-[30px] font-medium leading-[1.15] tracking-[-0.01em] md:text-[40px]">
+              {getPage('/')?.h1}
+            </h1>
+            <p className="mt-4 max-w-prose68 text-[17px] text-ink">{HOME.heroIntro}</p>
+            <div className="mt-6">
+              <HeroSearch placeholder={HOME.searchPlaceholder} />
             </div>
-          </div>
-          <div className="order-2 bg-band-1">
-            {hero && (
-              <div className="relative h-[220px] w-full md:h-[440px]">
-                {/* Preload so the hero paints fast and isn't deprioritized as a
-                    lazy image (which inflated LCP). */}
-                <link
-                  rel="preload"
-                  as="image"
-                  type="image/avif"
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  {...({
-                    imageSrcSet: `/photos/${hero.baseName}-640.avif 640w, /photos/${hero.baseName}-1280.avif 1280w`,
-                    imageSizes: '(min-width: 768px) 45vw, 100vw',
-                    fetchPriority: 'high',
-                  } as any)}
-                />
-                <Picture
-                  baseName={hero.baseName}
-                  alt={hero.alt}
-                  kind="hero"
-                  focalX={hero.focalX}
-                  focalY={hero.focalY}
-                  priority
-                  className="block h-full w-full"
-                  imgClassName="h-full w-full"
-                />
-              </div>
-            )}
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {HOME.chips.map((chip) => (
+                <li key={chip.href}>
+                  <Link
+                    href={chip.href}
+                    prefetch={false}
+                    className="inline-flex min-h-[40px] items-center rounded-pill border border-line bg-surface px-4 text-[14px] font-medium text-ink hover:border-brand"
+                  >
+                    {chip.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+        {/* One photo element: in flow below the text on mobile, absolute on the
+            right half on desktop (so it is fetched once). */}
         {hero && (
-          <div className="container-hw py-2">
-            <p className="text-[12px] text-muted">{HERO_CREDIT}</p>
+          <div className="relative h-[220px] w-full md:absolute md:inset-y-0 md:right-0 md:h-full md:w-[45%]">
+            <Picture
+              baseName={hero.baseName}
+              alt={hero.alt}
+              kind="hero"
+              focalX={hero.focalX}
+              focalY={hero.focalY}
+              priority
+              className="block h-full w-full"
+              imgClassName="h-full w-full"
+            />
           </div>
         )}
       </section>
+      {hero && (
+        <div className="container-hw py-2">
+          <p className="text-[12px] text-muted">{HERO_CREDIT}</p>
+        </div>
+      )}
 
       {/* Most popular */}
       <section className="container-hw py-12 md:py-16" aria-labelledby="popular-heading">

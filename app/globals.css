@@ -93,31 +93,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Hero text column: full-bleed block, but its content must start at the same
-     x as the 1200px container's content at every breakpoint (16/24/40, then
-     centered). The right padding is a gutter before the photo. */
-  .hero-text {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  @media (min-width: 768px) {
-    .hero-text {
-      padding-left: 24px;
-      padding-right: 32px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .hero-text {
-      padding-left: 40px;
-      padding-right: 48px;
-    }
-  }
-  @media (min-width: 1200px) {
-    .hero-text {
-      padding-left: calc((100vw - 1200px) / 2 + 40px);
-    }
-  }
-
   .link-brand {
     color: var(--brand);
     text-decoration: underline;
