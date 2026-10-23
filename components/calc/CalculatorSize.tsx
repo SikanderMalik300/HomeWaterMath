@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { ChevronRight } from 'lucide-react';
 import { softenerSize, type SoftenerSizeResult } from '@/lib/calc/softenerSize';
 import { toGpg, HARDNESS_UNITS, type HardnessUnit } from '@/lib/calc/hardness';
 import { formatInt, formatDecimal, formatGpg } from '@/lib/calc/round';
@@ -188,6 +189,43 @@ export default function CalculatorSize({ embed = false }: { embed?: boolean }) {
       ? `${formatInt(label)}-grain softener (${r.recommended?.cuFt} cu ft). Grains needed ${formatInt(r.grainsNeeded)}. Lasts about ${formatDecimal(r.daysItLasts, 1)} days. Salt ${formatDecimal(r.saltPerRegenLb, 1)} lb per regeneration.`
       : headline;
 
+  const sizeTableNode = (
+    <div className="mt-6 overflow-x-auto rounded-card border border-line">
+      <table className="w-full border-collapse text-[14px]">
+        <caption className="sr-only">All standard sizes for your home at this salt setting</caption>
+        <thead>
+          <tr>
+            <th scope="col" className="border-b border-line px-3 py-2 text-left text-[13px] font-medium text-muted">Size</th>
+            <th scope="col" className="border-b border-line px-3 py-2 text-right text-[13px] font-medium text-muted tnum">Real capacity</th>
+            <th scope="col" className="border-b border-line px-3 py-2 text-right text-[13px] font-medium text-muted tnum">Days it lasts</th>
+            <th scope="col" className="border-b border-line px-3 py-2 text-left text-[13px] font-medium text-muted">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {r.rows.map((row) => {
+            const isRec = r.recommended?.label === row.label;
+            return (
+              <tr key={row.label} className={isRec ? 'bg-band-1' : ''}>
+                <td className="border-b border-line px-3 py-2 tnum">{formatInt(row.label)}</td>
+                <td className="border-b border-line px-3 py-2 text-right tnum">{formatInt(row.realCapacity)}</td>
+                <td className="border-b border-line px-3 py-2 text-right tnum">{formatDecimal(row.daysItLasts, 1)}</td>
+                <td className="border-b border-line px-3 py-2">
+                  {isRec ? (
+                    <span className="font-medium text-brand">Recommended</span>
+                  ) : !row.fits ? (
+                    <span className="text-muted">Too small</span>
+                  ) : (
+                    ''
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+
   return (
     <div id="calculator" className="rounded-card border border-line bg-surface p-4 md:max-w-calc md:p-6">
       <div className="grid gap-x-6 sm:grid-cols-2">
@@ -258,7 +296,7 @@ export default function CalculatorSize({ embed = false }: { embed?: boolean }) {
         <ResultCard
           headline={headline}
           subline={subline}
-          rows={rows}
+          rows={embed ? rows.slice(0, 4) : rows}
           warnings={warnings}
           invalid={invalid}
           invalidMessage="Enter the people, hardness and days to see a size."
@@ -267,40 +305,24 @@ export default function CalculatorSize({ embed = false }: { embed?: boolean }) {
           {!embed && <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />}
         </ResultCard>
 
-        <div className="mt-6 overflow-x-auto rounded-card border border-line">
-          <table className="w-full border-collapse text-[14px]">
-            <caption className="sr-only">All standard sizes for your home at this salt setting</caption>
-            <thead>
-              <tr>
-                <th scope="col" className="border-b border-line px-3 py-2 text-left text-[13px] font-medium text-muted">Size</th>
-                <th scope="col" className="border-b border-line px-3 py-2 text-right text-[13px] font-medium text-muted tnum">Real capacity</th>
-                <th scope="col" className="border-b border-line px-3 py-2 text-right text-[13px] font-medium text-muted tnum">Days it lasts</th>
-                <th scope="col" className="border-b border-line px-3 py-2 text-left text-[13px] font-medium text-muted">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {r.rows.map((row) => {
-                const isRec = r.recommended?.label === row.label;
-                return (
-                  <tr key={row.label} className={isRec ? 'bg-band-1' : ''}>
-                    <td className="border-b border-line px-3 py-2 tnum">{formatInt(row.label)}</td>
-                    <td className="border-b border-line px-3 py-2 text-right tnum">{formatInt(row.realCapacity)}</td>
-                    <td className="border-b border-line px-3 py-2 text-right tnum">{formatDecimal(row.daysItLasts, 1)}</td>
-                    <td className="border-b border-line px-3 py-2">
-                      {isRec ? (
-                        <span className="font-medium text-brand">Recommended</span>
-                      ) : !row.fits ? (
-                        <span className="text-muted">Too small</span>
-                      ) : (
-                        ''
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        {embed && (
+          <details className="mt-4 group">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-[15px] font-medium text-brand marker:hidden [&::-webkit-details-marker]:hidden">
+              <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90 motion-reduce:transition-none" strokeWidth={1.5} aria-hidden="true" />
+              Compare all sizes
+            </summary>
+            <dl className="mt-3 divide-y divide-line border-y border-line">
+              {rows.slice(4).map((row, i) => (
+                <div key={i} className="flex items-baseline justify-between gap-4 py-2.5">
+                  <dt className="text-[15px] text-muted">{row.label}</dt>
+                  <dd className="text-[15px] font-medium text-ink tnum text-right">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            {sizeTableNode}
+          </details>
+        )}
+        {!embed && sizeTableNode}
       </div>
 
       {!embed && <StickyResultBar headline={stickyHeadline} watchRef={resultRef} />}

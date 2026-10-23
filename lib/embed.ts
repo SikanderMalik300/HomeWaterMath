@@ -14,9 +14,9 @@ export const SITE = 'https://homewatermath.com';
 // Heights measured from the default render at 680px wide, rounded up with a
 // small margin; embed.js corrects them live for input and show-the-math changes.
 export const EMBED_TOOLS: EmbedTool[] = [
-  { slug: '/water-softener-size-calculator/', param: 'water-softener-size-calculator', title: 'Water softener size calculator', height: 1380 },
+  { slug: '/water-softener-size-calculator/', param: 'water-softener-size-calculator', title: 'Water softener size calculator', height: 1030 },
   { slug: '/water-hardness-converter/', param: 'water-hardness-converter', title: 'Water hardness converter', height: 720 },
-  { slug: '/water-softener-salt-calculator/', param: 'water-softener-salt-calculator', title: 'Water softener salt calculator', height: 1200 },
+  { slug: '/water-softener-salt-calculator/', param: 'water-softener-salt-calculator', title: 'Water softener salt calculator', height: 1110 },
   { slug: '/well-pressure-tank-size-calculator/', param: 'well-pressure-tank-size-calculator', title: 'Well pressure tank size calculator', height: 760 },
 ];
 

@@ -21,6 +21,9 @@ const PHOTOS = [
   { base: 'rural-home-green-lawn', url: 'https://images.pexels.com/photos/226407/pexels-photo-226407.jpeg', focalX: 0.4, focalY: 0.45 },
   // Batch 03
   { base: 'hand-filling-glass-tap-water', url: 'https://images.pexels.com/photos/12644991/pexels-photo-12644991.jpeg', focalX: 0.45, focalY: 0.4 },
+  // Fix 05 guide photos
+  { base: 'gloved-hand-adjustable-wrench', url: 'https://images.pexels.com/photos/5534767/pexels-photo-5534767.jpeg', focalX: 0.7, focalY: 0.45 },
+  { base: 'rusty-pipe-stained-wall', url: 'https://images.pexels.com/photos/2238808/pexels-photo-2238808.jpeg', focalX: 0.72, focalY: 0.5 },
 ];
 
 const AR = 1; // tiles only

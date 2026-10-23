@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 import { salt, type SaltResult } from '@/lib/calc/salt';
 import { toGpg, HARDNESS_UNITS, type HardnessUnit } from '@/lib/calc/hardness';
 import { SIZES } from '@/lib/data/constants';
@@ -300,17 +301,37 @@ export default function CalculatorSalt({ embed = false }: { embed?: boolean }) {
           {!embed && <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />}
         </ResultCard>
 
-        <div className="mt-6">
-          <p className="mb-2 text-[14px] font-medium text-ink">Salt a year for this home at each setting (metered)</p>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {shown.comparison.map((c) => (
-              <div key={c.setting} className="rounded-card border border-line p-3 text-center">
-                <div className="text-[13px] text-muted">{c.setting} lb</div>
-                <div className="text-[18px] font-semibold text-ink tnum">{formatInt(c.lbYear)} lb</div>
+        {embed ? (
+          <details className="mt-4 group">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-[15px] font-medium text-brand marker:hidden [&::-webkit-details-marker]:hidden">
+              <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90 motion-reduce:transition-none" strokeWidth={1.5} aria-hidden="true" />
+              Compare salt settings
+            </summary>
+            <div className="mt-3">
+              <p className="mb-2 text-[14px] font-medium text-ink">Salt a year for this home at each setting (metered)</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {shown.comparison.map((c) => (
+                  <div key={c.setting} className="rounded-card border border-line p-3 text-center">
+                    <div className="text-[13px] text-muted">{c.setting} lb</div>
+                    <div className="text-[18px] font-semibold text-ink tnum">{formatInt(c.lbYear)} lb</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </details>
+        ) : (
+          <div className="mt-6">
+            <p className="mb-2 text-[14px] font-medium text-ink">Salt a year for this home at each setting (metered)</p>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {shown.comparison.map((c) => (
+                <div key={c.setting} className="rounded-card border border-line p-3 text-center">
+                  <div className="text-[13px] text-muted">{c.setting} lb</div>
+                  <div className="text-[18px] font-semibold text-ink tnum">{formatInt(c.lbYear)} lb</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {!embed && <StickyResultBar headline={headline} watchRef={resultRef} />}

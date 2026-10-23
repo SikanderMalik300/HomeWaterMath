@@ -199,9 +199,11 @@ export const PHOTOS: Record<string, Photo> = {
     usedOn: ['/water-softener-installation-cost/'],
     status: 'approved',
   },
-  // --- Batch 03 guide photos. Only guide-well-test is filled; the other four
-  // guide slots stay mist squares (no free-stock photo met the rules: iron
-  // staining is gross, softener shots carry brand logos, no clean test strip).
+  // --- Batch 03 guide photos. guide-well-test filled in batch 03; fix-05 added
+  // guide-softener-troubleshoot and guide-iron-filter. Two slots still stay mist
+  // squares: guide-softener-lifespan (every clean utility shot carried an
+  // appliance brand logo) and guide-hardness-test (no accurate water test-strip
+  // image existed; results were pregnancy strips, blood tubes or oil droppers).
   'guide-well-test': {
     id: 'guide-well-test',
     baseName: 'hand-filling-glass-tap-water',
@@ -216,6 +218,38 @@ export const PHOTOS: Record<string, Photo> = {
     focalX: 0.45,
     focalY: 0.4,
     usedOn: ['/well-water-test-kit/'],
+    status: 'approved',
+  },
+  'guide-softener-troubleshoot': {
+    id: 'guide-softener-troubleshoot',
+    baseName: 'gloved-hand-adjustable-wrench',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/person-holding-wrench-5534767/',
+    downloadUrl: 'https://images.pexels.com/photos/5534767/pexels-photo-5534767.jpeg',
+    photographer: 'Roger Brown',
+    photographerUrl: 'https://www.pexels.com/@roger-brown-3435524/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A gloved hand holding an adjustable wrench against a dark background',
+    focalX: 0.7,
+    focalY: 0.45,
+    usedOn: ['/water-softener-not-working/'],
+    status: 'approved',
+  },
+  'guide-iron-filter': {
+    id: 'guide-iron-filter',
+    baseName: 'rusty-pipe-stained-wall',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/rusty-pipes-2238808/',
+    downloadUrl: 'https://images.pexels.com/photos/2238808/pexels-photo-2238808.jpeg',
+    photographer: 'Akhi art',
+    photographerUrl: 'https://www.pexels.com/@akhi/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A rust-stained water pipe running down a weathered wall',
+    focalX: 0.72,
+    focalY: 0.5,
+    usedOn: ['/iron-filter-for-well-water/'],
     status: 'approved',
   },
 };

@@ -23,10 +23,12 @@ describe('softener troubleshoot symptom data', () => {
     expect(getSymptom(3).proCost).toContain('$150 to $300');
   });
 
-  it('symptom 7 (error code) references Fleck Err 2 and Clack E1 to E3', () => {
+  it('symptom 7 (error code) uses the Fleck manual wording and a generic Clack line', () => {
     const s = getSymptom(7);
-    expect(s.checks).toContain('Err 2');
-    expect(s.checks).toContain('E1 to E3');
+    expect(s.checks).toContain("Error 2 means the system hasn't regenerated in more than 99 days");
+    expect(s.checks).toContain('including Clack WS1');
+    expect(s.checks).not.toContain('E1 to E3');
+    expect(s.checks).not.toContain('Err 2');
   });
 
   it('symptom 8 (beads at faucets) references the distributor', () => {

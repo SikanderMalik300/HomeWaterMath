@@ -20,7 +20,7 @@ describe('embed: single source of truth', () => {
   it('embedSnippet builds the exact iframe + credit + script line', () => {
     const t = embedToolBySlug('/water-softener-size-calculator/')!;
     expect(embedSnippet(t)).toBe(
-      '<iframe src="https://homewatermath.com/embed/water-softener-size-calculator/" title="Water softener size calculator" width="100%" height="1380" style="border:0;max-width:680px" loading="lazy"></iframe>' +
+      '<iframe src="https://homewatermath.com/embed/water-softener-size-calculator/" title="Water softener size calculator" width="100%" height="1030" style="border:0;max-width:680px" loading="lazy"></iframe>' +
         '<p style="font:14px/1.4 sans-serif;margin:6px 0 0">Calculator by <a href="https://homewatermath.com/water-softener-size-calculator/">HomeWaterMath</a></p>' +
         '<script src="https://homewatermath.com/embed.js" async></script>',
     );

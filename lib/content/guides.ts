@@ -74,7 +74,7 @@ export const SOFTENER_SYMPTOMS: Symptom[] = [
     id: 7,
     label: 'Error code on the display',
     checks:
-      'Look up the code in your manual. On Fleck 5600SXT valves, Err 2 means no regeneration in over 99 days. On Clack WS1 valves, codes E1 to E3 point to motor faults. Power-cycle once; if the code returns, call for service.',
+      "Look up the code in your manual. On Fleck 5600SXT valves, Error 2 means the system hasn't regenerated in more than 99 days. On other valves, including Clack WS1, look the code up in your valve's manual; most codes point to the motor or drive. Power-cycle once; if the code returns, call for service.",
     proCost: 'Motor or board replacement often costs $200 to $500.',
   },
   {
