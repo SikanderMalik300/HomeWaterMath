@@ -634,6 +634,24 @@ export const PAGES: PageMeta[] = [
     notCovered: [],
     cardBlurb: 'Every page on HomeWaterMath in one place.',
   },
+  {
+    slug: '/calculators-for-your-site/',
+    type: 'trust',
+    title: 'Free Water Calculators for Your Website | HomeWaterMath',
+    metaDescription:
+      'Add our free, sourced water softener, hardness, salt and well pressure tank calculators to your website with one line of code. No sign-up or tracking.',
+    h1: 'Free water calculators for your website',
+    breadcrumb: 'Calculators for your site',
+    category: null,
+    related: [],
+    lastUpdated: '2026-10-22',
+    published: '2026-10-22',
+    sources: [],
+    photoId: null,
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Embed our calculators on your site with one line of code.',
+  },
 ];
 
 // --- Derived helpers ---

@@ -12,6 +12,7 @@ import PhotoFigure from './PhotoFigure';
 import AdSlot from './AdSlot';
 import AffiliateBox from './AffiliateBox';
 import EmailSignup from './EmailSignup';
+import AddToSiteBox from './AddToSiteBox';
 import JsonLd from './JsonLd';
 import { pageJsonLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
@@ -72,6 +73,7 @@ export default function ToolPage({
           <Faq items={copy.faq} />
           <AdSlot id={`${slug}-after-faq`} />
           <RelatedTools slugs={page.related} />
+          <AddToSiteBox slug={slug} />
           <PhotoFigure photoId={page.photoId} />
           <SourcesBlock sources={page.sources} />
           <AuthorBox lastUpdated={page.lastUpdated} />

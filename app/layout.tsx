@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
 import ConsentBanner from '@/components/ConsentBanner';
 import OutboundTracker from '@/components/OutboundTracker';
+import SiteChrome from '@/components/SiteChrome';
 import { SITE_URL, SITE_NAME } from '@/lib/data/pages';
 
 // Figtree, weights 400/500/600, display: swap (A11). Self-hosted from the
@@ -49,15 +50,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={figtree.variable}>
       <body className="font-sans">
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <Analytics />
-        <ConsentBanner />
-        <OutboundTracker />
+        <SiteChrome
+          header={<Header />}
+          footer={<Footer />}
+          analytics={
+            <>
+              <Analytics />
+              <ConsentBanner />
+              <OutboundTracker />
+            </>
+          }
+        >
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

@@ -26,9 +26,9 @@ function compute(raw: Raw) {
   return { valid, result, params, raw };
 }
 
-export default function CalculatorHardness() {
+export default function CalculatorHardness({ embed = false }: { embed?: boolean }) {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const { onInteract, onResult } = useToolEvents(SLUG);
+  const { onInteract, onResult } = useToolEvents(SLUG, !embed);
   const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
     onInteract();
     setRaw((r) => ({ ...r, [k]: v }));
@@ -104,11 +104,11 @@ export default function CalculatorHardness() {
             If you soften this water, it adds about {sodium} mg of sodium per liter.
           </p>
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
+          {!embed && <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />}
         </ResultCard>
       </div>
 
-      <StickyResultBar headline={headline} watchRef={resultRef} />
+      {!embed && <StickyResultBar headline={headline} watchRef={resultRef} />}
     </div>
   );
 }

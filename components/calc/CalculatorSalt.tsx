@@ -106,9 +106,9 @@ function compute(raw: Raw): Computed {
   return { valid, result, cuFt, comparison, params, raw };
 }
 
-export default function CalculatorSalt() {
+export default function CalculatorSalt({ embed = false }: { embed?: boolean }) {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const { onInteract, onResult } = useToolEvents(SLUG);
+  const { onInteract, onResult } = useToolEvents(SLUG, !embed);
   const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
     onInteract();
     setRaw((r) => ({ ...r, [k]: v }));
@@ -297,7 +297,7 @@ export default function CalculatorSalt() {
           invalidMessage="Enter your household, hardness and settings to see salt use."
         >
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
+          {!embed && <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />}
         </ResultCard>
 
         <div className="mt-6">
@@ -313,7 +313,7 @@ export default function CalculatorSalt() {
         </div>
       </div>
 
-      <StickyResultBar headline={headline} watchRef={resultRef} />
+      {!embed && <StickyResultBar headline={headline} watchRef={resultRef} />}
     </div>
   );
 }

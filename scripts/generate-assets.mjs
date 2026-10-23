@@ -50,6 +50,7 @@ const PAGES = [
   { slug: '/disclaimer/', h1: 'Disclaimer' },
   { slug: '/affiliate-disclosure/', h1: 'Affiliate disclosure' },
   { slug: '/sitemap/', h1: 'Sitemap' },
+  { slug: '/calculators-for-your-site/', h1: 'Free water calculators for your website' },
 ];
 
 // llms.txt sections, mirrored from the registry: [slug, title, cardBlurb].
@@ -189,6 +190,9 @@ async function writeLlms() {
 }
 
 async function writeHeaders() {
+  // /embed/* unsets X-Frame-Options so the pages can be framed cross-origin,
+  // allows any frame ancestor, is noindex, and uses no-transform so Cloudflare
+  // does not inject its analytics beacon into the HTML.
   const txt = `/*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
@@ -199,6 +203,12 @@ async function writeHeaders() {
   Cache-Control: public, max-age=31536000, immutable
 /photos/*
   Cache-Control: public, max-age=31536000, immutable
+/embed/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=3600, no-transform
+  Content-Security-Policy: frame-ancestors *
+  Referrer-Policy: strict-origin-when-cross-origin
+  ! X-Frame-Options
 `;
   await fs.writeFile(path.join(PUBLIC, '_headers'), txt);
 }

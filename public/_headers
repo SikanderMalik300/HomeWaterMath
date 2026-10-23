@@ -8,3 +8,9 @@
   Cache-Control: public, max-age=31536000, immutable
 /photos/*
   Cache-Control: public, max-age=31536000, immutable
+/embed/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=3600, no-transform
+  Content-Security-Policy: frame-ancestors *
+  Referrer-Policy: strict-origin-when-cross-origin
+  ! X-Frame-Options

@@ -87,9 +87,9 @@ function compute(raw: Raw): Computed {
   return { valid, result, hardnessGpg, people: p, gal: raw.gal, iron: fe, allow: raw.allow, days: d, salt: raw.salt, params };
 }
 
-export default function CalculatorSize() {
+export default function CalculatorSize({ embed = false }: { embed?: boolean }) {
   const [raw, setRaw] = useState<Raw>(DEFAULTS);
-  const { onInteract, onResult } = useToolEvents(SLUG);
+  const { onInteract, onResult } = useToolEvents(SLUG, !embed);
   const set = <K extends keyof Raw>(k: K, v: Raw[K]) => {
     onInteract();
     setRaw((r) => ({ ...r, [k]: v }));
@@ -264,7 +264,7 @@ export default function CalculatorSize() {
           invalidMessage="Enter the people, hardness and days to see a size."
         >
           <ShowTheMath lines={mathLines} />
-          <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />
+          {!embed && <CopyShareBar resultText={copyText} query={shown.params} tool={SLUG} />}
         </ResultCard>
 
         <div className="mt-6 overflow-x-auto rounded-card border border-line">
@@ -303,7 +303,7 @@ export default function CalculatorSize() {
         </div>
       </div>
 
-      <StickyResultBar headline={stickyHeadline} watchRef={resultRef} />
+      {!embed && <StickyResultBar headline={stickyHeadline} watchRef={resultRef} />}
     </div>
   );
 }

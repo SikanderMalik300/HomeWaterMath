@@ -16,6 +16,7 @@ const SITE = [
   { label: 'About', href: '/about/' },
   { label: 'How we calculate', href: '/how-we-calculate/' },
   { label: 'Editorial policy', href: '/editorial-policy/' },
+  { label: 'Free calculators for your site', href: '/calculators-for-your-site/' },
   { label: 'Contact', href: '/contact/' },
   { label: 'Sitemap', href: '/sitemap/' },
 ];

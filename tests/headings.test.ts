@@ -1,9 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { toolPages, guidePages } from '@/lib/data/pages';
+import { toolPages, guidePages, getPage } from '@/lib/data/pages';
 
-const checkedPages = [...toolPages, ...guidePages];
+const landing = getPage('/calculators-for-your-site/');
+const checkedPages = [...toolPages, ...guidePages, ...(landing ? [landing] : [])];
 
 // Heading-order check against the built HTML. Inside <main>, no heading level
 // may jump by more than 1 from the previous heading (PageSpeed a11y). Requires

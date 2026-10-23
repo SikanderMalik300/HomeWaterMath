@@ -52,8 +52,8 @@ describe('registry integrity', () => {
     expect(PAGES.filter((p) => p.type === 'hub')).toHaveLength(3);
   });
 
-  it('there are 29 pages total, 10 tools and 5 guides', () => {
-    expect(PAGES).toHaveLength(29);
+  it('there are 30 pages total, 10 tools and 5 guides', () => {
+    expect(PAGES).toHaveLength(30);
     expect(toolPages).toHaveLength(10);
     expect(PAGES.filter((p) => p.type === 'guide')).toHaveLength(5);
   });
