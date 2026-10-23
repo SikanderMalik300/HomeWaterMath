@@ -1,6 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import * as tools from '@/lib/content/tools';
 import * as tools2 from '@/lib/content/tools2';
+import * as guides from '@/lib/content/guides';
+import * as gIron from '@/lib/guides/ironPicker';
+import * as gStrip from '@/lib/guides/stripDecoder';
+import * as gWell from '@/lib/guides/wellTestChecker';
+import * as gRepair from '@/lib/guides/repairOrReplace';
 import * as site from '@/lib/content/site';
 import * as trust from '@/lib/content/trust';
 import { PAGES } from '@/lib/data/pages';
@@ -77,6 +82,11 @@ function allPageText(): string[] {
   const out: string[] = [];
   collectStrings(tools, out);
   collectStrings(tools2, out);
+  collectStrings(guides, out);
+  collectStrings(gIron, out);
+  collectStrings(gStrip, out);
+  collectStrings(gWell, out);
+  collectStrings(gRepair, out);
   collectStrings(site, out);
   collectStrings(trust, out);
   // Also scan registry-visible strings (titles, metas, h1, blurbs).
@@ -100,6 +110,10 @@ describe('content style (A13)', () => {
   });
 
   it('contains none of the banned words or phrases', () => {
+    // Proper product names in exact source/spec text that legitimately contain a
+    // banned word; stripped before scanning so they do not false-positive.
+    const ALLOWED = ['Safe Home Ultimate', 'Essential Well Water Test'];
+    const scrub = (t: string) => ALLOWED.reduce((s, phrase) => s.split(phrase).join(''), t);
     const joinedByWord = (word: string) => {
       // word-boundary, case-insensitive; escape regex specials
       const esc = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -112,7 +126,7 @@ describe('content style (A13)', () => {
     for (const word of BANNED) {
       const re = joinedByWord(word);
       for (const t of texts) {
-        if (re.test(t)) hits.push(`"${word}" in: ${t.slice(0, 80)}`);
+        if (re.test(scrub(t))) hits.push(`"${word}" in: ${t.slice(0, 80)}`);
       }
     }
     expect(hits, hits.join('\n')).toHaveLength(0);

@@ -199,6 +199,25 @@ export const PHOTOS: Record<string, Photo> = {
     usedOn: ['/water-softener-installation-cost/'],
     status: 'approved',
   },
+  // --- Batch 03 guide photos. Only guide-well-test is filled; the other four
+  // guide slots stay mist squares (no free-stock photo met the rules: iron
+  // staining is gross, softener shots carry brand logos, no clean test strip).
+  'guide-well-test': {
+    id: 'guide-well-test',
+    baseName: 'hand-filling-glass-tap-water',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/hand-holding-glass-of-tap-water-12644991/',
+    downloadUrl: 'https://images.pexels.com/photos/12644991/pexels-photo-12644991.jpeg',
+    photographer: 'BOOM Photography',
+    photographerUrl: 'https://www.pexels.com/@boom/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A hand holding a glass as tap water fills it',
+    focalX: 0.45,
+    focalY: 0.4,
+    usedOn: ['/well-water-test-kit/'],
+    status: 'approved',
+  },
 };
 
 export function getPhoto(id: string | null): Photo | null {

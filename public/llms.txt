@@ -13,3 +13,10 @@ Free, source-backed calculators for home water: water softeners and private well
 - https://homewatermath.com/well-pump-replacement-cost/: Well pump replacement cost by type and depth, with repair-or-replace.
 - https://homewatermath.com/reverse-osmosis-system-cost/: Reverse osmosis cost: unit, filters and water sent to drain.
 - https://homewatermath.com/whole-house-water-filter-cost/: Whole house filter cost with cartridge or media changes.
+
+## Guides
+- https://homewatermath.com/water-softener-not-working/: Water softener troubleshooting: five free checks, repair costs, repair or replace.
+- https://homewatermath.com/iron-filter-for-well-water/: Pick an iron filter type and size from your well test and flow.
+- https://homewatermath.com/how-to-test-water-hardness/: How to test water hardness: strips, drop-count kits, lab and utility report.
+- https://homewatermath.com/well-water-test-kit/: What to test a private well for, when, and what it costs.
+- https://homewatermath.com/how-long-do-water-softeners-last/: Water softener lifespan by part, what wears out first, and warranties.

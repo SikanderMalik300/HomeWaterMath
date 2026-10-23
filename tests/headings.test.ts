@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { toolPages } from '@/lib/data/pages';
+import { toolPages, guidePages } from '@/lib/data/pages';
+
+const checkedPages = [...toolPages, ...guidePages];
 
 // Heading-order check against the built HTML. Inside <main>, no heading level
 // may jump by more than 1 from the previous heading (PageSpeed a11y). Requires
@@ -22,8 +24,8 @@ function findSkips(levels: number[]): string[] {
   return skips;
 }
 
-describe.skipIf(!existsSync(OUT))('tool page heading order (built HTML)', () => {
-  toolPages.forEach((p) => {
+describe.skipIf(!existsSync(OUT))('tool and guide page heading order (built HTML)', () => {
+  checkedPages.forEach((p) => {
     it(`no heading-level skip inside <main> on ${p.slug}`, () => {
       const file = path.join(OUT, p.slug.replace(/^\/|\/$/g, ''), 'index.html');
       const html = readFileSync(file, 'utf8');

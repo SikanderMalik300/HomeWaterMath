@@ -20,6 +20,11 @@ const TOOL_SLUGS = [
   'well-pump-replacement-cost',
   'reverse-osmosis-system-cost',
   'whole-house-water-filter-cost',
+  'water-softener-not-working',
+  'iron-filter-for-well-water',
+  'how-to-test-water-hardness',
+  'well-water-test-kit',
+  'how-long-do-water-softeners-last',
 ];
 
 export function headingLevelsInMain(html) {

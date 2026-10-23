@@ -21,6 +21,11 @@ export default function Page() {
         '/water-softener-installation-cost/',
         '/water-softener-vs-salt-free-cost/',
       ]}
+      guideSlugs={[
+        '/water-softener-not-working/',
+        '/how-to-test-water-hardness/',
+        '/how-long-do-water-softeners-last/',
+      ]}
     />
   );
 }

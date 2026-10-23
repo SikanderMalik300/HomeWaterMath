@@ -15,12 +15,14 @@ export default function HubPage({
   whichTable,
   faq,
   tileSlugs,
+  guideSlugs = [],
 }: {
   slug: string;
   intro: string[];
   whichTable: SimpleTable;
   faq: FaqItem[];
   tileSlugs: string[];
+  guideSlugs?: string[];
 }) {
   const page = getPage(slug);
   if (!page) return null;
@@ -43,6 +45,19 @@ export default function HubPage({
           <PhotoTile key={s} slug={s} />
         ))}
       </div>
+
+      {guideSlugs.length > 0 && (
+        <section className="mt-12" aria-labelledby="guides-heading">
+          <h2 id="guides-heading" className="mb-4 text-[28px] font-medium">
+            Guides
+          </h2>
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            {guideSlugs.map((s) => (
+              <PhotoTile key={s} slug={s} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-12">
         <Faq items={faq} />

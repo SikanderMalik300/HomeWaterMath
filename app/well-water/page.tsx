@@ -19,6 +19,7 @@ export default function Page() {
         '/water-softener-size-calculator/',
         '/water-hardness-converter/',
       ]}
+      guideSlugs={['/iron-filter-for-well-water/', '/well-water-test-kit/']}
     />
   );
 }

@@ -12,7 +12,7 @@ import {
   SOFTENER_INSTALL,
 } from '@/lib/content/tools2';
 
-export type PageType = 'tool' | 'hub' | 'trust' | 'home';
+export type PageType = 'tool' | 'hub' | 'trust' | 'home' | 'guide';
 export type Category = 'softeners' | 'well' | 'filters' | null;
 
 export interface PageMeta {
@@ -372,6 +372,97 @@ export const PAGES: PageMeta[] = [
     notCovered: [],
     cardBlurb: null,
   },
+  // Batch 03: guide pages
+  {
+    slug: '/water-softener-not-working/',
+    type: 'guide',
+    title: 'Water Softener Not Working? Causes and Fixes | HomeWaterMath',
+    metaDescription:
+      "Why your water softener isn't softening, with fixes from Fleck, Clack and GE manuals and typical repair costs. Use the checker to find the cause.",
+    h1: 'Water Softener Not Working? Find the Cause',
+    breadcrumb: 'Water softener not working',
+    category: 'softeners',
+    related: ['/how-long-do-water-softeners-last/', '/water-softener-size-calculator/', '/water-hardness-converter/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: ['fleck-5600sxt-manual', 'clack-ws1-manual', 'ge-softener-manual', 'homeguide-softener-repair', 'homeadvisor-softener-repair', 'angi-softener-replace', 'morton-faq'],
+    photoId: 'guide-softener-troubleshoot',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Five free checks, repair costs, and repair-or-replace.',
+  },
+  {
+    slug: '/iron-filter-for-well-water/',
+    type: 'guide',
+    title: 'Iron Filter for Well Water: Type and Size | HomeWaterMath',
+    metaDescription:
+      'Pick the right iron filter for your well from your test: iron, manganese, sulfur smell, pH and flow. Treatment ranges from Penn State, MDH and spec sheets.',
+    h1: 'Iron Filter for Well Water: Which Type and Size',
+    breadcrumb: 'Iron filter for well water',
+    category: 'well',
+    related: ['/water-softener-size-calculator/', '/well-water-test-kit/', '/whole-house-water-filter-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: ['mdh-iron', 'psu-iron-manganese', 'umass-iron-manganese', 'ndsu-wq1031', 'clack-birm', 'watts-fleck-aio', 'nelsen-katalox', 'homeguide-well-filtration', 'angi-well-treatment', 'epa-secondary'],
+    photoId: 'guide-iron-filter',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Which filter and size from your iron, manganese, sulfur and flow.',
+  },
+  {
+    slug: '/how-to-test-water-hardness/',
+    type: 'guide',
+    title: 'How to Test Water Hardness at Home: 4 Ways | HomeWaterMath',
+    metaDescription:
+      "Test strips, drop-count kits, a lab or your utility's report: how each one works, how accurate it is and what it costs, plus a strip reading decoder.",
+    h1: 'How to Test Water Hardness at Home',
+    breadcrumb: 'How to test water hardness',
+    category: 'softeners',
+    related: ['/water-hardness-converter/', '/water-softener-size-calculator/', '/water-softener-salt-calculator/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: ['usgs-hardness', 'unl-g1274', 'hach-5b', 'coreandmain-5b', 'usabluebook-hach-strips', 'its-waterworks-hardness', 'epa-ccr', 'epa-ccr-lookup', 'morton-faq'],
+    photoId: 'guide-hardness-test',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Strips, drop-count kits, a lab or your utility report.',
+  },
+  {
+    slug: '/well-water-test-kit/',
+    type: 'guide',
+    title: 'Well Water Testing: What to Test and Cost | HomeWaterMath',
+    metaDescription:
+      'What to test your well for and when, EPA limits, and what DIY kits, mail-in labs and county labs cost. Includes a quick "do I need to test now?" checker.',
+    h1: 'Well Water Testing: What to Test and What It Costs',
+    breadcrumb: 'Well water testing',
+    category: 'well',
+    related: ['/iron-filter-for-well-water/', '/well-pressure-tank-size-calculator/', '/reverse-osmosis-system-cost/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: ['cdc-well-testing', 'epa-private-wells-protect', 'epa-lab-cert', 'epa-npdwr', 'epa-secondary', 'mass-manganese', 'psu-private-water-faq', 'tapscore-essential', 'safehome-target', 'dakota-county-wells', 'ashland-county-wells', 'govinfo-lcri'],
+    photoId: 'guide-well-test',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'What to test, when, EPA limits, and what it costs.',
+  },
+  {
+    slug: '/how-long-do-water-softeners-last/',
+    type: 'guide',
+    title: 'How Long Do Water Softeners Last? | HomeWaterMath',
+    metaDescription:
+      'Water softeners last about 10 to 15 years. What wears out first, how chlorine and iron shorten resin life, warranty terms, and when to replace.',
+    h1: 'How Long Do Water Softeners Last?',
+    breadcrumb: 'How long softeners last',
+    category: 'softeners',
+    related: ['/water-softener-cost/', '/water-softener-not-working/', '/water-softener-size-calculator/'],
+    lastUpdated: '2026-10-21',
+    published: '2026-10-21',
+    sources: ['internachi-life', 'homeguide-softener-repair', 'angi-softener-replace', 'purolite-resin-life', 'umn-softening', 'resintech-cg10', 'pentair-warranty', 'clack-ws1-manual', 'ecowater-ess1152', 'whirlpool-whes48-warranty'],
+    photoId: 'guide-softener-lifespan',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Life by part, what wears out first, warranties.',
+  },
   // Trust and legal pages
   {
     slug: '/about/',
@@ -564,6 +655,11 @@ export function getPageByTitle(slug: string): string {
 export const toolPages = PAGES.filter((p) => p.type === 'tool');
 export const hubPages = PAGES.filter((p) => p.type === 'hub');
 export const trustPages = PAGES.filter((p) => p.type === 'trust');
+export const guidePages = PAGES.filter((p) => p.type === 'guide');
+
+export function guidesInCategory(category: 'softeners' | 'well' | 'filters'): PageMeta[] {
+  return guidePages.filter((p) => p.category === category);
+}
 
 export const HUB_FOR_CATEGORY: Record<'softeners' | 'well' | 'filters', string> = {
   softeners: '/water-softeners/',

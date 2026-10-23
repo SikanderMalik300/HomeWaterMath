@@ -145,6 +145,20 @@ export function profilePageLd() {
   };
 }
 
+export function articleLd(page: PageMeta) {
+  return {
+    '@type': 'Article',
+    headline: page.h1,
+    url: canonical(page.slug),
+    mainEntityOfPage: canonical(page.slug),
+    author: { '@id': PERSON_ID },
+    publisher: { '@id': ORG_ID },
+    datePublished: page.published,
+    dateModified: page.lastUpdated,
+    image: `${SITE_URL}${ogPath(page.slug)}`,
+  };
+}
+
 export function webPageLd(page: PageMeta) {
   return {
     '@type': 'WebPage',

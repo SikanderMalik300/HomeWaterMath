@@ -35,6 +35,11 @@ const PAGES = [
   { slug: '/whole-house-water-filter-cost/', h1: 'Whole House Water Filter Cost Calculator', photo: { base: 'rain-shower-head-water', kind: 'tile' } },
   { slug: '/water-softener-installation-cost/', h1: 'Water Softener Installation Cost Calculator', photo: { base: 'plumber-hands-pipe-fitting', kind: 'tile' } },
   { slug: '/water-filters/', h1: 'Water filter calculators' },
+  { slug: '/water-softener-not-working/', h1: 'Water Softener Not Working? Find the Cause' },
+  { slug: '/iron-filter-for-well-water/', h1: 'Iron Filter for Well Water: Which Type and Size' },
+  { slug: '/how-to-test-water-hardness/', h1: 'How to Test Water Hardness at Home' },
+  { slug: '/well-water-test-kit/', h1: 'Well Water Testing: What to Test and What It Costs', photo: { base: 'hand-filling-glass-tap-water', kind: 'tile' } },
+  { slug: '/how-long-do-water-softeners-last/', h1: 'How Long Do Water Softeners Last?' },
   { slug: '/about/', h1: 'About HomeWaterMath' },
   { slug: '/how-we-calculate/', h1: 'How we calculate' },
   { slug: '/editorial-policy/', h1: 'Editorial policy' },
@@ -58,6 +63,14 @@ const TOOL_LINES = [
   ['/well-pump-replacement-cost/', 'Well pump replacement cost by type and depth, with repair-or-replace.'],
   ['/reverse-osmosis-system-cost/', 'Reverse osmosis cost: unit, filters and water sent to drain.'],
   ['/whole-house-water-filter-cost/', 'Whole house filter cost with cartridge or media changes.'],
+];
+
+const GUIDE_LINES = [
+  ['/water-softener-not-working/', 'Water softener troubleshooting: five free checks, repair costs, repair or replace.'],
+  ['/iron-filter-for-well-water/', 'Pick an iron filter type and size from your well test and flow.'],
+  ['/how-to-test-water-hardness/', 'How to test water hardness: strips, drop-count kits, lab and utility report.'],
+  ['/well-water-test-kit/', 'What to test a private well for, when, and what it costs.'],
+  ['/how-long-do-water-softeners-last/', 'Water softener lifespan by part, what wears out first, and warranties.'],
 ];
 
 const LOGO_FILES = [
@@ -127,6 +140,9 @@ async function writeLlms() {
     '',
     '## Calculators',
     ...TOOL_LINES.map(([slug, desc]) => `- ${canonical(slug)}: ${desc}`),
+    '',
+    '## Guides',
+    ...GUIDE_LINES.map(([slug, desc]) => `- ${canonical(slug)}: ${desc}`),
     '',
   ];
   await fs.writeFile(path.join(PUBLIC, 'llms.txt'), lines.join('\n'));
