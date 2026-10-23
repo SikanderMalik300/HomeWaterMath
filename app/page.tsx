@@ -4,7 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import Picture from '@/components/Picture';
 import PhotoTile from '@/components/PhotoTile';
 import { HeroSearch } from '@/components/SiteSearch';
-import { buildMetadata } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
+import { buildMetadata, pageJsonLd } from '@/lib/seo';
 import { HOME } from '@/lib/content/site';
 import { PAGES, getPage } from '@/lib/data/pages';
 import { PHOTOS, getPhoto, HERO_CREDIT } from '@/lib/data/photos';
@@ -30,9 +31,11 @@ export default function HomePage() {
     .slice()
     .sort((a, b) => (a.lastUpdated < b.lastUpdated ? 1 : -1))
     .slice(0, 6);
+  const newestUpdated = [...PAGES].map((p) => p.lastUpdated).sort().reverse()[0];
 
   return (
     <>
+      <JsonLd data={pageJsonLd('/')} />
       {/* Hero. Full-bleed mist background; the photo is edge-to-edge on the
           right. The text sits inside the shared container (no 100vw math) so its
           left edge always matches the logo and the section headings below, even
@@ -233,6 +236,11 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* Last updated */}
+      <div className="container-hw pb-2">
+        <p className="text-[14px] text-muted">Last updated: {formatDate(newestUpdated)}</p>
+      </div>
 
       {/* Photo credits */}
       <section className="container-hw pb-12" aria-labelledby="credits-heading">

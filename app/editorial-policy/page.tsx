@@ -18,6 +18,9 @@ export default function Page() {
       ) : (
         <div className="mt-4 overflow-x-auto rounded-card border border-line">
           <table className="w-full border-collapse text-[15px]">
+            <caption className="caption-top px-3 pb-2 pt-3 text-left text-[16px] font-medium text-ink">
+              Corrections log
+            </caption>
             <thead>
               <tr>
                 <th scope="col" className="border-b border-line px-3 py-2.5 text-left text-[14px] font-medium text-muted">Date</th>

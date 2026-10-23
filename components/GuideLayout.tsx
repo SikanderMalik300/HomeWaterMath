@@ -8,7 +8,7 @@ import SourcesBlock from './SourcesBlock';
 import AuthorBox from './AuthorBox';
 import PhotoFigure from './PhotoFigure';
 import JsonLd from './JsonLd';
-import { graph, articleLd, breadcrumbLd, faqLd } from '@/lib/seo';
+import { pageJsonLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
 import type { GuideCopy } from '@/lib/content/guides';
 
@@ -26,7 +26,7 @@ export default function GuideLayout({
 
   return (
     <article className="container-hw py-6 md:py-10">
-      <JsonLd data={graph(articleLd(page), breadcrumbLd(slug), faqLd(copy.faq))} />
+      <JsonLd data={pageJsonLd(slug, { faq: copy.faq })} />
 
       <div className="mx-auto max-w-content">
         <Breadcrumbs slug={slug} />

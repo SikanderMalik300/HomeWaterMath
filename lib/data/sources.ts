@@ -355,6 +355,8 @@ export const SOURCES = {
   'pentair-warranty': { id: 'pentair-warranty', name: 'Pentair, Water Softener Components Warranty (Rev P 2026)', url: 'https://www.pentair.com/content/dam/extranet/web/nam/pentair/business-documents/40957-pws-components-warranty.pdf', accessed: '2026-10-21' },
   'ecowater-ess1152': { id: 'ecowater-ess1152', name: 'EcoWater ESS1152 spec sheet', url: 'https://www.ecowater.com/wp-content/uploads/2024/01/0602982_ESS1152SpecSheet.pdf', accessed: '2026-10-21' },
   'whirlpool-whes48-warranty': { id: 'whirlpool-whes48-warranty', name: "Whirlpool WHES48 warranty (Lowe's PDF)", url: 'https://pdf.lowes.com/productdocuments/4495683a-7173-4673-8971-d537e675aa9f/69908253.pdf', accessed: '2026-10-21' },
+  // Fix 04
+  'nsf-standards': { id: 'nsf-standards', name: 'NSF, Standards for water treatment systems', url: 'https://www.nsf.org/consumer-resources/articles/standards-water-treatment-systems', accessed: '2026-10-22' },
 } as const;
 
 export type SourceId = keyof typeof SOURCES;

@@ -4,7 +4,6 @@ import TrustLayout from '@/components/TrustLayout';
 import Blocks from '@/components/Blocks';
 import { AUTHOR } from '@/lib/content/trust';
 import { PAGES } from '@/lib/data/pages';
-import { graph, profilePageLd, breadcrumbLd } from '@/lib/seo';
 import { buildMetadata } from '@/lib/seo';
 
 const SLUG = '/authors/sikander-mushtaq/';
@@ -12,7 +11,7 @@ export const metadata: Metadata = buildMetadata(SLUG);
 
 export default function Page() {
   return (
-    <TrustLayout slug={SLUG} jsonLd={graph(profilePageLd(), breadcrumbLd(SLUG))}>
+    <TrustLayout slug={SLUG}>
       <div className="mt-4 flex items-center gap-4">
         <div
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-band-1 text-[18px] font-semibold text-brand"

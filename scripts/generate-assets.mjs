@@ -52,25 +52,39 @@ const PAGES = [
   { slug: '/sitemap/', h1: 'Sitemap' },
 ];
 
+// llms.txt sections, mirrored from the registry: [slug, title, cardBlurb].
 const TOOL_LINES = [
-  ['/water-softener-size-calculator/', 'Size a water softener in grains for your home and hardness.'],
-  ['/water-softener-cost/', 'Water softener cost: unit, install, salt and a 10-year total.'],
-  ['/water-softener-salt-calculator/', 'Salt use per month and year, bags and cost.'],
-  ['/water-softener-installation-cost/', 'Itemized install cost: loop, drain, outlet, removal and permit.'],
-  ['/water-softener-vs-salt-free-cost/', 'Salt vs salt-free softener cost over 10 years for your home.'],
-  ['/water-hardness-converter/', 'Convert hardness between gpg, ppm, mg/L, mmol/L and degrees.'],
-  ['/well-pressure-tank-size-calculator/', 'Size a well pressure tank from pump flow, horsepower and switch.'],
-  ['/well-pump-replacement-cost/', 'Well pump replacement cost by type and depth, with repair-or-replace.'],
-  ['/reverse-osmosis-system-cost/', 'Reverse osmosis cost: unit, filters and water sent to drain.'],
-  ['/whole-house-water-filter-cost/', 'Whole house filter cost with cartridge or media changes.'],
+  ['/water-softener-size-calculator/', 'Water softener size calculator', 'Grains you need from your household and hardness, at your real salt setting.'],
+  ['/water-softener-cost/', 'Water softener cost calculator', 'Unit, install, salt and service, with a 10-year total and a quote check.'],
+  ['/water-softener-salt-calculator/', 'Water softener salt calculator', 'Pounds per month, bags per year and yearly cost for your softener.'],
+  ['/water-softener-installation-cost/', 'Water softener installation cost calculator', 'Itemized install labor: loop, drain, outlet, removal and permit.'],
+  ['/water-softener-vs-salt-free-cost/', 'Salt vs salt-free water softener cost calculator', 'Salt vs salt-free over 10 years for your home, with what each one does.'],
+  ['/water-hardness-converter/', 'Water hardness converter', 'gpg, ppm, mg/L, mmol/L and German or French degrees in one step.'],
+  ['/well-pressure-tank-size-calculator/', 'Well pressure tank size calculator', "Tank size and pre-charge from your pump's gpm, horsepower and switch setting."],
+  ['/well-pump-replacement-cost/', 'Well pump replacement cost calculator', 'Pump, pipe, wire, tank and call-out by type and depth, plus repair-or-replace.'],
+  ['/reverse-osmosis-system-cost/', 'Reverse osmosis system cost calculator', 'Under-sink, tankless or countertop, with filters and water sent to drain.'],
+  ['/whole-house-water-filter-cost/', 'Whole house water filter cost calculator', 'Cartridge, carbon tank or well system, with media changes for your use.'],
 ];
 
 const GUIDE_LINES = [
-  ['/water-softener-not-working/', 'Water softener troubleshooting: five free checks, repair costs, repair or replace.'],
-  ['/iron-filter-for-well-water/', 'Pick an iron filter type and size from your well test and flow.'],
-  ['/how-to-test-water-hardness/', 'How to test water hardness: strips, drop-count kits, lab and utility report.'],
-  ['/well-water-test-kit/', 'What to test a private well for, when, and what it costs.'],
-  ['/how-long-do-water-softeners-last/', 'Water softener lifespan by part, what wears out first, and warranties.'],
+  ['/water-softener-not-working/', 'Water softener not working? Find the cause', 'Five free checks, repair costs, and repair-or-replace.'],
+  ['/iron-filter-for-well-water/', 'Iron filter for well water: which type and size', 'Which filter and size from your iron, manganese, sulfur and flow.'],
+  ['/how-to-test-water-hardness/', 'How to test water hardness at home', 'Strips, drop-count kits, a lab or your utility report.'],
+  ['/well-water-test-kit/', 'Well water testing: what to test and what it costs', 'What to test, when, EPA limits, and what it costs.'],
+  ['/how-long-do-water-softeners-last/', 'How long do water softeners last?', 'Life by part, what wears out first, warranties.'],
+];
+
+const HUB_LINES = [
+  ['/water-softeners/', 'Water softener calculators', 'Size, cost, salt, install, salt vs salt-free, and hardness for US homes.'],
+  ['/well-water/', 'Well water calculators', 'Pressure tank sizing, well pump replacement cost, hardness and softener sizing.'],
+  ['/water-filters/', 'Water filter calculators', 'Reverse osmosis and whole house filter cost, filters and media over 10 years.'],
+];
+
+const ABOUT_LINES = [
+  ['/about/', 'About HomeWaterMath', 'Who runs the site and how the calculators are built.'],
+  ['/how-we-calculate/', 'How we calculate', 'The formulas, constants and sources behind every calculator.'],
+  ['/editorial-policy/', 'Editorial policy', 'How we research, build, check and correct the calculators.'],
+  ['/authors/sikander-mushtaq/', 'Sikander Mushtaq', 'Founder of HomeWaterMath. Builds and checks every calculator.'],
 ];
 
 const LOGO_FILES = [
@@ -114,7 +128,26 @@ async function copyLogos() {
 }
 
 async function writeRobots() {
-  const txt = `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`;
+  // Allow all, plus explicit groups so the intent is obvious to auditors.
+  // /embed/ is intentionally not disallowed: those pages use noindex, which
+  // needs crawling to take effect.
+  const txt = `User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: ${SITE}/sitemap.xml
+`;
   await fs.writeFile(path.join(PUBLIC, 'robots.txt'), txt);
 }
 
@@ -133,16 +166,23 @@ async function writeSitemap() {
 }
 
 async function writeLlms() {
+  const section = (rows) => rows.map(([slug, title, desc]) => `- [${title}](${canonical(slug)}): ${desc}`);
   const lines = [
     '# HomeWaterMath',
     '',
-    'Free, source-backed calculators for home water: water softeners and private wells. Every formula and source is shown.',
+    'Free, source-backed calculators and guides for home water: water softeners, private wells and water filters. Every formula and source is shown.',
     '',
     '## Calculators',
-    ...TOOL_LINES.map(([slug, desc]) => `- ${canonical(slug)}: ${desc}`),
+    ...section(TOOL_LINES),
     '',
     '## Guides',
-    ...GUIDE_LINES.map(([slug, desc]) => `- ${canonical(slug)}: ${desc}`),
+    ...section(GUIDE_LINES),
+    '',
+    '## Category pages',
+    ...section(HUB_LINES),
+    '',
+    '## About this site',
+    ...section(ABOUT_LINES),
     '',
   ];
   await fs.writeFile(path.join(PUBLIC, 'llms.txt'), lines.join('\n'));

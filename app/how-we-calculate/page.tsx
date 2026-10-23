@@ -6,7 +6,12 @@ import { WELL_PUMP, SALT_FREE, RO_COPY, WHOLE_HOUSE, SOFTENER_INSTALL } from '@/
 import type { ToolCopy } from '@/lib/content/types';
 import { CONSTANTS_TABLE } from '@/lib/data/constants';
 import { getSource, type SourceId } from '@/lib/data/sources';
+import SourcesBlock from '@/components/SourcesBlock';
 import { buildMetadata } from '@/lib/seo';
+
+const CONSTANTS_SOURCE_IDS = [
+  ...new Set(CONSTANTS_TABLE.flatMap((c) => c.sources as SourceId[])),
+];
 
 const SLUG = '/how-we-calculate/';
 export const metadata: Metadata = buildMetadata(SLUG);
@@ -51,6 +56,9 @@ export default function Page() {
       <h2 className="mt-8 text-[24px] font-medium md:text-[28px]">Constants</h2>
       <div className="mt-3 overflow-x-auto rounded-card border border-line">
         <table className="w-full border-collapse text-[14px]">
+          <caption className="caption-top px-3 pb-2 pt-3 text-left text-[16px] font-medium text-ink">
+            Constants used in the calculators
+          </caption>
           <thead>
             <tr>
               {['Constant', 'Value', 'Unit', 'Source', 'Checked'].map((h) => (
@@ -90,6 +98,10 @@ export default function Page() {
 
       <h2 className="mt-8 text-[24px] font-medium md:text-[28px]">{HOW_WE_CALCULATE.assumptionsHeading}</h2>
       <p className="mt-4 text-[16px]">{HOW_WE_CALCULATE.assumptionsBody}</p>
+
+      <div className="mt-10">
+        <SourcesBlock sources={CONSTANTS_SOURCE_IDS} />
+      </div>
     </TrustLayout>
   );
 }

@@ -1,16 +1,19 @@
 import type { SimpleTable } from '@/lib/content/types';
 
-// Quiet table inside a horizontally scrollable wrapper. Caption above (heading
-// role), optional note below. Numbers right-aligned, tabular-nums.
+// Quiet table inside a horizontally scrollable wrapper. The label is a real
+// <caption> inside the table (caption-side top), styled like the old heading.
+// The source note stays as a <p> after the table. Numbers right-aligned.
 export default function ReferenceTable({ table }: { table: SimpleTable }) {
   const numeric = new Set(table.numericCols ?? []);
   return (
     <figure className="my-6">
-      {table.caption && (
-        <figcaption className="mb-2 text-[16px] font-medium text-ink">{table.caption}</figcaption>
-      )}
       <div className="overflow-x-auto rounded-card border border-line">
         <table className="w-full border-collapse text-[15px]">
+          {table.caption && (
+            <caption className="caption-top px-3 pb-2 pt-3 text-left text-[16px] font-medium text-ink">
+              {table.caption}
+            </caption>
+          )}
           <thead>
             <tr>
               {table.headers.map((h, i) => (
@@ -45,7 +48,7 @@ export default function ReferenceTable({ table }: { table: SimpleTable }) {
         </table>
       </div>
       {table.captionBelow && (
-        <figcaption className="mt-2 text-[14px] text-muted">{table.captionBelow}</figcaption>
+        <p className="mt-2 text-[14px] text-muted">{table.captionBelow}</p>
       )}
     </figure>
   );

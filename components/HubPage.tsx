@@ -5,7 +5,7 @@ import Faq from './Faq';
 import AuthorBox from './AuthorBox';
 import SourcesBlock from './SourcesBlock';
 import JsonLd from './JsonLd';
-import { graph, collectionPageLd, breadcrumbLd, faqLd } from '@/lib/seo';
+import { pageJsonLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
 import type { SimpleTable, FaqItem } from '@/lib/content/types';
 
@@ -28,7 +28,7 @@ export default function HubPage({
   if (!page) return null;
   return (
     <article className="container-hw py-6 md:py-10">
-      <JsonLd data={graph(collectionPageLd(page), breadcrumbLd(slug), faqLd(faq))} />
+      <JsonLd data={pageJsonLd(slug, { faq })} />
       <Breadcrumbs slug={slug} />
       <h1 className="mt-3 text-[30px] font-medium leading-tight md:text-[40px]">{page.h1}</h1>
 

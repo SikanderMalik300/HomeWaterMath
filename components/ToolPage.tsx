@@ -13,7 +13,7 @@ import AdSlot from './AdSlot';
 import AffiliateBox from './AffiliateBox';
 import EmailSignup from './EmailSignup';
 import JsonLd from './JsonLd';
-import { graph, webApplicationLd, breadcrumbLd, faqLd } from '@/lib/seo';
+import { pageJsonLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
 import type { ToolCopy } from '@/lib/content/types';
 
@@ -35,7 +35,7 @@ export default function ToolPage({
 
   return (
     <article className="container-hw py-6 md:py-10">
-      <JsonLd data={graph(webApplicationLd(page), breadcrumbLd(slug), faqLd(copy.faq))} />
+      <JsonLd data={pageJsonLd(slug, { faq: copy.faq })} />
 
       <div className="mx-auto max-w-content">
         <Breadcrumbs slug={slug} />

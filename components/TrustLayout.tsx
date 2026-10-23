@@ -1,7 +1,7 @@
 import Breadcrumbs from './Breadcrumbs';
 import AuthorBox from './AuthorBox';
 import JsonLd from './JsonLd';
-import { graph, webPageLd, breadcrumbLd } from '@/lib/seo';
+import { pageJsonLd } from '@/lib/seo';
 import { getPage } from '@/lib/data/pages';
 
 function formatDate(iso: string): string {
@@ -13,19 +13,17 @@ function formatDate(iso: string): string {
 export default function TrustLayout({
   slug,
   children,
-  jsonLd,
   showAuthorBox = false,
 }: {
   slug: string;
   children: React.ReactNode;
-  jsonLd?: object;
   showAuthorBox?: boolean;
 }) {
   const page = getPage(slug);
   if (!page) return null;
   return (
     <article className="container-hw py-6 md:py-10">
-      <JsonLd data={jsonLd ?? graph(webPageLd(page), breadcrumbLd(slug))} />
+      <JsonLd data={pageJsonLd(slug)} />
       <div className="mx-auto max-w-prose68">
         <Breadcrumbs slug={slug} />
         <h1 className="mt-3 text-[30px] font-medium leading-tight md:text-[40px]">{page.h1}</h1>

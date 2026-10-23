@@ -1,22 +1,33 @@
 # HomeWaterMath
 
-Free, source-backed calculators for home water: water softeners and private wells. Every formula and source is shown.
+Free, source-backed calculators and guides for home water: water softeners, private wells and water filters. Every formula and source is shown.
 
 ## Calculators
-- https://homewatermath.com/water-softener-size-calculator/: Size a water softener in grains for your home and hardness.
-- https://homewatermath.com/water-softener-cost/: Water softener cost: unit, install, salt and a 10-year total.
-- https://homewatermath.com/water-softener-salt-calculator/: Salt use per month and year, bags and cost.
-- https://homewatermath.com/water-softener-installation-cost/: Itemized install cost: loop, drain, outlet, removal and permit.
-- https://homewatermath.com/water-softener-vs-salt-free-cost/: Salt vs salt-free softener cost over 10 years for your home.
-- https://homewatermath.com/water-hardness-converter/: Convert hardness between gpg, ppm, mg/L, mmol/L and degrees.
-- https://homewatermath.com/well-pressure-tank-size-calculator/: Size a well pressure tank from pump flow, horsepower and switch.
-- https://homewatermath.com/well-pump-replacement-cost/: Well pump replacement cost by type and depth, with repair-or-replace.
-- https://homewatermath.com/reverse-osmosis-system-cost/: Reverse osmosis cost: unit, filters and water sent to drain.
-- https://homewatermath.com/whole-house-water-filter-cost/: Whole house filter cost with cartridge or media changes.
+- [Water softener size calculator](https://homewatermath.com/water-softener-size-calculator/): Grains you need from your household and hardness, at your real salt setting.
+- [Water softener cost calculator](https://homewatermath.com/water-softener-cost/): Unit, install, salt and service, with a 10-year total and a quote check.
+- [Water softener salt calculator](https://homewatermath.com/water-softener-salt-calculator/): Pounds per month, bags per year and yearly cost for your softener.
+- [Water softener installation cost calculator](https://homewatermath.com/water-softener-installation-cost/): Itemized install labor: loop, drain, outlet, removal and permit.
+- [Salt vs salt-free water softener cost calculator](https://homewatermath.com/water-softener-vs-salt-free-cost/): Salt vs salt-free over 10 years for your home, with what each one does.
+- [Water hardness converter](https://homewatermath.com/water-hardness-converter/): gpg, ppm, mg/L, mmol/L and German or French degrees in one step.
+- [Well pressure tank size calculator](https://homewatermath.com/well-pressure-tank-size-calculator/): Tank size and pre-charge from your pump's gpm, horsepower and switch setting.
+- [Well pump replacement cost calculator](https://homewatermath.com/well-pump-replacement-cost/): Pump, pipe, wire, tank and call-out by type and depth, plus repair-or-replace.
+- [Reverse osmosis system cost calculator](https://homewatermath.com/reverse-osmosis-system-cost/): Under-sink, tankless or countertop, with filters and water sent to drain.
+- [Whole house water filter cost calculator](https://homewatermath.com/whole-house-water-filter-cost/): Cartridge, carbon tank or well system, with media changes for your use.
 
 ## Guides
-- https://homewatermath.com/water-softener-not-working/: Water softener troubleshooting: five free checks, repair costs, repair or replace.
-- https://homewatermath.com/iron-filter-for-well-water/: Pick an iron filter type and size from your well test and flow.
-- https://homewatermath.com/how-to-test-water-hardness/: How to test water hardness: strips, drop-count kits, lab and utility report.
-- https://homewatermath.com/well-water-test-kit/: What to test a private well for, when, and what it costs.
-- https://homewatermath.com/how-long-do-water-softeners-last/: Water softener lifespan by part, what wears out first, and warranties.
+- [Water softener not working? Find the cause](https://homewatermath.com/water-softener-not-working/): Five free checks, repair costs, and repair-or-replace.
+- [Iron filter for well water: which type and size](https://homewatermath.com/iron-filter-for-well-water/): Which filter and size from your iron, manganese, sulfur and flow.
+- [How to test water hardness at home](https://homewatermath.com/how-to-test-water-hardness/): Strips, drop-count kits, a lab or your utility report.
+- [Well water testing: what to test and what it costs](https://homewatermath.com/well-water-test-kit/): What to test, when, EPA limits, and what it costs.
+- [How long do water softeners last?](https://homewatermath.com/how-long-do-water-softeners-last/): Life by part, what wears out first, warranties.
+
+## Category pages
+- [Water softener calculators](https://homewatermath.com/water-softeners/): Size, cost, salt, install, salt vs salt-free, and hardness for US homes.
+- [Well water calculators](https://homewatermath.com/well-water/): Pressure tank sizing, well pump replacement cost, hardness and softener sizing.
+- [Water filter calculators](https://homewatermath.com/water-filters/): Reverse osmosis and whole house filter cost, filters and media over 10 years.
+
+## About this site
+- [About HomeWaterMath](https://homewatermath.com/about/): Who runs the site and how the calculators are built.
+- [How we calculate](https://homewatermath.com/how-we-calculate/): The formulas, constants and sources behind every calculator.
+- [Editorial policy](https://homewatermath.com/editorial-policy/): How we research, build, check and correct the calculators.
+- [Sikander Mushtaq](https://homewatermath.com/authors/sikander-mushtaq/): Founder of HomeWaterMath. Builds and checks every calculator.

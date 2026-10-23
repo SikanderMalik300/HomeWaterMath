@@ -33,14 +33,18 @@ describe('registry integrity', () => {
     );
   });
 
-  it('every title is <= 60 characters', () => {
-    PAGES.forEach((p) => expect(p.title.length, p.slug).toBeLessThanOrEqual(60));
+  it('every title is 30 to 60 characters', () => {
+    PAGES.forEach((p) => {
+      expect(p.title.length, `${p.slug} title "${p.title}"`).toBeGreaterThanOrEqual(30);
+      expect(p.title.length, `${p.slug} title "${p.title}"`).toBeLessThanOrEqual(60);
+    });
   });
 
-  it('every meta description is <= 155 characters', () => {
-    PAGES.forEach((p) =>
-      expect(p.metaDescription.length, p.slug).toBeLessThanOrEqual(155),
-    );
+  it('every meta description is 110 to 160 characters', () => {
+    PAGES.forEach((p) => {
+      expect(p.metaDescription.length, `${p.slug} meta len ${p.metaDescription.length}`).toBeGreaterThanOrEqual(110);
+      expect(p.metaDescription.length, `${p.slug} meta len ${p.metaDescription.length}`).toBeLessThanOrEqual(160);
+    });
   });
 
   it('exactly one home page and three hubs', () => {

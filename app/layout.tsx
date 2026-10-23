@@ -3,11 +3,9 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import JsonLd from '@/components/JsonLd';
 import Analytics from '@/components/Analytics';
 import ConsentBanner from '@/components/ConsentBanner';
 import OutboundTracker from '@/components/OutboundTracker';
-import { graph, organizationLd, websiteLd } from '@/lib/seo';
 import { SITE_URL, SITE_NAME } from '@/lib/data/pages';
 
 // Figtree, weights 400/500/600, display: swap (A11). Self-hosted from the
@@ -51,7 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={figtree.variable}>
       <body className="font-sans">
-        <JsonLd data={graph(organizationLd(), websiteLd())} />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
