@@ -18,6 +18,7 @@ export default function Page() {
         '/whole-house-water-filter-cost/',
         '/water-softener-cost/',
       ]}
+      guideSlugs={['/tds-meter-chart/']}
     />
   );
 }

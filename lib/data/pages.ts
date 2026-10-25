@@ -11,6 +11,7 @@ import {
   WHOLE_HOUSE,
   SOFTENER_INSTALL,
 } from '@/lib/content/tools2';
+import { SETTINGS } from '@/lib/content/tools3';
 
 export type PageType = 'tool' | 'hub' | 'trust' | 'home' | 'guide';
 export type Category = 'softeners' | 'well' | 'filters' | null;
@@ -98,7 +99,7 @@ export const PAGES: PageMeta[] = [
     category: 'softeners',
     related: [
       '/water-softener-salt-calculator/',
-      '/water-hardness-converter/',
+      '/water-softener-settings/',
       '/water-softener-cost/',
     ],
     lastUpdated: DATE,
@@ -164,7 +165,7 @@ export const PAGES: PageMeta[] = [
     related: [
       '/water-softener-size-calculator/',
       '/water-softener-cost/',
-      '/water-hardness-converter/',
+      '/water-softener-settings/',
     ],
     lastUpdated: DATE,
     published: DATE,
@@ -462,6 +463,113 @@ export const PAGES: PageMeta[] = [
     ownerNote: null,
     notCovered: [],
     cardBlurb: 'Life by part, what wears out first, warranties.',
+  },
+  // Batch 04: settings calculator + 4 guides
+  {
+    slug: '/water-softener-settings/',
+    type: 'tool',
+    title: 'Water Softener Settings Calculator | HomeWaterMath',
+    metaDescription:
+      'Work out what to enter on your water softener: hardness setting with iron, capacity, reserve, days between regenerations and salt per regeneration.',
+    h1: 'Water Softener Settings Calculator',
+    breadcrumb: 'Water softener settings',
+    category: 'softeners',
+    related: ['/water-softener-size-calculator/', '/water-softener-salt-calculator/', '/water-softener-not-working/'],
+    lastUpdated: '2026-10-25',
+    published: '2026-10-25',
+    sources: [
+      'fleck-5600sxt-manual', 'clack-ws1-manual', 'whirlpool-manual', 'aosmith-lowes-manual',
+      'nelsen-sizing', 'csi-manual', 'aosmith-c43', 'wcp-slovak-2004',
+    ],
+    photoId: 'tool-softener-settings',
+    ownerNote: null,
+    notCovered: SETTINGS.notCovered,
+    cardBlurb: 'What to enter on your softener: hardness, capacity, reserve and day override.',
+  },
+  {
+    slug: '/water-softener-cleaner/',
+    type: 'guide',
+    title: 'Water Softener Cleaner: Dose and How Often | HomeWaterMath',
+    metaDescription:
+      'How much water softener cleaner to use for your resin, how often, and which kind: label doses for Res Care, Res-Up and Iron OUT, with a dose calculator.',
+    h1: 'Water Softener Cleaner: How Much to Use and How Often',
+    breadcrumb: 'Water softener cleaner',
+    category: 'softeners',
+    related: ['/water-softener-not-working/', '/iron-filter-for-well-water/', '/water-softener-settings/'],
+    lastUpdated: '2026-10-25',
+    published: '2026-10-25',
+    sources: [
+      'pro-res-care-label', 'nelsen-rescare', 'fws-rescare', 'resup-instructions', 'weco-resup',
+      'ironout-summit', 'ironout-sds', 'outfiltermate-summit', 'whirlpool-whes48-warranty',
+      'fleck-5600sxt-manual', 'ge-gxsf27b-manual', 'umn-softening',
+    ],
+    photoId: 'guide-softener-cleaner',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Dose and how often, with label doses and a dose calculator.',
+  },
+  {
+    slug: '/tds-meter-chart/',
+    type: 'guide',
+    title: 'TDS Meter Chart: What Your Reading Means | HomeWaterMath',
+    metaDescription:
+      "What your TDS meter reading means for drinking water: the EPA 500 mg/L guideline, taste bands, what TDS can't tell you, and how to check an RO system.",
+    h1: 'TDS Meter Chart: What Your Reading Means',
+    breadcrumb: 'TDS meter chart',
+    category: 'filters',
+    related: ['/reverse-osmosis-system-cost/', '/water-hardness-converter/', '/whole-house-water-filter-cost/'],
+    lastUpdated: '2026-10-25',
+    published: '2026-10-25',
+    sources: [
+      'epa-secondary', 'who-tds-background', 'who-tds-factsheet', 'ndsu-wq1923', 'vce-442-666',
+      'epa-ro-performance-2024', 'hmdigital-tds3',
+    ],
+    photoId: 'guide-tds',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'What your reading means, taste bands and an RO check.',
+  },
+  {
+    slug: '/hard-water-vs-soft-water/',
+    type: 'guide',
+    title: 'Hard Water vs Soft Water: What Changes | HomeWaterMath',
+    metaDescription:
+      'Hard vs soft water compared with measured results: scale in water heaters, detergent use, skin, health and sodium. Check whether your water needs a softener.',
+    h1: 'Hard Water vs Soft Water: What Actually Changes',
+    breadcrumb: 'Hard water vs soft water',
+    category: 'softeners',
+    related: ['/water-hardness-converter/', '/water-softener-size-calculator/', '/can-you-drink-softened-water/'],
+    lastUpdated: '2026-10-25',
+    published: '2026-10-25',
+    sources: [
+      'usgs-hardness', 'unl-g1274', 'battelle-wqp-2010', 'wqrf-laundry-2011', 'swet-nottingham-2011',
+      'who-hardness-2003',
+    ],
+    photoId: 'guide-hard-vs-soft',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Scale, soap, skin, health and sodium, with the test results.',
+  },
+  {
+    slug: '/can-you-drink-softened-water/',
+    type: 'guide',
+    title: 'Can You Drink Softened Water? Sodium Math | HomeWaterMath',
+    metaDescription:
+      'Yes for most people. See how much sodium your softener adds from your hardness, how it compares with daily limits, and when to keep an unsoftened tap.',
+    h1: 'Can You Drink Softened Water?',
+    breadcrumb: 'Can you drink softened water',
+    category: 'softeners',
+    related: ['/hard-water-vs-soft-water/', '/water-softener-vs-salt-free-cost/', '/water-softener-salt-calculator/'],
+    lastUpdated: '2026-10-25',
+    published: '2026-10-25',
+    sources: [
+      'psu-softening', 'unl-g1274', 'ndsu-wq1031', 'epa-sodium-2003', 'aha-sodium', 'mdh-softening',
+      'epa-infants-wells',
+    ],
+    photoId: 'guide-drink-softened',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'How much sodium softening adds, and when to keep a plain tap.',
   },
   // Trust and legal pages
   {

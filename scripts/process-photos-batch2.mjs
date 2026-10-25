@@ -24,6 +24,9 @@ const PHOTOS = [
   // Fix 05 guide photos
   { base: 'gloved-hand-adjustable-wrench', url: 'https://images.pexels.com/photos/5534767/pexels-photo-5534767.jpeg', focalX: 0.7, focalY: 0.45 },
   { base: 'rusty-pipe-stained-wall', url: 'https://images.pexels.com/photos/2238808/pexels-photo-2238808.jpeg', focalX: 0.72, focalY: 0.5 },
+  // Batch 04 guide photos
+  { base: 'soap-lather-hands', url: 'https://images.pexels.com/photos/9871625/pexels-photo-9871625.jpeg', focalX: 0.42, focalY: 0.5 },
+  { base: 'clear-glass-of-water', url: 'https://images.pexels.com/photos/7904429/pexels-photo-7904429.jpeg', focalX: 0.48, focalY: 0.58 },
 ];
 
 const AR = 1; // tiles only

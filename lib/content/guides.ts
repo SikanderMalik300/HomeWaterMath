@@ -98,7 +98,7 @@ export const SOFTENER_NOT_WORKING: GuideCopy = {
         "Salt. Look in the brine tank. If the salt looks full but the level never drops, push a broom handle down through it. A hard crust with empty space under it is a salt bridge: the softener can't make brine, so it can't regenerate.",
         'Bypass. The bypass valve sits on the pipes at the back of the control valve. If it was turned during a plumbing job, water goes around the softener.',
         'Clock. Fleck and Clack valves keep time for about 8 hours without power. After a longer outage they regenerate at the wrong time until you reset the time of day.',
-        'Hardness setting. Test your water again and compare it with the setting. Add 4 gpg for every ppm of iron.',
+        'Hardness setting. Test your water again and compare it with [the setting](/water-softener-settings/). Add 4 gpg for every ppm of iron.',
         'Injector. The injector (venturi) is a small nozzle and screen that pulls brine from the tank. It clogs with sediment and is the most common reason a softener stops drawing salt.',
       ],
     },
@@ -363,10 +363,199 @@ export const SOFTENER_LIFESPAN: GuideCopy = {
   ],
 };
 
+// ===========================================================================
+// 6. Water softener cleaner (batch 04)
+// ===========================================================================
+
+export const SOFTENER_CLEANER: GuideCopy = {
+  quickAnswer:
+    'Most liquid resin cleaners use about 4 ounces per cubic foot of resin for a first, deep clean, then about ½ to 1 ounce per cubic foot before each regeneration if your water has iron. Pour it into the brine well, not on top of the salt, and start a regeneration. A typical 48,000-grain softener has 1.5 cubic feet of resin, so a first clean takes about 6 ounces.',
+  body: [
+    { kind: 'h2', text: 'When a softener needs cleaner' },
+    { kind: 'p', text: "Resin cleaner removes iron, manganese and other fouling that salt alone can't. If your water has iron, if softened water turns slightly hard before the next regeneration, or if water pressure has dropped, a cleaning often helps. On city water with no iron, many softeners never need it." },
+    { kind: 'h2', text: 'How to clean a water softener' },
+    {
+      kind: 'ol',
+      items: [
+        "Check the label. Some cleaners aren't for every resin type; Pro Res Care, for example, isn't for gel zeolite.",
+        'Find the brine well, the round tube inside the salt tank, and pour the measured cleaner into it.',
+        'Start a manual regeneration. The cleaner is drawn through the resin with the brine and rinsed to the drain.',
+        'For ongoing iron, add the maintenance dose before each regeneration, or use a cleaner feeder.',
+      ],
+    },
+    { kind: 'h2', text: 'Cleaners compared' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Water softener cleaners compared',
+        captionBelow: 'Manufacturer labels and listings, checked Oct 2026 (Pro Products, Res-Up form 1677, Summit Brands, Nelsen, Fresh Water Systems, WECO).',
+        headers: ['Cleaner', 'Type', 'First clean', 'Maintenance', 'Price', 'NSF'],
+        rows: [
+          ['Res Care', 'Liquid', '4 oz per cu ft', '½ oz per cu ft per regeneration', 'about $21 a gallon', 'NSF/ANSI/CAN 60'],
+          ['Res-Up', 'Liquid', '3 to 4 oz per cu ft', '½ to 1 oz per cu ft per regeneration', 'about $32 a gallon', 'not stated'],
+          ['Iron OUT', 'Powder', '1 cup in ½ gal water', '¼ cup per 40 lb of salt', 'varies', 'not stated'],
+          ['OUT Filter Mate HD', 'Liquid', '4 oz per cu ft', '1 to 2 oz per cu ft per regeneration', 'varies', 'maker says NSF certified'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'Sanitizing with bleach' },
+    { kind: 'p', text: "Cleaner isn't the same as sanitizing. If a manual tells you to sanitize, for example after a long shutdown, GE's manual uses about ¾ ounce (1½ tablespoons) of 5.25% household bleach poured into the brine well, followed by a regeneration. Follow your own manual's amount." },
+    { kind: 'h2', text: 'Iron above 3 ppm' },
+    { kind: 'p', text: 'Cleaners keep resin clean when iron is low. Above about 3 ppm, the University of Minnesota advises a separate iron filter; see our [iron filter guide](/iron-filter-for-well-water/).' },
+  ],
+  faq: [
+    { q: 'How much water softener cleaner should I use?', a: 'For most liquid cleaners, about 4 ounces per cubic foot of resin for a first clean, then about ½ to 1 ounce per cubic foot before each regeneration if your water has iron.' },
+    { q: 'How often should I clean my water softener?', a: "Only when needed on city water. With iron, use a maintenance dose before each regeneration, or a full clean every few months; Whirlpool's warranty, for example, asks for one bottle of its cleaner every 4 months." },
+    { q: 'Where do I put water softener cleaner?', a: 'In the brine well, the tube inside the salt tank, then start a regeneration.' },
+    { q: 'Can I use Iron OUT in my water softener?', a: "Yes. The maker's directions are 1 cup dissolved in ½ gallon of cold water poured into the brine well, then a regeneration, and ¼ cup per 40 lb of salt for maintenance." },
+    { q: 'Is water softener cleaner safe for drinking water?', a: 'Use a product certified to NSF/ANSI/CAN Standard 60, such as Res Care, and rinse it out with a full regeneration before drinking the water.' },
+  ],
+};
+
+// ===========================================================================
+// 7. TDS meter chart (batch 04)
+// ===========================================================================
+
+export const TDS_GUIDE: GuideCopy = {
+  quickAnswer:
+    "A TDS meter shows total dissolved solids in ppm (mg/L). EPA's guideline for drinking water is 500 mg/L or less, and taste panels rate water under 300 as excellent. TDS says how much is dissolved, not what it is, so a low reading doesn't mean water is safe and a high one doesn't mean it's harmful. A working reverse osmosis system should cut TDS by at least 75%.",
+  body: [
+    { kind: 'h2', text: 'TDS chart' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'TDS chart',
+        captionBelow: 'Taste bands: WHO background document on TDS (2003). Guideline: EPA secondary standard, 500 mg/L. WHO sets no health-based limit for TDS.',
+        headers: ['TDS (ppm, mg/L)', 'Taste rating', 'Notes'],
+        rows: [
+          ['Under 300', 'Excellent', 'Very low TDS (RO water) can taste flat'],
+          ['300 to 600', 'Good', "Below EPA's 500 mg/L guideline up to 500"],
+          ['600 to 900', 'Fair', "Above EPA's 500 mg/L guideline"],
+          ['900 to 1,200', 'Poor', 'Salty or mineral taste likely'],
+          ['Over 1,200', 'Unacceptable', 'Treatment usually needed'],
+        ],
+      },
+    },
+    { kind: 'h2', text: "What a TDS meter can't tell you" },
+    { kind: 'p', text: "A TDS meter measures how well water conducts electricity and converts it to an estimate of dissolved solids. It can't tell calcium from sodium, or harmless minerals from lead, nitrate or arsenic, which may be present at very low levels. For anything health-related, use a lab test; see our [well water testing guide](/well-water-test-kit/)." },
+    { kind: 'h2', text: 'Checking a reverse osmosis system' },
+    { kind: 'p', text: 'Measure the tap water going in and the RO water coming out. Certified systems (NSF/ANSI 58 and EPA WaterSense) must remove at least 75% of TDS. If yours removes much less, the membrane or filters are probably due; price replacements with our [RO cost calculator](/reverse-osmosis-system-cost/).' },
+    { kind: 'h2', text: 'µS/cm to ppm' },
+    { kind: 'p', text: 'Some meters show electrical conductivity (EC) in µS/cm instead of TDS. Multiply EC by about 0.5 for fresh water; the factor rises toward 0.8 for very salty water.' },
+    { kind: 'h2', text: 'TDS meters' },
+    { kind: 'p', text: 'Pocket TDS meters are cheap: the HM Digital TDS-3, for example, reads 0 to 9,990 ppm with ±2% accuracy and sells for about $20. Rinse the probe, test water at room temperature, and calibrate with a standard solution if the maker recommends it.' },
+  ],
+  faq: [
+    { q: 'What is a good TDS level for drinking water?', a: "Under 300 ppm rates as excellent in taste tests, and EPA's guideline is 500 ppm or less. TDS alone doesn't tell you whether water is safe." },
+    { q: 'Is high TDS dangerous?', a: "Not by itself. WHO sets no health-based limit for TDS; high readings mostly affect taste and scaling. Test for specific contaminants if you're concerned." },
+    { q: 'Can a TDS meter detect lead?', a: 'No. It can\'t identify individual substances. Use a certified lab test for lead.' },
+    { q: 'How much TDS should an RO system remove?', a: "At least 75%. That's the minimum for NSF/ANSI 58 and EPA WaterSense certification." },
+    { q: 'Is 0 ppm water good to drink?', a: "It's safe, but very low TDS can taste flat." },
+  ],
+};
+
+// ===========================================================================
+// 8. Hard water vs soft water (batch 04)
+// ===========================================================================
+
+export const HARD_VS_SOFT: GuideCopy = {
+  quickAnswer:
+    "Hard water carries calcium and magnesium, which leave scale in water heaters, pipes and fixtures and make soap work less well. It isn't a health risk. Soft water has had those minerals removed, usually by swapping them for sodium. In industry-funded tests, softened water heaters kept their efficiency while hard-water units clogged with scale, and laundry needed about half the detergent. Water above 7 gpg (120 mg/L) is considered hard.",
+  body: [
+    { kind: 'h2', text: 'Hard vs soft water at a glance' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Hard vs soft water at a glance',
+        captionBelow: 'USGS, University of Nebraska-Lincoln Extension, Battelle and WQRF studies (industry-funded).',
+        headers: ['', 'Hard water', 'Soft water'],
+        rows: [
+          ['Minerals', 'Calcium and magnesium', 'Mostly sodium (or potassium) instead'],
+          ['Scale', 'Builds up in heaters, pipes, showerheads', 'Little or none'],
+          ['Soap', 'Less lather, more detergent needed', 'Lathers easily'],
+          ['Taste', 'Often preferred, slightly mineral', 'Slightly salty at high hardness'],
+          ['Health', 'Not a health concern', 'Adds sodium; see below'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'What the tests found' },
+    { kind: 'p', text: 'A Battelle study for the Water Quality Association found that water heaters on softened water kept their efficiency essentially constant, while none of the unsoftened units finished the test because scale blocked them. Gas heaters built up about 528 grams of scale a year on hard water against 7 grams on soft water. A separate study found laundry needed about half the detergent with soft water, and 60°F soft water cleaned as well as 100°F hard water. Both studies were funded by the water treatment industry.' },
+    { kind: 'h2', text: 'Health and skin' },
+    { kind: 'p', text: "USGS describes hard water as a nuisance, not a health concern. WHO notes that studies link harder water with lower heart disease rates but hasn't found the link to be causal. For eczema, a randomized trial of 336 children found no benefit from installing a softener." },
+    { kind: 'h2', text: 'How hard is hard?' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'How hard is hard?',
+        captionBelow: 'Water Quality Association classes (UNL Extension G1274).',
+        headers: ['Class', 'gpg', 'mg/L'],
+        rows: [
+          ['Soft', 'under 1', 'under 17.1'],
+          ['Slightly hard', '1 to 3.5', '17.1 to 60'],
+          ['Moderately hard', '3.5 to 7', '60 to 120'],
+          ['Hard', '7 to 10.5', '120 to 180'],
+          ['Very hard', 'over 10.5', 'over 180'],
+        ],
+      },
+    },
+  ],
+  faq: [
+    { q: 'Is hard water or soft water better?', a: 'For plumbing and cleaning, soft water: less scale and less detergent. For drinking, hard water is fine and often tastes better; soft water adds some sodium.' },
+    { q: 'Is hard water bad for you?', a: 'No. USGS calls it a nuisance, not a health concern.' },
+    { q: 'Does soft water help eczema?', a: 'A randomized trial of 336 children found no benefit from water softeners.' },
+    { q: 'Does hard water damage water heaters?', a: 'Yes, over time. In industry-funded tests, hard water built up about 528 grams of scale a year in gas heaters against 7 grams with soft water.' },
+    { q: 'How do I know if I have hard water?', a: "Test it with strips or a drop-count kit, or check your utility's water quality report. Above 7 gpg (120 mg/L) is hard." },
+  ],
+};
+
+// ===========================================================================
+// 9. Can you drink softened water (batch 04)
+// ===========================================================================
+
+export const DRINK_SOFTENED: GuideCopy = {
+  quickAnswer:
+    "Yes, for most people. A softener adds about 8 mg of sodium per liter for every grain per gallon of hardness it removes. With 15 gpg water, drinking 2 liters a day adds about 236 mg of sodium, roughly 10% of the 2,300 mg daily limit. If you're on a low-sodium diet, ask your doctor, keep one unsoftened cold tap for drinking, or use potassium chloride instead of salt.",
+  body: [
+    { kind: 'h2', text: 'How much sodium a softener adds' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'How much sodium a softener adds',
+        captionBelow: 'About 7.9 mg/L per gpg (Penn State Extension; UNL and NDSU give about 8 mg/L). Daily limit: American Heart Association.',
+        headers: ['Hardness removed', 'Sodium added', '2 liters a day'],
+        rows: [
+          ['5 gpg', 'about 39 mg/L', 'about 79 mg'],
+          ['10 gpg', 'about 79 mg/L', 'about 157 mg'],
+          ['15 gpg', 'about 118 mg/L', 'about 236 mg'],
+          ['20 gpg', 'about 157 mg/L', 'about 315 mg'],
+          ['25 gpg', 'about 197 mg/L', 'about 393 mg'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'Who should be careful' },
+    { kind: 'p', text: "EPA's guidance is 20 mg/L of sodium for people on a strict 500 mg a day diet, so anyone on a doctor-ordered low-sodium diet should ask their doctor before drinking softened water. The Minnesota Department of Health, NDSU and UNL all suggest keeping one cold tap unsoftened for drinking and cooking. Softened water isn't recommended for watering houseplants or gardens." },
+    { kind: 'h2', text: 'Potassium chloride instead of salt' },
+    { kind: 'p', text: 'Potassium chloride replaces sodium with potassium. It costs more, up to about $25 per 40 lb bag against $5 to $10 for salt, and you need roughly 10% more of it, according to NDSU. Compare total costs with our [salt calculator](/water-softener-salt-calculator/).' },
+    { kind: 'h2', text: 'Babies' },
+    { kind: 'p', text: "We found no US agency guidance specific to softened water and infant formula. The simplest choice is to make formula with water from an unsoftened tap, and to test well water for nitrate first (babies under 6 months shouldn't drink water above 10 mg/L nitrate)." },
+  ],
+  faq: [
+    { q: 'Is it safe to drink softened water?', a: 'Yes, for most people. It adds about 8 mg of sodium per liter for each gpg of hardness removed.' },
+    { q: 'How much sodium is in softened water?', a: 'Multiply your hardness in gpg by about 8. Water softened from 15 gpg has about 118 mg of sodium per liter.' },
+    { q: 'Can I drink softened water on a low-sodium diet?', a: "Ask your doctor. EPA's guidance for people on a strict 500 mg a day diet is 20 mg/L, which most softened water exceeds." },
+    { q: 'Does potassium chloride make softened water safer?', a: 'It replaces sodium with potassium, so it avoids the added sodium, but it costs more and you need about 10% more.' },
+    { q: 'Should I keep an unsoftened tap for drinking?', a: "It's a common recommendation from state health departments and extension services, especially for people watching sodium." },
+  ],
+};
+
 export const GUIDE_FAQ: Record<string, FaqItem[]> = {
   '/water-softener-not-working/': SOFTENER_NOT_WORKING.faq,
   '/iron-filter-for-well-water/': IRON_FILTER.faq,
   '/how-to-test-water-hardness/': HARDNESS_TEST.faq,
   '/well-water-test-kit/': WELL_TEST.faq,
   '/how-long-do-water-softeners-last/': SOFTENER_LIFESPAN.faq,
+  '/water-softener-cleaner/': SOFTENER_CLEANER.faq,
+  '/tds-meter-chart/': TDS_GUIDE.faq,
+  '/hard-water-vs-soft-water/': HARD_VS_SOFT.faq,
+  '/can-you-drink-softened-water/': DRINK_SOFTENED.faq,
 };

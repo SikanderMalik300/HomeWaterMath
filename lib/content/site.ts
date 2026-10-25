@@ -68,6 +68,7 @@ export const SOFTENERS_HUB = {
     headers: ['If you want to know', 'Use'],
     rows: [
       ['What size softener to buy', 'Water softener size calculator'],
+      ['What to enter on your softener', 'Water softener settings calculator'],
       ['What it will cost, installed and over 10 years', 'Water softener cost calculator'],
       ['How much salt it will use', 'Water softener salt calculator'],
       ['How to turn ppm or mg/L into gpg', 'Water hardness converter'],

@@ -40,6 +40,11 @@ const PAGES = [
   { slug: '/how-to-test-water-hardness/', h1: 'How to Test Water Hardness at Home' },
   { slug: '/well-water-test-kit/', h1: 'Well Water Testing: What to Test and What It Costs', photo: { base: 'hand-filling-glass-tap-water', kind: 'tile' } },
   { slug: '/how-long-do-water-softeners-last/', h1: 'How Long Do Water Softeners Last?' },
+  { slug: '/water-softener-settings/', h1: 'Water Softener Settings Calculator' },
+  { slug: '/water-softener-cleaner/', h1: 'Water Softener Cleaner: How Much to Use and How Often' },
+  { slug: '/tds-meter-chart/', h1: 'TDS Meter Chart: What Your Reading Means' },
+  { slug: '/hard-water-vs-soft-water/', h1: 'Hard Water vs Soft Water: What Actually Changes', photo: { base: 'soap-lather-hands', kind: 'tile' } },
+  { slug: '/can-you-drink-softened-water/', h1: 'Can You Drink Softened Water?', photo: { base: 'clear-glass-of-water', kind: 'tile' } },
   { slug: '/about/', h1: 'About HomeWaterMath' },
   { slug: '/how-we-calculate/', h1: 'How we calculate' },
   { slug: '/editorial-policy/', h1: 'Editorial policy' },
@@ -56,6 +61,7 @@ const PAGES = [
 // llms.txt sections, mirrored from the registry: [slug, title, cardBlurb].
 const TOOL_LINES = [
   ['/water-softener-size-calculator/', 'Water softener size calculator', 'Grains you need from your household and hardness, at your real salt setting.'],
+  ['/water-softener-settings/', 'Water softener settings calculator', 'What to enter on your softener: hardness, capacity, reserve and day override.'],
   ['/water-softener-cost/', 'Water softener cost calculator', 'Unit, install, salt and service, with a 10-year total and a quote check.'],
   ['/water-softener-salt-calculator/', 'Water softener salt calculator', 'Pounds per month, bags per year and yearly cost for your softener.'],
   ['/water-softener-installation-cost/', 'Water softener installation cost calculator', 'Itemized install labor: loop, drain, outlet, removal and permit.'],
@@ -73,6 +79,10 @@ const GUIDE_LINES = [
   ['/how-to-test-water-hardness/', 'How to test water hardness at home', 'Strips, drop-count kits, a lab or your utility report.'],
   ['/well-water-test-kit/', 'Well water testing: what to test and what it costs', 'What to test, when, EPA limits, and what it costs.'],
   ['/how-long-do-water-softeners-last/', 'How long do water softeners last?', 'Life by part, what wears out first, warranties.'],
+  ['/water-softener-cleaner/', 'Water softener cleaner: dose and how often', 'Dose and how often, with label doses and a dose calculator.'],
+  ['/tds-meter-chart/', 'TDS meter chart: what your reading means', 'What your reading means, taste bands and an RO check.'],
+  ['/hard-water-vs-soft-water/', 'Hard water vs soft water: what actually changes', 'Scale, soap, skin, health and sodium, with the test results.'],
+  ['/can-you-drink-softened-water/', 'Can you drink softened water?', 'How much sodium softening adds, and when to keep a plain tap.'],
 ];
 
 const HUB_LINES = [

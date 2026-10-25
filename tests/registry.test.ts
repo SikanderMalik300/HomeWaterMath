@@ -52,10 +52,10 @@ describe('registry integrity', () => {
     expect(PAGES.filter((p) => p.type === 'hub')).toHaveLength(3);
   });
 
-  it('there are 30 pages total, 10 tools and 5 guides', () => {
-    expect(PAGES).toHaveLength(30);
-    expect(toolPages).toHaveLength(10);
-    expect(PAGES.filter((p) => p.type === 'guide')).toHaveLength(5);
+  it('there are 35 pages total, 11 tools and 9 guides', () => {
+    expect(PAGES).toHaveLength(35);
+    expect(toolPages).toHaveLength(11);
+    expect(PAGES.filter((p) => p.type === 'guide')).toHaveLength(9);
   });
 
   it("every tool's photoId, when its slot exists, is a valid photo entry", () => {

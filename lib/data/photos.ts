@@ -252,6 +252,42 @@ export const PHOTOS: Record<string, Photo> = {
     usedOn: ['/iron-filter-for-well-water/'],
     status: 'approved',
   },
+  // --- Batch 04 photos. Two of five slots filled; three stay mist squares:
+  // tool-softener-settings (softener control heads on free stock carry brand
+  // logos), guide-softener-cleaner (no clean "measuring a dose" shot; pour shots
+  // read as a beverage) and guide-tds (no brand-free pocket TDS pen meter).
+  'guide-hard-vs-soft': {
+    id: 'guide-hard-vs-soft',
+    baseName: 'soap-lather-hands',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/close-up-shot-of-a-hand-washing-9871625/',
+    downloadUrl: 'https://images.pexels.com/photos/9871625/pexels-photo-9871625.jpeg',
+    photographer: 'Towfiqu barbhuiya',
+    photographerUrl: 'https://www.pexels.com/@towfiqu-barbhuiya-3440682/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'Hands lathered with soap suds at a sink',
+    focalX: 0.42,
+    focalY: 0.5,
+    usedOn: ['/hard-water-vs-soft-water/'],
+    status: 'approved',
+  },
+  'guide-drink-softened': {
+    id: 'guide-drink-softened',
+    baseName: 'clear-glass-of-water',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/a-clear-drinking-glass-with-water-7904429/',
+    downloadUrl: 'https://images.pexels.com/photos/7904429/pexels-photo-7904429.jpeg',
+    photographer: 'Anna Tarazevich',
+    photographerUrl: 'https://www.pexels.com/@anntarazevich/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A clear glass of water on a light countertop',
+    focalX: 0.48,
+    focalY: 0.58,
+    usedOn: ['/can-you-drink-softened-water/'],
+    status: 'approved',
+  },
 };
 
 export function getPhoto(id: string | null): Photo | null {

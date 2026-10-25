@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 const CALCULATORS = [
   { label: 'Water softener size calculator', href: '/water-softener-size-calculator/' },
+  { label: 'Water softener settings calculator', href: '/water-softener-settings/' },
   { label: 'Water softener cost calculator', href: '/water-softener-cost/' },
   { label: 'Water softener salt calculator', href: '/water-softener-salt-calculator/' },
   { label: 'Water softener installation cost', href: '/water-softener-installation-cost/' },

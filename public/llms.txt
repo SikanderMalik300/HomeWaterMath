@@ -4,6 +4,7 @@ Free, source-backed calculators and guides for home water: water softeners, priv
 
 ## Calculators
 - [Water softener size calculator](https://homewatermath.com/water-softener-size-calculator/): Grains you need from your household and hardness, at your real salt setting.
+- [Water softener settings calculator](https://homewatermath.com/water-softener-settings/): What to enter on your softener: hardness, capacity, reserve and day override.
 - [Water softener cost calculator](https://homewatermath.com/water-softener-cost/): Unit, install, salt and service, with a 10-year total and a quote check.
 - [Water softener salt calculator](https://homewatermath.com/water-softener-salt-calculator/): Pounds per month, bags per year and yearly cost for your softener.
 - [Water softener installation cost calculator](https://homewatermath.com/water-softener-installation-cost/): Itemized install labor: loop, drain, outlet, removal and permit.
@@ -20,6 +21,10 @@ Free, source-backed calculators and guides for home water: water softeners, priv
 - [How to test water hardness at home](https://homewatermath.com/how-to-test-water-hardness/): Strips, drop-count kits, a lab or your utility report.
 - [Well water testing: what to test and what it costs](https://homewatermath.com/well-water-test-kit/): What to test, when, EPA limits, and what it costs.
 - [How long do water softeners last?](https://homewatermath.com/how-long-do-water-softeners-last/): Life by part, what wears out first, warranties.
+- [Water softener cleaner: dose and how often](https://homewatermath.com/water-softener-cleaner/): Dose and how often, with label doses and a dose calculator.
+- [TDS meter chart: what your reading means](https://homewatermath.com/tds-meter-chart/): What your reading means, taste bands and an RO check.
+- [Hard water vs soft water: what actually changes](https://homewatermath.com/hard-water-vs-soft-water/): Scale, soap, skin, health and sodium, with the test results.
+- [Can you drink softened water?](https://homewatermath.com/can-you-drink-softened-water/): How much sodium softening adds, and when to keep a plain tap.
 
 ## Category pages
 - [Water softener calculators](https://homewatermath.com/water-softeners/): Size, cost, salt, install, salt vs salt-free, and hardness for US homes.

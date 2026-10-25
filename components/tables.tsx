@@ -7,7 +7,7 @@ import { sizeChartCell } from '@/lib/calc/softenerSize';
 import { saltPerYearForTable } from '@/lib/calc/salt';
 import { convertHardness } from '@/lib/calc/hardness';
 import { pressureTank, drawdownFactor } from '@/lib/calc/pressureTank';
-import { PRESSURE_TANKS } from '@/lib/data/constants';
+import { PRESSURE_TANKS, SIZES, CAPACITY_PER_CUFT, SALT_SETTINGS } from '@/lib/data/constants';
 import { formatInt, formatDecimal } from '@/lib/calc/round';
 
 export function SizeChartTable() {
@@ -24,6 +24,22 @@ export function SizeChartTable() {
     headers: ['People', '5 gpg', '10 gpg', '15 gpg', '20 gpg', '25 gpg'],
     rows,
     numericCols: [0, 1, 2, 3, 4, 5],
+  };
+  return <ReferenceTable table={table} />;
+}
+
+export function CapacityBySizeTable() {
+  const rows = SIZES.map((s) => [
+    `${formatInt(s.label)} (${s.cuFt} cu ft)`,
+    ...SALT_SETTINGS.map((set) => formatInt(s.cuFt * CAPACITY_PER_CUFT[set])),
+  ]);
+  const table: SimpleTable = {
+    caption: 'Capacity by size and salt setting (grains)',
+    captionBelow:
+      "Real grains held at each salt dose (cubic feet of resin times grains per cubic foot: 20,000 at 6 lb, 25,000 at 9 lb, 27,500 at 12 lb, 30,000 at 15 lb).",
+    headers: ['Size (grains)', '6 lb', '9 lb', '12 lb', '15 lb'],
+    rows,
+    numericCols: [1, 2, 3, 4],
   };
   return <ReferenceTable table={table} />;
 }

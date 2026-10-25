@@ -15,6 +15,7 @@ export default function Page() {
       faq={SOFTENERS_HUB.faq}
       tileSlugs={[
         '/water-softener-size-calculator/',
+        '/water-softener-settings/',
         '/water-softener-cost/',
         '/water-softener-salt-calculator/',
         '/water-hardness-converter/',
@@ -25,6 +26,9 @@ export default function Page() {
         '/water-softener-not-working/',
         '/how-to-test-water-hardness/',
         '/how-long-do-water-softeners-last/',
+        '/water-softener-cleaner/',
+        '/hard-water-vs-soft-water/',
+        '/can-you-drink-softened-water/',
       ]}
     />
   );

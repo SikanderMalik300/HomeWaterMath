@@ -57,7 +57,7 @@ export const SOURCES = {
     id: 'psu-softening',
     name: 'Penn State Extension, Water Softening',
     url: 'https://extension.psu.edu/water-softening',
-    accessed: ACCESSED,
+    accessed: '2026-10-25',
   },
   'ndsu-wq1031': {
     id: 'ndsu-wq1031',
@@ -357,6 +357,31 @@ export const SOURCES = {
   'whirlpool-whes48-warranty': { id: 'whirlpool-whes48-warranty', name: "Whirlpool WHES48 warranty (Lowe's PDF)", url: 'https://pdf.lowes.com/productdocuments/4495683a-7173-4673-8971-d537e675aa9f/69908253.pdf', accessed: '2026-10-21' },
   // Fix 04
   'nsf-standards': { id: 'nsf-standards', name: 'NSF, Standards for water treatment systems', url: 'https://www.nsf.org/consumer-resources/articles/standards-water-treatment-systems', accessed: '2026-10-22' },
+
+  // --- Batch 04 sources (accessed 2026-10-25) ---
+  'pro-res-care-label': { id: 'pro-res-care-label', name: 'Pro Products, Pro Res Care label', url: 'https://cdn.shopify.com/s/files/1/0891/9214/files/Pro-Res-Care.pdf', accessed: '2026-10-25' },
+  'nelsen-rescare': { id: 'nelsen-rescare', name: 'Nelsen, Res Care (NSF/ANSI/CAN 60)', url: 'https://www.nelsencorp.com/itemdetail/RES%20CARE-64', accessed: '2026-10-25' },
+  'fws-rescare': { id: 'fws-rescare', name: 'Fresh Water Systems, Res Care 1 gal ($20.69)', url: 'https://freshwatersystems.com/products/rescare-liquid-resin-cleaner-1-gal', accessed: '2026-10-25' },
+  'resup-instructions': { id: 'resup-instructions', name: 'Res-Up feeder instructions, form 1677 (2010)', url: 'https://assets.freshwatersystems.com/images/xrgdzghan02d0cqqa9ou/resupfeeder.pdf', accessed: '2026-10-25' },
+  'weco-resup': { id: 'weco-resup', name: 'WECO, Res-Up 1 gallon ($31.99)', url: 'https://www.wecofilters.com/res-up-water-softener-cleaner-1-gallon-bottle.html', accessed: '2026-10-25' },
+  'ironout-summit': { id: 'ironout-summit', name: 'Summit Brands, Iron OUT powder', url: 'https://summitbrands.com/iron-out-rust-stain-removers/powder/', accessed: '2026-10-25' },
+  'ironout-sds': { id: 'ironout-sds', name: 'Iron OUT powder SDS (2018)', url: 'https://images.homedepot-static.com/catalog/pdfImages/de/de4f2aa6-e1f6-4fcf-8661-9e85166ceac3.pdf', accessed: '2026-10-25' },
+  'outfiltermate-summit': { id: 'outfiltermate-summit', name: 'Summit Brands, OUT Filter Mate Heavy Duty', url: 'https://summitbrands.com/out-filter-mate/heavy-duty-water-softener-cleaner/', accessed: '2026-10-25' },
+  'ge-gxsf27b-manual': { id: 'ge-gxsf27b-manual', name: 'GE GXSF27B manual (sanitizing)', url: 'https://manualslib.mx/manual/137341/Ge-Gxsf27B.html?page=10', accessed: '2026-10-25' },
+  'who-tds-background': { id: 'who-tds-background', name: 'WHO, TDS background document WHO/SDE/WSH/03.04/16', url: 'https://www.who.int/docs/default-source/wash-documents/wash-chemicals/total-dissolved-solids-background-document.pdf', accessed: '2026-10-25' },
+  'who-tds-factsheet': { id: 'who-tds-factsheet', name: 'WHO, TDS fact sheet', url: 'https://cdn.who.int/media/docs/default-source/wash-documents/wash-chemicals/total-dissolved-solids-fs-new.pdf', accessed: '2026-10-25' },
+  'ndsu-wq1923': { id: 'ndsu-wq1923', name: 'NDSU Extension WQ1923, Using electrical conductivity (rev. Jan 2024)', url: 'https://ndsu.edu/agriculture/sites/default/files/2025-01/WQ1923%20Using%20Electrical%20Conductivity%20-%20Water%20Quality.pdf', accessed: '2026-10-25' },
+  'vce-442-666': { id: 'vce-442-666', name: 'Virginia Cooperative Extension 442-666, Total Dissolved Solids', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2022-05/Total%20Dissolved%20Solids.pdf', accessed: '2026-10-25' },
+  'epa-ro-performance-2024': { id: 'epa-ro-performance-2024', name: 'EPA WaterSense, RO systems performance summary (Dec 2024)', url: 'https://www.epa.gov/system/files/documents/2025-01/ws-products-ro-systems-performance-summary_508.pdf', accessed: '2026-10-25' },
+  'hmdigital-tds3': { id: 'hmdigital-tds3', name: 'Hydrobuilder, HM Digital TDS-3 ($19.94)', url: 'https://hydrobuilder.com/products/hm-digital-tds-3-handheld-tds-ec-temp-meter', accessed: '2026-10-25' },
+  'battelle-wqp-2010': { id: 'battelle-wqp-2010', name: 'Water Quality Products, Battelle softened water study (2010-04-23)', url: 'https://www.waterworld.com/residential-commercial/article/14307772/battelle-benefits', accessed: '2026-10-25' },
+  'wqrf-laundry-2011': { id: 'wqrf-laundry-2011', name: 'Water Online, Studies show washing with softened water (2011-03-03)', url: 'https://www.wateronline.com/doc/studies-show-washing-with-softened-water-0001', accessed: '2026-10-25' },
+  'swet-nottingham-2011': { id: 'swet-nottingham-2011', name: 'University of Nottingham, SWET eczema trial (2011-02-15)', url: 'https://nottingham.ac.uk/news/pressreleases/2011/february/watersoftenerseczema.aspx', accessed: '2026-10-25' },
+  'who-hardness-2003': { id: 'who-hardness-2003', name: 'WHO, Hardness in drinking-water (2003)', url: 'https://cdn.who.int/media/docs/default-source/wash-documents/wash-chemicals/hardness2003.pdf', accessed: '2026-10-25' },
+  'epa-sodium-2003': { id: 'epa-sodium-2003', name: 'EPA 822-R-03-006, Drinking water advisory: sodium (2003)', url: 'https://www.epa.gov/sites/default/files/2014-09/documents/support_cc1_sodium_dwreport.pdf', accessed: '2026-10-25' },
+  'aha-sodium': { id: 'aha-sodium', name: 'American Heart Association, How much sodium should I eat per day (reviewed 2025-07-15)', url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sodium/how-much-sodium-should-i-eat-per-day', accessed: '2026-10-25' },
+  'mdh-softening': { id: 'mdh-softening', name: 'Minnesota Department of Health, Home water softening (2022-10-03)', url: 'https://www.health.state.mn.us/communities/environment/water/factsheet/softening.html', accessed: '2026-10-25' },
+  'epa-infants-wells': { id: 'epa-infants-wells', name: 'EPA, Private wells and drinking water safety for infants (2026-10-20)', url: 'https://www.epa.gov/children/private-wells-and-drinking-water-safety-and-infants', accessed: '2026-10-25' },
 } as const;
 
 export type SourceId = keyof typeof SOURCES;
