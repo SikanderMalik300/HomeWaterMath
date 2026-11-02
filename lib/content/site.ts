@@ -103,6 +103,7 @@ export const WELL_HUB = {
     rows: [
       ['What size pressure tank for my well', 'Well pressure tank size calculator'],
       ['Pump replacement cost', 'Well pump replacement cost'],
+      ['How much bleach to shock a well', 'Well shock chlorination calculator'],
       ['Hardness on a well', 'Water hardness converter'],
       ['A softener for well water', 'Water softener size calculator'],
     ],

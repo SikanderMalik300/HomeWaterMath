@@ -288,6 +288,42 @@ export const PHOTOS: Record<string, Photo> = {
     usedOn: ['/can-you-drink-softened-water/'],
     status: 'approved',
   },
+  // --- Batch 05 photos. Two of four slots filled; two stay mist squares:
+  // tool-well-shock (no clean, brand-free well-cap or well-head shot; the only
+  // candidates were rusty leaking pipes that mislead) and guide-salt-bridge (no
+  // brine-tank-interior or broom-handle-at-tank photo on free stock).
+  'guide-salt-types': {
+    id: 'guide-salt-types',
+    baseName: 'white-salt-crystals-macro',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/white-sea-salt-in-close-up-photography-7717461/',
+    downloadUrl: 'https://images.pexels.com/photos/7717461/pexels-photo-7717461.jpeg',
+    photographer: 'Marina Leonova',
+    photographerUrl: 'https://www.pexels.com/@marina-zasorina/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A close-up of coarse white salt crystals',
+    focalX: 0.5,
+    focalY: 0.5,
+    usedOn: ['/water-softener-salt-types/'],
+    status: 'approved',
+  },
+  'guide-uv-well': {
+    id: 'guide-uv-well',
+    baseName: 'stainless-water-treatment-vessel',
+    kind: 'tile',
+    sourceUrl: 'https://www.pexels.com/photo/stainless-steel-pipe-with-pressure-gauge-8940464/',
+    downloadUrl: 'https://images.pexels.com/photos/8940464/pexels-photo-8940464.jpeg',
+    photographer: 'Thirdman',
+    photographerUrl: 'https://www.pexels.com/@thirdman/',
+    source: 'Pexels',
+    license: 'Pexels License',
+    alt: 'A stainless steel water treatment vessel with a pressure gauge and valves',
+    focalX: 0.48,
+    focalY: 0.4,
+    usedOn: ['/uv-light-for-well-water/'],
+    status: 'approved',
+  },
 };
 
 export function getPhoto(id: string | null): Photo | null {

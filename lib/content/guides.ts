@@ -95,7 +95,7 @@ export const SOFTENER_NOT_WORKING: GuideCopy = {
     {
       kind: 'ol',
       items: [
-        "Salt. Look in the brine tank. If the salt looks full but the level never drops, push a broom handle down through it. A hard crust with empty space under it is a salt bridge: the softener can't make brine, so it can't regenerate.",
+        "Salt. Look in the brine tank. If the salt looks full but the level never drops, push a broom handle down through it. A hard crust with empty space under it is a [salt bridge](/water-softener-salt-bridge/): the softener can't make brine, so it can't regenerate.",
         'Bypass. The bypass valve sits on the pipes at the back of the control valve. If it was turned during a plumbing job, water goes around the softener.',
         'Clock. Fleck and Clack valves keep time for about 8 hours without power. After a longer outage they regenerate at the wrong time until you reset the time of day.',
         'Hardness setting. Test your water again and compare it with [the setting](/water-softener-settings/). Add 4 gpg for every ppm of iron.',
@@ -295,7 +295,7 @@ export const WELL_TEST: GuideCopy = {
     },
     { kind: 'p', text: 'Use a lab certified by your state for anything that affects health. EPA keeps a [list of state certification programs](https://www.epa.gov/dwlabcert/contact-information-certification-programs-and-certified-laboratories-drinking-water), and your county health department can usually take samples or sell a sample kit.' },
     { kind: 'h2', text: 'When to test again right away' },
-    { kind: 'p', text: "Test again, even if you tested this year, after flooding near the well, after any well repair or new pump, when the water's taste, color or smell changes, when someone in the home is pregnant or a baby arrives, or after nearby construction, farming or septic work. If a test finds bacteria, disinfect the well and test again." },
+    { kind: 'p', text: "Test again, even if you tested this year, after flooding near the well, after any well repair or new pump, when the water's taste, color or smell changes, when someone in the home is pregnant or a baby arrives, or after nearby construction, farming or septic work. If a test finds bacteria, [shock the well](/well-shock-chlorination-calculator/) and test again." },
   ],
   faq: [
     { q: 'How often should I test my well water?', a: 'At least once a year for total coliform bacteria, nitrate, total dissolved solids and pH, and again after floods, repairs or changes in taste, color or smell.' },
@@ -548,6 +548,189 @@ export const DRINK_SOFTENED: GuideCopy = {
   ],
 };
 
+// ===========================================================================
+// 10. Water softener salt types (batch 05)
+// ===========================================================================
+
+export const SALT_TYPES_GUIDE: GuideCopy = {
+  quickAnswer:
+    "For most softeners, evaporated salt pellets are the best buy: about 99.7% pure, allowed by every manual we checked, and about 22 cents a pound. Solar salt is a close second. Avoid rock salt unless your manual allows it, because its insoluble dirt builds up in the tank. Potassium chloride avoids adding sodium but costs more than five times as much a year, since it's pricier and you need 13 to 15% more.",
+  body: [
+    { kind: 'h2', text: 'Salt types compared' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Salt types compared',
+        captionBelow: "Purity: Cargill product information. Manual rules: Fleck 7000SXT, GE and Whirlpool owner's manuals.",
+        headers: ['Type', 'Purity', 'Notes', 'Allowed by most manuals'],
+        rows: [
+          ['Evaporated pellets', '99.7% to 99.99%', 'Cleanest; least residue', 'Yes'],
+          ['Solar salt (crystals)', '99.6% to 99.8%', 'Slightly more insolubles than pellets', 'Yes (GE asks for coarse solar of 99.5% or more)'],
+          ['Rock salt', '95% to over 98.5%', 'Leaves dirt; needs regular tank cleanouts', 'No: Fleck, GE and Whirlpool say not to use it'],
+          ['Block salt', '99.8%', 'Only for softeners made for blocks', 'No, unless your softener takes blocks'],
+          ['Potassium chloride', 'about 99%', 'No sodium; costs more; bridges more easily', 'Yes, with a setting change'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'What softener manuals say' },
+    { kind: 'p', text: "Fleck's 7000SXT manual says not to use granulated or rock salt. GE asks for nugget, pellet or coarse solar salt at least 99.5% pure, and no rock, block, granulated or ice cream salt. Whirlpool allows nugget, pellet or coarse solar salt with less than 1% impurities. If your manual and this page disagree, follow the manual." },
+    { kind: 'h2', text: 'Potassium chloride: how much more you need' },
+    { kind: 'p', text: "Potassium chloride replaces sodium with potassium, so softened water adds no sodium. The Water Quality Association says you need a 13 to 15% higher concentration, so set your softener's salt type to potassium if it has that option, or raise the salt amount. Potassium chloride also cakes more readily in humid basements; Whirlpool says not to fill it above level 4 and to check it monthly. It doesn't reduce the chloride a softener sends to the drain." },
+    { kind: 'h2', text: 'Salt for iron' },
+    { kind: 'p', text: 'Iron-fighting pellets, such as Diamond Crystal Iron Fighter and Morton Rust Defense, add a cleaner that helps keep iron from fouling the resin. Diamond Crystal says its additive works only up to about 2 ppm of iron; above that, use an [iron filter](/iron-filter-for-well-water/). GE warns that some iron additives can release corrosive fumes, so check your manual.' },
+    { kind: 'h2', text: 'Which salt to buy' },
+    {
+      kind: 'ul',
+      items: [
+        'Most homes: evaporated pellets.',
+        'Tight budget, manual allows it: solar salt.',
+        'Some iron in the water: iron-fighting pellets, plus a [resin cleaner](/water-softener-cleaner/) if needed.',
+        'On a low-sodium diet: potassium chloride, or keep one unsoftened tap for drinking ([details](/can-you-drink-softened-water/)).',
+      ],
+    },
+    { kind: 'p', text: "Don't mix salt types in the tank; it can cause bridging and mush." },
+  ],
+  faq: [
+    { q: 'What is the best salt for a water softener?', a: "Evaporated salt pellets for most homes. They're the purest common type and every softener manual we checked allows them." },
+    { q: 'Is potassium chloride better than salt for a water softener?', a: 'Only if you want to avoid sodium. It works, but it costs more than five times as much a year and you need 13 to 15% more.' },
+    { q: 'Can I use rock salt in my water softener?', a: 'Usually not. Fleck, GE and Whirlpool manuals say not to, because its insoluble dirt builds up in the brine tank.' },
+    { q: 'Can I mix different types of softener salt?', a: "It's best not to. Mixing salt types can cause bridging and mush. Let the tank run low before you switch." },
+    { q: 'How much salt does a water softener use a year?', a: 'A family of 4 with 15 gpg water uses about 600 lb a year at a 9 lb salt setting. The [salt calculator](/water-softener-salt-calculator/) works out yours.' },
+  ],
+};
+
+// ===========================================================================
+// 11. Water softener salt bridge (batch 05)
+// ===========================================================================
+
+export const SALT_BRIDGE: GuideCopy = {
+  quickAnswer:
+    'A salt bridge is a hard crust of salt that forms above the water in the brine tank, leaving an empty space underneath. The salt level stops dropping and your water turns hard because the softener can\'t make brine. Break it by pushing a broom handle into the crust in several places, never with a sharp or metal tool, then add a gallon of warm (not hot) water. Keeping the tank no more than about half full and using pellets helps stop it coming back.',
+  body: [
+    { kind: 'h2', text: 'Salt bridge or salt mush?' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Salt bridge or salt mush?',
+        captionBelow: 'Based on GE, Whirlpool and Culligan owner and troubleshooting guides, and the Diamond Crystal and Cargill salt FAQs.',
+        headers: ['', 'Salt bridge', 'Salt mush'],
+        rows: [
+          ['What it is', 'A hard crust above the water, with empty space below', 'Dissolved salt that recrystallized into sludge at the bottom'],
+          ['Main sign', "Salt level doesn't drop; water turns hard", "Water level stays high; brine isn't drawn"],
+          ['Common causes', 'Humidity, overfilling, wrong salt', 'Low-purity or fine salt, mixing salt types'],
+          ['Fix', 'Break the crust carefully', 'Scoop the sludge out and refill'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'The broom handle check' },
+    { kind: 'p', text: "Mark a broom handle at the height of the tank's rim. Push it straight down through the salt until it stops, and mark the handle at the rim again. If it stops on something hard well above the bottom and then breaks through, or if the distance doesn't match where the salt should be, you have a bridge." },
+    { kind: 'h2', text: 'How to break a salt bridge' },
+    {
+      kind: 'ol',
+      items: [
+        "Push a broom handle into the crust in several places to crack it. Don't use sharp or metal tools, and don't pound the tank.",
+        "Once it's broken up, pour about a gallon of warm (not hot) water over the salt to help loosen it.",
+        "Scoop out any large chunks, and remove salt that isn't the type your manual recommends.",
+        'Refill with pellets, keeping the salt a few inches above the water.',
+      ],
+    },
+    { kind: 'h2', text: 'How to clear salt mush' },
+    { kind: 'p', text: 'Scoop out the good pellets and set them aside, remove the sludge from the bottom, rinse the tank, and refill.' },
+    { kind: 'h2', text: 'How to stop it coming back' },
+    {
+      kind: 'ul',
+      items: [
+        'Keep the tank about half full, and add salt when it drops to about a quarter. Keep it lower in humid basements.',
+        'Keep the salt a few inches above the water level.',
+        "Use evaporated pellets; they're less likely to bridge than fine or low-purity salt ([salt types](/water-softener-salt-types/)).",
+        "Don't mix salt types.",
+        "Check every 2 to 3 weeks until you know your softener's pattern, then monthly.",
+        'With high-purity salt, brine tank cleaning is rarely needed. With rock salt, Cargill suggests cleaning 2 to 3 times a year.',
+      ],
+    },
+  ],
+  faq: [
+    { q: 'How do I know if my water softener has a salt bridge?', a: 'The salt level doesn\'t drop for weeks and your water turns hard. A broom handle pushed into the salt hits a hard crust with empty space below.' },
+    { q: 'Can I use hot water to break a salt bridge?', a: "Use warm, not hot, water. GE's manual suggests about a gallon of warm water after breaking the crust." },
+    { q: 'How often should I check for a salt bridge?', a: 'Every 2 to 3 weeks at first, then monthly once you know your usage.' },
+    { q: 'Does potassium chloride bridge more than salt?', a: 'It can. It hardens more easily with humidity and temperature changes, so Whirlpool says to keep it lower in the tank and check it monthly.' },
+    { q: 'Should water be in my brine tank?', a: 'Yes, a few inches is normal on most softeners. Keep the salt above the water level.' },
+  ],
+};
+
+// ===========================================================================
+// 12. UV light for well water (batch 05)
+// ===========================================================================
+
+export const UV_WELL: GuideCopy = {
+  quickAnswer:
+    "A UV system kills bacteria, viruses and parasites in well water without chemicals, but it only works on clear water. Size it at the 40 mJ/cm² dose (NSF/ANSI 55 Class A) for your pump's flow rate, add a 5-micron sediment filter, and treat iron, manganese, hardness and tannins first if they're above the limits. A typical whole-house system costs $700 to $2,500 installed, plus about $135 a year for a new lamp.",
+  body: [
+    { kind: 'h2', text: "What UV does and doesn't do" },
+    { kind: 'p', text: "UV light damages the DNA of bacteria, viruses and parasites such as Giardia and Cryptosporidium so they can't multiply. It adds nothing to the water and leaves no residual, so it only treats water at the moment it passes the lamp. It doesn't remove iron, lead, nitrate, arsenic or any other chemical, and it doesn't fix a well that lets surface water in. If a test finds E. coli, or bacteria keep coming back, have the well checked and [shock it](/well-shock-chlorination-calculator/) before relying on UV." },
+    { kind: 'h2', text: 'Class A vs Class B' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Class A vs Class B',
+        captionBelow: 'Source: NSF/ANSI 55 (2024), as summarized by ANSI and NSF.',
+        headers: ['', 'Class A', 'Class B'],
+        rows: [
+          ['UV dose', '40 mJ/cm²', '16 mJ/cm²'],
+          ['Use', 'Water that may contain bacteria, viruses and parasites', 'Extra protection for water that already tests safe'],
+          ['Right for a well with a positive test', 'Yes', 'No'],
+        ],
+      },
+    },
+    { kind: 'h2', text: 'Pre-treatment limits' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Pre-treatment limits',
+        captionBelow: "Source: VIQUA UV system FAQ (2025). Some makers set stricter limits; check your system's manual.",
+        headers: ['Test', 'Limit for UV', "If it's higher"],
+        rows: [
+          ['Iron', 'under 0.3 ppm', 'Iron filter'],
+          ['Manganese', 'under 0.05 ppm', 'Iron/manganese filter'],
+          ['Hardness', 'under 7 gpg', 'Water softener'],
+          ['Tannins', 'under 0.1 ppm', 'Tannin filter'],
+          ['Turbidity', 'under 1 NTU', 'Sediment filter'],
+          ['UV transmittance', 'over 75%', 'Find and treat the cause'],
+        ],
+      },
+    },
+    { kind: 'p', text: 'Iron and hardness coat the quartz sleeve, and cloudy or tea-colored water shades the bacteria from the light. Every UV system should have a 5-micron sediment filter in front of it.' },
+    { kind: 'h2', text: 'Sizing a UV system' },
+    { kind: 'p', text: "Choose a system rated for at least your pump's flow rate at 40 mJ/cm². Ratings at lower doses look bigger: the VIQUA VH200, for example, is rated 7 gpm at 40 mJ/cm² but 16 gpm at 16 mJ/cm². If you don't know your pump's flow, time how long a 5-gallon bucket takes to fill at a tap near the pressure tank: 300 ÷ seconds = gallons per minute." },
+    { kind: 'h2', text: 'Installation' },
+    { kind: 'p', text: 'UV goes after the pressure tank and any softener or filters, and before the water splits to the house. It needs a grounded GFCI outlet, a bypass valve for servicing, and the lamp on all the time. After installing, disinfect the plumbing downstream once, since UV won\'t clean bacteria already in the pipes. Retest for coliform bacteria after installation.' },
+    { kind: 'h2', text: 'Maintenance' },
+    { kind: 'p', text: 'Replace the lamp every year (about 9,000 hours), even if it still glows; its UV output fades. Clean the quartz sleeve every 3 to 12 months and replace it every 2 to 3 years. Change the sediment filter on schedule.' },
+    { kind: 'h2', text: 'Example systems and prices' },
+    {
+      kind: 'table',
+      table: {
+        caption: 'Example systems and prices',
+        captionBelow: 'Prices from ESP Water, Hydrobuilder and VIQUA retailers on October 26, 2026. Examples, not recommendations.',
+        headers: ['System', 'Flow at 40 mJ/cm²', 'Price', 'Yearly lamp'],
+        rows: [
+          ['VIQUA VH200', '7 gpm', '$685', '$135'],
+          ['VIQUA VH410', '14 gpm', '$1,205', 'not checked'],
+          ['VIQUA PRO10 (Class A certified)', '10 gpm', '$3,175', '$310 (every 2 years)'],
+        ],
+      },
+    },
+  ],
+  faq: [
+    { q: 'Does a UV light work for well water?', a: "Yes, for bacteria, viruses and parasites, if the water is clear and pre-treated. It doesn't remove chemicals like iron, nitrate or arsenic." },
+    { q: 'What size UV system do I need for my well?', a: "One rated for at least your pump's flow rate at 40 mJ/cm². A 7 gpm system suits many homes with one pump." },
+    { q: 'How much does a UV system for well water cost?', a: 'About $700 to $2,500 installed, plus about $135 a year for a lamp and a few dollars a month for power.' },
+    { q: 'Do I need a softener before a UV system?', a: 'If your hardness is 7 gpg or more, yes, or the sleeve will scale up and block the light.' },
+    { q: 'How often do you change a UV bulb?', a: 'Every year, about 9,000 hours, even if it still lights up.' },
+    { q: 'Is UV better than chlorine for well water?', a: 'UV adds no chemicals and doesn\'t change taste, but it leaves no residual in the pipes. Chlorination does, but needs dosing and contact time. Many homes with ongoing bacteria use UV after fixing the well.' },
+  ],
+};
+
 export const GUIDE_FAQ: Record<string, FaqItem[]> = {
   '/water-softener-not-working/': SOFTENER_NOT_WORKING.faq,
   '/iron-filter-for-well-water/': IRON_FILTER.faq,
@@ -558,4 +741,7 @@ export const GUIDE_FAQ: Record<string, FaqItem[]> = {
   '/tds-meter-chart/': TDS_GUIDE.faq,
   '/hard-water-vs-soft-water/': HARD_VS_SOFT.faq,
   '/can-you-drink-softened-water/': DRINK_SOFTENED.faq,
+  '/water-softener-salt-types/': SALT_TYPES_GUIDE.faq,
+  '/water-softener-salt-bridge/': SALT_BRIDGE.faq,
+  '/uv-light-for-well-water/': UV_WELL.faq,
 };

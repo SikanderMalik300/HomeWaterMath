@@ -12,6 +12,7 @@ import {
   SOFTENER_INSTALL,
 } from '@/lib/content/tools2';
 import { SETTINGS } from '@/lib/content/tools3';
+import { SHOCK } from '@/lib/content/tools4';
 
 export type PageType = 'tool' | 'hub' | 'trust' | 'home' | 'guide';
 export type Category = 'softeners' | 'well' | 'filters' | null;
@@ -164,7 +165,7 @@ export const PAGES: PageMeta[] = [
     category: 'softeners',
     related: [
       '/water-softener-size-calculator/',
-      '/water-softener-cost/',
+      '/water-softener-salt-types/',
       '/water-softener-settings/',
     ],
     lastUpdated: DATE,
@@ -570,6 +571,93 @@ export const PAGES: PageMeta[] = [
     ownerNote: null,
     notCovered: [],
     cardBlurb: 'How much sodium softening adds, and when to keep a plain tap.',
+  },
+  // Batch 05: shock chlorination calculator + 3 guides
+  {
+    slug: '/well-shock-chlorination-calculator/',
+    type: 'tool',
+    title: 'Well Shock Chlorination Calculator | HomeWaterMath',
+    metaDescription:
+      'How much bleach to shock your well: gallons of water in the well and plumbing, bleach for your target strength, plus steps, safety and when to retest.',
+    h1: 'Well Shock Chlorination Calculator',
+    breadcrumb: 'Well shock chlorination',
+    category: 'well',
+    related: ['/well-water-test-kit/', '/well-pressure-tank-size-calculator/', '/uv-light-for-well-water/'],
+    lastUpdated: '2026-11-03',
+    published: '2026-11-03',
+    sources: [
+      'uga-c858-4', 'nevada-fs-06-69', 'wi-dnr-dg120', 'mdh-well-disinfection', 'cdc-well-disinfection',
+      'tamu-scs-2002-04', 'pa-dep-well-disinfection', 'osu-oregon-shock', 'ohio-aex-318',
+      'psu-shock-chlorination', 'psu-coliform', 'angi-shock-cost', 'wsc-splashless',
+    ],
+    photoId: 'tool-well-shock',
+    ownerNote: null,
+    notCovered: SHOCK.notCovered,
+    cardBlurb: 'How much bleach to shock your well, plus steps, safety and retest timing.',
+  },
+  {
+    slug: '/water-softener-salt-types/',
+    type: 'guide',
+    title: 'Water Softener Salt Types: Which One to Buy | HomeWaterMath',
+    metaDescription:
+      'Pellets, solar, rock or potassium chloride: purity, what softener manuals allow, and a yearly cost calculator by salt type with current 2026 prices.',
+    h1: 'Water Softener Salt Types: Which One to Buy',
+    breadcrumb: 'Water softener salt types',
+    category: 'softeners',
+    related: ['/water-softener-salt-calculator/', '/water-softener-salt-bridge/', '/can-you-drink-softened-water/'],
+    lastUpdated: '2026-11-03',
+    published: '2026-11-03',
+    sources: [
+      'cargill-salt-faq', 'fleck-7000sxt-manual', 'ge-gxsh40v-manual', 'whirlpool-whes40-manual',
+      'unl-g1491', 'wqa-smart-softeners', 'diamond-crystal-faq', 'diamond-crystal-iron-fighter',
+      'morton-kcl', 'tsc-softener-salt', 'hd-softener-salt', 'walmart-morton-pellets',
+    ],
+    photoId: 'guide-salt-types',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Pellets, solar, rock or potassium chloride, with a yearly cost calculator.',
+  },
+  {
+    slug: '/water-softener-salt-bridge/',
+    type: 'guide',
+    title: 'Water Softener Salt Bridge: Spot and Fix It | HomeWaterMath',
+    metaDescription:
+      'Is your softener salt bridged or mushy? A 1-minute check, how to break a salt bridge safely, how to clear salt mush, and how to stop it coming back.',
+    h1: 'Water Softener Salt Bridge: How to Spot and Fix It',
+    breadcrumb: 'Water softener salt bridge',
+    category: 'softeners',
+    related: ['/water-softener-not-working/', '/water-softener-salt-types/', '/water-softener-salt-calculator/'],
+    lastUpdated: '2026-11-03',
+    published: '2026-11-03',
+    sources: [
+      'diamond-crystal-faq', 'cargill-salt-faq', 'ge-gxsh40v-manual', 'whirlpool-whes40-manual',
+      'culligan-troubleshooting', 'culligan-best-salt', 'morton-kcl', 'fleck-7000sxt-manual', 'unl-g1491',
+    ],
+    photoId: 'guide-salt-bridge',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'A quick check, how to break a bridge, and how to stop it coming back.',
+  },
+  {
+    slug: '/uv-light-for-well-water/',
+    type: 'guide',
+    title: 'UV Light for Well Water: Sizing and Cost | HomeWaterMath',
+    metaDescription:
+      'How to size a UV system for well water, the iron, hardness and tannin limits it needs, Class A vs Class B, and a 10-year cost calculator with lamp prices.',
+    h1: 'UV Light for Well Water: Sizing, Pre-Treatment and Cost',
+    breadcrumb: 'UV light for well water',
+    category: 'well',
+    related: ['/well-shock-chlorination-calculator/', '/iron-filter-for-well-water/', '/well-water-test-kit/'],
+    lastUpdated: '2026-11-03',
+    published: '2026-11-03',
+    sources: [
+      'viqua-faq', 'viqua-vh-spec', 'springwell-uv-manual', 'ct-dph-uv', 'cdc-home-treatment',
+      'ansi-nsf55-2024', 'esp-viqua-vh200', 'homeguide-well-filtration', 'homeguide-uv', 'angi-uv',
+    ],
+    photoId: 'guide-uv-well',
+    ownerNote: null,
+    notCovered: [],
+    cardBlurb: 'Size it, check pre-treatment limits, and total 10 years of lamps and power.',
   },
   // Trust and legal pages
   {

@@ -382,6 +382,47 @@ export const SOURCES = {
   'aha-sodium': { id: 'aha-sodium', name: 'American Heart Association, How much sodium should I eat per day (reviewed 2025-07-15)', url: 'https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sodium/how-much-sodium-should-i-eat-per-day', accessed: '2026-10-25' },
   'mdh-softening': { id: 'mdh-softening', name: 'Minnesota Department of Health, Home water softening (2022-10-03)', url: 'https://www.health.state.mn.us/communities/environment/water/factsheet/softening.html', accessed: '2026-10-25' },
   'epa-infants-wells': { id: 'epa-infants-wells', name: 'EPA, Private wells and drinking water safety for infants (2026-10-20)', url: 'https://www.epa.gov/children/private-wells-and-drinking-water-safety-and-infants', accessed: '2026-10-25' },
+
+  // --- Batch 05 sources (accessed 2026-10-26) ---
+  // Shock chlorination
+  'uga-c858-4': { id: 'uga-c858-4', name: 'University of Georgia Extension C858-4, Disinfecting your well water: shock chlorination (rev. 2026-04-17)', url: 'https://fieldreport.caes.uga.edu/publications/C858-4/disinfecting-your-well-water-shock-chlorination/', accessed: '2026-10-26' },
+  'nevada-fs-06-69': { id: 'nevada-fs-06-69', name: 'University of Nevada Cooperative Extension FS-06-69, Shock chlorination: estimating the amount of bleach needed', url: 'https://www.oem.nv.gov/uploadedFiles/demnvgov/content/Resources/NVCoop%20Ext_Shock%20Chlorination_Estimating%20the%20Amount%20of%20Bleach%20Needed.pdf', accessed: '2026-10-26' },
+  'wi-dnr-dg120': { id: 'wi-dnr-dg120', name: 'Wisconsin DNR DG-120, Disinfecting your well (2025)', url: 'https://dnr.wisconsin.gov/sites/default/files/topic/DrinkingWater/Publications/DG120.pdf', accessed: '2026-10-26' },
+  'mdh-well-disinfection': { id: 'mdh-well-disinfection', name: 'Minnesota Department of Health, Well disinfection (2024-10-18)', url: 'https://www.health.mn.gov/communities/environment/water/wells/waterquality/disinfection.html', accessed: '2026-10-26' },
+  'cdc-well-disinfection': { id: 'cdc-well-disinfection', name: 'CDC, How to disinfect wells after an emergency (2025-05-29)', url: 'https://www.cdc.gov/water-emergency/about/how-to-disinfect-wells-after-an-emergency.html', accessed: '2026-10-26' },
+  'tamu-scs-2002-04': { id: 'tamu-scs-2002-04', name: 'Texas A&M AgriLife SCS-2002-04, Shock chlorination of wells', url: 'https://legacy.research.agrilife.org/wp-content/uploads/sites/3/2011/10/scs-2002-04-2.pdf', accessed: '2026-10-26' },
+  'pa-dep-well-disinfection': { id: 'pa-dep-well-disinfection', name: 'Pennsylvania DEP, Disinfection of home wells and springs', url: 'https://www.pa.gov/agencies/dep/residents/my-water/private-wells/disinfection-of-home-wells-and-springs', accessed: '2026-10-26' },
+  'osu-oregon-shock': { id: 'osu-oregon-shock', name: 'Oregon State University Well Water Program, Shock chlorination (2025)', url: 'https://wellwater.oregonstate.edu/well-water/bacteria/shock-chlorination', accessed: '2026-10-26' },
+  'ohio-aex-318': { id: 'ohio-aex-318', name: 'Ohio State University Extension AEX-318 (2019)', url: 'https://ohioline.osu.edu/factsheet/aex-318', accessed: '2026-10-26' },
+  'psu-shock-chlorination': { id: 'psu-shock-chlorination', name: 'Penn State Extension, Shock chlorination of wells and springs (2025)', url: 'https://extension.psu.edu/shock-chlorination-of-wells-and-springs', accessed: '2026-10-26' },
+  'psu-coliform': { id: 'psu-coliform', name: 'Penn State Extension, Coliform bacteria (2025-09-08)', url: 'https://extension.psu.edu/coliform-bacteria', accessed: '2026-10-26' },
+  'angi-shock-cost': { id: 'angi-shock-cost', name: 'Angi, Cost to shock a well (2026-07-09)', url: 'https://angi.com/articles/cost-to-shock-a-well.htm', accessed: '2026-10-26' },
+  'wsc-splashless': { id: 'wsc-splashless', name: 'Water Systems Council, Well disinfection and splashless bleach (2026)', url: 'https://www.watersystemscouncil.org/well-disinfection-and-splashless-bleach/', accessed: '2026-10-26' },
+  // Salt types and salt bridge
+  'cargill-salt-faq': { id: 'cargill-salt-faq', name: 'Cargill, Water softener salt FAQ', url: 'https://www.cargill.com/industrial/water-softener-salt-faq', accessed: '2026-10-26' },
+  'fleck-7000sxt-manual': { id: 'fleck-7000sxt-manual', name: 'Pentair Fleck 7000SXT manual 42775', url: 'https://www.pentair.com/content/dam/extranet/web/nam/fleck/manuals/42775-fleck-7000sxt-manual.pdf', accessed: '2026-10-26' },
+  'ge-gxsh40v-manual': { id: 'ge-gxsh40v-manual', name: "GE GXSH40V owner's manual", url: 'https://images.homedepot-static.com/catalog/pdfImages/ef/ef792180-cd7a-4017-ad70-a9888b4ab4ac.pdf', accessed: '2026-10-26' },
+  'whirlpool-whes40-manual': { id: 'whirlpool-whes40-manual', name: "Whirlpool WHES40 owner's manual W11484759", url: 'https://www.whirlpool.com/content/dam/global/documents/202107/owners-manual-w11484759-reva.pdf', accessed: '2026-10-26' },
+  'culligan-troubleshooting': { id: 'culligan-troubleshooting', name: 'Culligan, Water softener troubleshooting', url: 'https://www.culligan.com/blog/water-softener-troubleshooting-common-problems-and-solutions', accessed: '2026-10-26' },
+  'culligan-best-salt': { id: 'culligan-best-salt', name: 'Culligan, What is the best water softener salt', url: 'https://www.culligan.com/blog/what-is-the-best-water-softener-salt', accessed: '2026-10-26' },
+  'wqa-smart-softeners': { id: 'wqa-smart-softeners', name: 'Water Quality Association, Getting smart with softeners', url: 'https://wqa.org/wp-content/uploads/2024/06/GettingSmartSofteners.pdf', accessed: '2026-10-26' },
+  'unl-g1491': { id: 'unl-g1491', name: 'University of Nebraska-Lincoln G1491, Water softening (2014)', url: 'https://extensionpubs.unl.edu/publication/g1491/2014/html/view', accessed: '2026-10-26' },
+  'diamond-crystal-faq': { id: 'diamond-crystal-faq', name: 'Diamond Crystal, Water softener salt FAQs', url: 'https://www.diamondcrystalsalt.com/water-softener-salt-faqs', accessed: '2026-10-26' },
+  'diamond-crystal-iron-fighter': { id: 'diamond-crystal-iron-fighter', name: 'Diamond Crystal Iron Fighter Water Softener Salt Pellets', url: 'https://www.diamondcrystalsalt.com/product/iron-fighter-water-softener-salt-pellets', accessed: '2026-10-26' },
+  'morton-kcl': { id: 'morton-kcl', name: 'Morton, Potassium chloride pellets', url: 'https://www.mortonsalt.com/home-product/morton-potassium-chloride-pellets', accessed: '2026-10-26' },
+  'tsc-softener-salt': { id: 'tsc-softener-salt', name: 'Tractor Supply, Water softener salt (prices 2026-10-26)', url: 'https://www.tractorsupply.com/tsc/catalog/water-softener-salt', accessed: '2026-10-26' },
+  'hd-softener-salt': { id: 'hd-softener-salt', name: 'Home Depot, Water softener salt (prices 2026-10-26)', url: 'https://www.homedepot.com/b/Plumbing-Water-Filters-Water-Softeners-Water-Softener-Salt/N-5yc1vZc6se', accessed: '2026-10-26' },
+  'walmart-morton-pellets': { id: 'walmart-morton-pellets', name: 'Walmart, Morton Clean and Protect pellets 40 lb ($8.76)', url: 'https://www.walmart.com/ip/Morton-Clean-and-Protect-Water-Softener-Pellets-40-lb/16674414', accessed: '2026-10-26' },
+  // UV for well water
+  'viqua-faq': { id: 'viqua-faq', name: 'VIQUA, FAQs (2025-10-20)', url: 'https://viqua.com/resources-24/faqs/', accessed: '2026-10-26' },
+  'viqua-vh-spec': { id: 'viqua-vh-spec', name: 'VIQUA VH200/VH410 spec sheet', url: 'https://viqua.com/wp-content/uploads/SpecSheet_VH200-F10_VH410-F20-1.pdf', accessed: '2026-10-26' },
+  'springwell-uv-manual': { id: 'springwell-uv-manual', name: 'SpringWell UV system (Blackcomb) manual', url: 'https://www.springwellwater.com/wp-content/uploads/2019/07/Blackcomb_UV-Manual-1.pdf', accessed: '2026-10-26' },
+  'ct-dph-uv': { id: 'ct-dph-uv', name: 'Connecticut DPH Publication 25, UV treatment of private drinking water (2009)', url: 'https://portal.ct.gov/-/media/departments-and-agencies/dph/dph/environmental_health/pdf/25ultrvioletradiationtreatmentofpdwspdf.pdf', accessed: '2026-10-26' },
+  'cdc-home-treatment': { id: 'cdc-home-treatment', name: 'CDC, About home water treatment systems (2024-04-10)', url: 'https://www.cdc.gov/drinking-water/about/about-home-water-treatment-systems.html', accessed: '2026-10-26' },
+  'ansi-nsf55-2024': { id: 'ansi-nsf55-2024', name: 'ANSI blog, NSF/ANSI 55-2024 UV water treatment', url: 'https://blog.ansi.org/ansi/nsf-ansi-55-2024-ultraviolet-uv-water-treatment/', accessed: '2026-10-26' },
+  'esp-viqua-vh200': { id: 'esp-viqua-vh200', name: 'ESP Water Products, VIQUA VH200 ($685)', url: 'https://espwaterproducts.com/collections/viqua-vh200-9-gpm', accessed: '2026-10-26' },
+  'homeguide-uv': { id: 'homeguide-uv', name: 'HomeGuide, Water Filtration System Cost (UV light section, 2026)', url: 'https://homeguide.com/costs/water-filtration-system-cost', accessed: '2026-10-26' },
+  'angi-uv': { id: 'angi-uv', name: 'Angi, Whole House Water Filtration System Cost (UV)', url: 'https://www.angi.com/articles/whole-house-water-filtration-system-cost.htm', accessed: '2026-10-26' },
 } as const;
 
 export type SourceId = keyof typeof SOURCES;

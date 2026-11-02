@@ -2,6 +2,11 @@ import InlineText from './InlineText';
 import ReferenceTable from './ReferenceTable';
 import type { GuideBlock } from '@/lib/content/guides';
 
+/** Slug for an h2, so widgets can link to on-page sections. */
+function slugify(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 export default function GuideBody({ blocks }: { blocks: GuideBlock[] }) {
   return (
     <div className="space-y-4">
@@ -9,7 +14,7 @@ export default function GuideBody({ blocks }: { blocks: GuideBlock[] }) {
         switch (b.kind) {
           case 'h2':
             return (
-              <h2 key={i} className="mt-8 text-[28px] font-medium">
+              <h2 key={i} id={slugify(b.text)} className="mt-8 scroll-mt-24 text-[28px] font-medium">
                 {b.text}
               </h2>
             );

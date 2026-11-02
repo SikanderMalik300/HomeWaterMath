@@ -10,6 +10,7 @@ const CALCULATORS = [
   { label: 'Water hardness converter', href: '/water-hardness-converter/' },
   { label: 'Well pressure tank size calculator', href: '/well-pressure-tank-size-calculator/' },
   { label: 'Well pump replacement cost', href: '/well-pump-replacement-cost/' },
+  { label: 'Well shock chlorination calculator', href: '/well-shock-chlorination-calculator/' },
   { label: 'Reverse osmosis system cost', href: '/reverse-osmosis-system-cost/' },
   { label: 'Whole house water filter cost', href: '/whole-house-water-filter-cost/' },
 ];

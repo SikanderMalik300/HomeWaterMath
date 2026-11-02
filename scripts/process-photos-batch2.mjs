@@ -27,6 +27,9 @@ const PHOTOS = [
   // Batch 04 guide photos
   { base: 'soap-lather-hands', url: 'https://images.pexels.com/photos/9871625/pexels-photo-9871625.jpeg', focalX: 0.42, focalY: 0.5 },
   { base: 'clear-glass-of-water', url: 'https://images.pexels.com/photos/7904429/pexels-photo-7904429.jpeg', focalX: 0.48, focalY: 0.58 },
+  // Batch 05 guide photos
+  { base: 'white-salt-crystals-macro', url: 'https://images.pexels.com/photos/7717461/pexels-photo-7717461.jpeg', focalX: 0.5, focalY: 0.5 },
+  { base: 'stainless-water-treatment-vessel', url: 'https://images.pexels.com/photos/8940464/pexels-photo-8940464.jpeg', focalX: 0.48, focalY: 0.4 },
 ];
 
 const AR = 1; // tiles only

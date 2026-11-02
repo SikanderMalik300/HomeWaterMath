@@ -29,6 +29,8 @@ export default function Page() {
         '/water-softener-cleaner/',
         '/hard-water-vs-soft-water/',
         '/can-you-drink-softened-water/',
+        '/water-softener-salt-types/',
+        '/water-softener-salt-bridge/',
       ]}
     />
   );

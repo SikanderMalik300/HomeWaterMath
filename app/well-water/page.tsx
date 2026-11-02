@@ -16,10 +16,11 @@ export default function Page() {
       tileSlugs={[
         '/well-pressure-tank-size-calculator/',
         '/well-pump-replacement-cost/',
+        '/well-shock-chlorination-calculator/',
         '/water-softener-size-calculator/',
         '/water-hardness-converter/',
       ]}
-      guideSlugs={['/iron-filter-for-well-water/', '/well-water-test-kit/']}
+      guideSlugs={['/iron-filter-for-well-water/', '/well-water-test-kit/', '/uv-light-for-well-water/']}
     />
   );
 }

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as tools from '@/lib/content/tools';
 import * as tools2 from '@/lib/content/tools2';
 import * as tools3 from '@/lib/content/tools3';
+import * as tools4 from '@/lib/content/tools4';
 import * as guides from '@/lib/content/guides';
 import * as gIron from '@/lib/guides/ironPicker';
 import * as gStrip from '@/lib/guides/stripDecoder';
@@ -11,6 +12,9 @@ import * as gCleaner from '@/lib/guides/cleanerDose';
 import * as gTds from '@/lib/guides/tds';
 import * as gNeed from '@/lib/guides/needSoftener';
 import * as gSodium from '@/lib/guides/sodium';
+import * as gSaltTypes from '@/lib/guides/saltTypes';
+import * as gSaltBridge from '@/lib/guides/saltBridge';
+import * as gUvWell from '@/lib/guides/uvWell';
 import * as site from '@/lib/content/site';
 import * as trust from '@/lib/content/trust';
 import { PAGES } from '@/lib/data/pages';
@@ -88,6 +92,7 @@ function allPageText(): string[] {
   collectStrings(tools, out);
   collectStrings(tools2, out);
   collectStrings(tools3, out);
+  collectStrings(tools4, out);
   collectStrings(guides, out);
   collectStrings(gIron, out);
   collectStrings(gStrip, out);
@@ -97,6 +102,9 @@ function allPageText(): string[] {
   collectStrings(gTds, out);
   collectStrings(gNeed, out);
   collectStrings(gSodium, out);
+  collectStrings(gSaltTypes, out);
+  collectStrings(gSaltBridge, out);
+  collectStrings(gUvWell, out);
   collectStrings(site, out);
   collectStrings(trust, out);
   // Also scan registry-visible strings (titles, metas, h1, blurbs).

@@ -45,6 +45,10 @@ const PAGES = [
   { slug: '/tds-meter-chart/', h1: 'TDS Meter Chart: What Your Reading Means' },
   { slug: '/hard-water-vs-soft-water/', h1: 'Hard Water vs Soft Water: What Actually Changes', photo: { base: 'soap-lather-hands', kind: 'tile' } },
   { slug: '/can-you-drink-softened-water/', h1: 'Can You Drink Softened Water?', photo: { base: 'clear-glass-of-water', kind: 'tile' } },
+  { slug: '/well-shock-chlorination-calculator/', h1: 'Well Shock Chlorination Calculator' },
+  { slug: '/water-softener-salt-types/', h1: 'Water Softener Salt Types: Which One to Buy', photo: { base: 'white-salt-crystals-macro', kind: 'tile' } },
+  { slug: '/water-softener-salt-bridge/', h1: 'Water Softener Salt Bridge: How to Spot and Fix It' },
+  { slug: '/uv-light-for-well-water/', h1: 'UV Light for Well Water: Sizing, Pre-Treatment and Cost', photo: { base: 'stainless-water-treatment-vessel', kind: 'tile' } },
   { slug: '/about/', h1: 'About HomeWaterMath' },
   { slug: '/how-we-calculate/', h1: 'How we calculate' },
   { slug: '/editorial-policy/', h1: 'Editorial policy' },
@@ -69,6 +73,7 @@ const TOOL_LINES = [
   ['/water-hardness-converter/', 'Water hardness converter', 'gpg, ppm, mg/L, mmol/L and German or French degrees in one step.'],
   ['/well-pressure-tank-size-calculator/', 'Well pressure tank size calculator', "Tank size and pre-charge from your pump's gpm, horsepower and switch setting."],
   ['/well-pump-replacement-cost/', 'Well pump replacement cost calculator', 'Pump, pipe, wire, tank and call-out by type and depth, plus repair-or-replace.'],
+  ['/well-shock-chlorination-calculator/', 'Well shock chlorination calculator', 'How much bleach to shock your well, plus steps, safety and retest timing.'],
   ['/reverse-osmosis-system-cost/', 'Reverse osmosis system cost calculator', 'Under-sink, tankless or countertop, with filters and water sent to drain.'],
   ['/whole-house-water-filter-cost/', 'Whole house water filter cost calculator', 'Cartridge, carbon tank or well system, with media changes for your use.'],
 ];
@@ -83,6 +88,9 @@ const GUIDE_LINES = [
   ['/tds-meter-chart/', 'TDS meter chart: what your reading means', 'What your reading means, taste bands and an RO check.'],
   ['/hard-water-vs-soft-water/', 'Hard water vs soft water: what actually changes', 'Scale, soap, skin, health and sodium, with the test results.'],
   ['/can-you-drink-softened-water/', 'Can you drink softened water?', 'How much sodium softening adds, and when to keep a plain tap.'],
+  ['/water-softener-salt-types/', 'Water softener salt types: which one to buy', 'Pellets, solar, rock or potassium chloride, with a yearly cost calculator.'],
+  ['/water-softener-salt-bridge/', 'Water softener salt bridge: how to spot and fix it', 'A quick check, how to break a bridge, and how to stop it coming back.'],
+  ['/uv-light-for-well-water/', 'UV light for well water: sizing, pre-treatment and cost', 'Size it, check pre-treatment limits, and total 10 years of lamps and power.'],
 ];
 
 const HUB_LINES = [

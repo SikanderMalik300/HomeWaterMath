@@ -8,7 +8,31 @@ import { saltPerYearForTable } from '@/lib/calc/salt';
 import { convertHardness } from '@/lib/calc/hardness';
 import { pressureTank, drawdownFactor } from '@/lib/calc/pressureTank';
 import { PRESSURE_TANKS, SIZES, CAPACITY_PER_CUFT, SALT_SETTINGS } from '@/lib/data/constants';
+import { GAL_PER_FT, CASING_DIAMETERS } from '@/lib/calc/wellShock';
 import { formatInt, formatDecimal } from '@/lib/calc/round';
+
+const CASING_LABELS: Record<number, string> = {
+  2: '2 in',
+  4: '4 in',
+  5: '5 in',
+  6: '6 in',
+  8: '8 in',
+  24: '24 in (dug)',
+  36: '36 in (dug)',
+};
+
+export function GalPerFtTable() {
+  const rows = CASING_DIAMETERS.map((d) => [CASING_LABELS[d], String(GAL_PER_FT[d])]);
+  const table: SimpleTable = {
+    caption: 'Gallons of water per foot of casing',
+    captionBelow:
+      'Source: University of Georgia Extension C858-4 and University of Nevada FS-06-69; 2 in is calculated.',
+    headers: ['Casing diameter', 'Gallons per foot'],
+    rows,
+    numericCols: [1],
+  };
+  return <ReferenceTable table={table} />;
+}
 
 export function SizeChartTable() {
   const hardness = [5, 10, 15, 20, 25];

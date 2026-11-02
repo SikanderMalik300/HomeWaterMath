@@ -23,12 +23,14 @@ export default function ToolPage({
   copy,
   calculator,
   referenceTables,
+  body,
   showEmailSignup = false,
 }: {
   slug: string;
   copy: ToolCopy;
   calculator: React.ReactNode;
   referenceTables?: React.ReactNode;
+  body?: React.ReactNode;
   showEmailSignup?: boolean;
 }) {
   const page = getPage(slug);
@@ -56,10 +58,11 @@ export default function ToolPage({
           <HowToUse steps={copy.howToUse} />
           <FormulaBlock copy={copy} />
           <AdSlot id={`${slug}-after-formula`} />
-          <NotCovered items={copy.notCovered} />
+          {copy.notCovered.length > 0 && <NotCovered items={copy.notCovered} />}
           {referenceTables && (
             <section aria-label="Reference tables">{referenceTables}</section>
           )}
+          {body}
           {page.ownerNote && (
             <section aria-labelledby="owner-note-heading">
               <h2 id="owner-note-heading" className="mb-3 text-[28px] font-medium">
@@ -68,7 +71,7 @@ export default function ToolPage({
               <p className="text-[16px]">{page.ownerNote}</p>
             </section>
           )}
-          <Tips tips={copy.tips} note={copy.tipsNote} />
+          {copy.tips.length > 0 && <Tips tips={copy.tips} note={copy.tipsNote} />}
           {showEmailSignup && <EmailSignup />}
           <Faq items={copy.faq} />
           <AdSlot id={`${slug}-after-faq`} />

@@ -12,6 +12,7 @@ Free, source-backed calculators and guides for home water: water softeners, priv
 - [Water hardness converter](https://homewatermath.com/water-hardness-converter/): gpg, ppm, mg/L, mmol/L and German or French degrees in one step.
 - [Well pressure tank size calculator](https://homewatermath.com/well-pressure-tank-size-calculator/): Tank size and pre-charge from your pump's gpm, horsepower and switch setting.
 - [Well pump replacement cost calculator](https://homewatermath.com/well-pump-replacement-cost/): Pump, pipe, wire, tank and call-out by type and depth, plus repair-or-replace.
+- [Well shock chlorination calculator](https://homewatermath.com/well-shock-chlorination-calculator/): How much bleach to shock your well, plus steps, safety and retest timing.
 - [Reverse osmosis system cost calculator](https://homewatermath.com/reverse-osmosis-system-cost/): Under-sink, tankless or countertop, with filters and water sent to drain.
 - [Whole house water filter cost calculator](https://homewatermath.com/whole-house-water-filter-cost/): Cartridge, carbon tank or well system, with media changes for your use.
 
@@ -25,6 +26,9 @@ Free, source-backed calculators and guides for home water: water softeners, priv
 - [TDS meter chart: what your reading means](https://homewatermath.com/tds-meter-chart/): What your reading means, taste bands and an RO check.
 - [Hard water vs soft water: what actually changes](https://homewatermath.com/hard-water-vs-soft-water/): Scale, soap, skin, health and sodium, with the test results.
 - [Can you drink softened water?](https://homewatermath.com/can-you-drink-softened-water/): How much sodium softening adds, and when to keep a plain tap.
+- [Water softener salt types: which one to buy](https://homewatermath.com/water-softener-salt-types/): Pellets, solar, rock or potassium chloride, with a yearly cost calculator.
+- [Water softener salt bridge: how to spot and fix it](https://homewatermath.com/water-softener-salt-bridge/): A quick check, how to break a bridge, and how to stop it coming back.
+- [UV light for well water: sizing, pre-treatment and cost](https://homewatermath.com/uv-light-for-well-water/): Size it, check pre-treatment limits, and total 10 years of lamps and power.
 
 ## Category pages
 - [Water softener calculators](https://homewatermath.com/water-softeners/): Size, cost, salt, install, salt vs salt-free, and hardness for US homes.
