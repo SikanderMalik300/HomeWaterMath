@@ -4,7 +4,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { softenerInstallCost, type InstallSetup } from '@/lib/calc/softenerInstallCost';
 import { formatDollars } from '@/lib/calc/round';
 import type { Range } from '@/lib/calc/range';
-import { Field, NumberField, SegmentedControl, useDebounced, parseNum } from './inputs';
+import {
+  STATE_SELECT_OPTIONS,
+  US_STATE,
+  wageFor,
+  stateLabor,
+  laborIndex,
+  laborComparison,
+} from '@/lib/data/plumberWages';
+import { Field, NumberField, SegmentedControl, SelectField, useDebounced, parseNum } from './inputs';
 import ResultCard, { type ResultRow } from './ResultCard';
 import ShowTheMath from './ShowTheMath';
 import CopyShareBar from './CopyShareBar';
@@ -14,13 +22,14 @@ import { useToolEvents } from './useToolEvents';
 const SLUG = '/water-softener-installation-cost/';
 
 interface Raw {
+  state: string;
   setup: InstallSetup;
   drainInReach: boolean;
   outletNear: boolean;
   permit: string;
   quote: string;
 }
-const DEFAULTS: Raw = { setup: 'replace', drainInReach: true, outletNear: true, permit: '0', quote: '' };
+const DEFAULTS: Raw = { state: US_STATE, setup: 'replace', drainInReach: true, outletNear: true, permit: '0', quote: '' };
 
 function rangeText(r: Range): string {
   return `${formatDollars(r.low)} to ${formatDollars(r.high)}`;
@@ -35,8 +44,10 @@ function compute(raw: Raw) {
     outletNear: raw.outletNear,
     permit: permit ?? 0,
     quote: raw.quote.trim() === '' ? null : parseNum(raw.quote),
+    state: raw.state,
   });
   const params = new URLSearchParams({
+    state: raw.state,
     setup: raw.setup,
     drain: raw.drainInReach ? '1' : '0',
     outlet: raw.outletNear ? '1' : '0',
@@ -76,6 +87,7 @@ export default function CalculatorSoftenerInstall() {
     const q = new URLSearchParams(window.location.search);
     if ([...q.keys()].length === 0) return;
     setRaw((r) => ({
+      state: q.get('state') ?? r.state,
       setup: (q.get('setup') as InstallSetup) ?? r.setup,
       drainInReach: q.get('drain') ? q.get('drain') === '1' : r.drainInReach,
       outletNear: q.get('outlet') ? q.get('outlet') === '1' : r.outletNear,
@@ -85,8 +97,15 @@ export default function CalculatorSoftenerInstall() {
   }, []);
 
   const r = shown.result;
+  const state = shown.raw.state;
   const headline = formatDollars(r.total.typical);
   const subline = `${rangeText(r.total)} total`;
+
+  const sl = stateLabor(state);
+  const stateNote =
+    state !== US_STATE
+      ? `Labor in ${state}: ${formatDollars(sl.low)} to ${formatDollars(sl.high)} (typical ${formatDollars(sl.typical)}), using a plumber wage of $${wageFor(state).toFixed(2)} an hour, ${laborComparison(state)} the US average.`
+      : null;
 
   const rows: ResultRow[] = [{ label: 'Labor', value: rangeText(r.labor) }];
   if (r.removal) rows.push({ label: 'Removal of the old unit', value: rangeText(r.removal) });
@@ -96,6 +115,7 @@ export default function CalculatorSoftenerInstall() {
   if (r.permit > 0) rows.push({ label: 'Permit', value: formatDollars(r.permit) });
 
   const mathLines = [
+    `labor index = ${wageFor(state).toFixed(2)} ÷ 34.70 = ${laborIndex(state).toFixed(2)}`,
     `labor = ${rangeText(r.labor)} (typical ${formatDollars(r.labor.typical)})`,
     ...(r.removal ? [`removal = ${rangeText(r.removal)}`] : []),
     ...(r.loop ? [`loop = ${rangeText(r.loop)} (typical ${formatDollars(r.loop.typical)})`] : []),
@@ -109,6 +129,15 @@ export default function CalculatorSoftenerInstall() {
   return (
     <div id="calculator" className="rounded-card border border-line bg-surface p-4 md:max-w-calc md:p-6">
       <div className="grid gap-x-6 sm:grid-cols-2">
+        <Field label="State" htmlFor="si-state" helper="Labor is scaled by your state's average plumber wage from the Bureau of Labor Statistics (May 2025).">
+          <SelectField
+            id="si-state"
+            ariaLabel="State"
+            value={raw.state}
+            onChange={(v) => set('state', v)}
+            options={STATE_SELECT_OPTIONS}
+          />
+        </Field>
         <Field label="Your setup">
           <SegmentedControl
             legend="Your setup"
@@ -153,6 +182,7 @@ export default function CalculatorSoftenerInstall() {
           invalid={invalid}
           invalidMessage="Enter a permit fee of zero or more to see the install cost."
         >
+          {stateNote && <p className="mt-3 text-[15px] text-ink">{stateNote}</p>}
           <p className="mt-3 text-[14px] text-muted">
             Most installs take 2 to 4 hours. At $45 to $200 an hour, that&apos;s $90 to $800 of time; the rest of a quote is parts, travel and setup.
           </p>

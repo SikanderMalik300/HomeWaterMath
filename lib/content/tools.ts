@@ -286,7 +286,7 @@ export const HARDNESS_TABLE_SCALE: SimpleTable = {
 
 export const COST: ToolCopy = {
   quickAnswer:
-    'A water softener costs about $1,200 to $3,800 for a standard salt-based system installed by a dealer. Buying a single-tank unit yourself costs about $500 to $1,700, plus $150 to $1,000 if a plumber installs it. Salt adds roughly $50 to $150 a year. The calculator below adds it up for your home over 10 years.',
+    'A water softener costs about $1,200 to $3,800 for a standard salt-based system installed by a dealer. Buying a single-tank unit yourself costs about $500 to $1,700, and salt adds roughly $50 to $150 a year. Installation is priced on its own page: see [water softener installation cost](/water-softener-installation-cost/) for labor by state. The calculator below adds it up for your home over 10 years.',
   howToUse: [
     'Choose the type of system you\'re pricing. Most homes buy a single-tank salt-based softener.',
     'Choose who will install it.',

@@ -72,7 +72,7 @@ export const SOFTENERS_HUB = {
       ['What it will cost, installed and over 10 years', 'Water softener cost calculator'],
       ['How much salt it will use', 'Water softener salt calculator'],
       ['How to turn ppm or mg/L into gpg', 'Water hardness converter'],
-      ['What installation will cost', 'Water softener installation cost'],
+      ['What installation will cost', 'Water softener installation cost by state'],
       ['Salt or salt-free', 'Salt vs salt-free cost'],
     ],
   } as SimpleTable,

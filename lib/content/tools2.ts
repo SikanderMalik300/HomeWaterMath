@@ -2,6 +2,8 @@
 // for word from the batch-02 spec. No em dashes.
 
 import type { ToolCopy, SimpleTable } from './types';
+import type { GuideBlock } from './guides';
+import { STATE_LIST, PLUMBER_WAGE_MAY2025, laborIndex, stateLabor } from '@/lib/data/plumberWages';
 
 // ---------------------------------------------------------------------------
 // 1. Well pump replacement cost
@@ -362,7 +364,7 @@ export const WHOLE_HOUSE_TABLE_PARTS: SimpleTable = {
 
 export const SOFTENER_INSTALL: ToolCopy = {
   quickAnswer:
-    'Installing a water softener usually costs $150 to $1,000 in labor, and most installs land between $500 and $700 when the home already has a softener loop. With no loop, adding one costs $200 to $2,000 more, and a new drain or outlet adds more again. The calculator below itemizes your install. For the softener itself, see our [water softener cost calculator](/water-softener-cost/).',
+    'Installing a water softener usually costs $150 to $1,000 in labor, and most installs land between $500 and $700 when the home already has a softener loop. With no loop, adding one costs $200 to $2,000 more, and a new drain or outlet adds more again. Labor tracks local plumber pay: the average plumber earns $34.70 an hour nationally, from $24.35 in Arkansas to $47.33 in Oregon (BLS, May 2025). The calculator below itemizes your install for your state. For the softener itself, see our [water softener cost calculator](/water-softener-cost/).',
   howToUse: [
     "Choose your setup. A softener loop is a pair of pipes, usually near the water heater or where the main line enters, that's already plumbed for a softener.",
     'Say whether there\'s a drain and an outlet near the spot. The softener needs both.',
@@ -401,11 +403,61 @@ export const SOFTENER_INSTALL: ToolCopy = {
   faq: [
     { q: 'How much does it cost to install a water softener?', a: 'Labor usually runs $150 to $1,000, and most installs land between $500 and $700 when the home has a softener loop. Replacing an old unit adds about $50 to $100 for removal.' },
     { q: 'How much does it cost to add a water softener loop?', a: 'About $200 to $2,000. This Old House puts it at $200 to $800, and Fixr at $600 to $2,000 when more pipe has to be run.' },
-    { q: 'How long does it take to install a water softener?', a: 'Usually 2 to 4 hours for a home with a loop. Adding a loop, drain or outlet takes longer.' },
+    { q: 'How long does it take to install a water softener?', a: 'About two to four hours when the home already has a softener loop, a drain and an outlet. Adding a loop, a drain line or an outlet takes longer.' },
     { q: 'Do you need a permit to install a water softener?', a: 'It depends on your city. Many treat it as a plumbing permit; examples range from about $37 in La Habra, California to $84 or more in St. Paul, Minnesota.' },
-    { q: 'Can I install a water softener myself?', a: "If your home has a loop, a drain and an outlet nearby, many homeowners do. You'll need a bypass valve and fittings, about $175 for an install kit. Without a loop, it's a plumbing job." },
+    { q: 'Can I install a water softener myself?', a: "Yes, if you're comfortable cutting into the supply line, fitting a bypass valve and running a drain line. You save the $150 to $1,000 labor charge. Check first whether your city requires a permit or a licensed plumber." },
+    { q: 'How much does it cost to install a water softener in my state?', a: 'Labor follows local plumber pay. The average plumber earns $34.70 an hour nationally (BLS, May 2025), from $24.35 in Arkansas to $47.33 in Oregon, so the same install can cost about 30% less or 36% more in labor than average. Pick your state in the calculator.' },
+    { q: 'Are big-box store installs cheaper?', a: 'Not necessarily. Fixr estimates installed systems at $1,000 to $2,800 at Lowe\'s and $2,500 to $6,000 at The Home Depot, and those prices include the softener. Ask for an itemized quote and check the installation part here.' },
   ],
 };
+
+// Installation labor by state, generated from the BLS wage data.
+export const SOFTENER_INSTALL_STATE_TABLE: SimpleTable = {
+  caption: 'Installation labor by state',
+  captionBelow:
+    'Wages: U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics, Plumbers, Pipefitters, and Steamfitters (47-2152), mean hourly wage, May 2025. Labor = our national figures × state wage ÷ $34.70, rounded to $5.',
+  headers: ['State', 'Plumber mean hourly wage', 'Index vs US', 'Labor, home with a loop (typical)'],
+  rows: STATE_LIST.map((s) => {
+    const sl = stateLabor(s);
+    const cell = `$${sl.low.toLocaleString('en-US')} to $${sl.high.toLocaleString('en-US')} ($${sl.typical.toLocaleString('en-US')})`;
+    return [s, `$${PLUMBER_WAGE_MAY2025[s].toFixed(2)}`, laborIndex(s).toFixed(2), cell];
+  }),
+  numericCols: [1, 2],
+};
+
+export const SOFTENER_INSTALL_TYPE_TABLE: SimpleTable = {
+  caption: 'Installed cost by softener type',
+  captionBelow:
+    'Fixr, Water softener installation cost (updated January 31, 2025); Angi, How much does water softener installation cost (2026). Ranges include the unit.',
+  headers: ['Type', 'Labor (Fixr)', 'Total installed (Fixr)', 'Cost range (Angi)'],
+  rows: [
+    ['Single-tank salt-based', '$150 to $1,000', '$650 to $1,500', '$500 to $1,700'],
+    ['Dual-tank salt-based', '$150 to $1,000', '$1,500 to $3,000', '$1,000 to $5,000'],
+    ['Salt-free conditioner', 'not listed', 'not listed', '$800 to $4,000'],
+    ['Electronic descaler', '$50 to $150', '$250 to $750', 'not listed'],
+    ['Magnetic', '$50 to $150', '$250 to $550', '$200 to $600'],
+  ],
+};
+
+export const SOFTENER_INSTALL_BODY: GuideBlock[] = [
+  { kind: 'h2', text: 'Installation cost by state' },
+  { kind: 'p', text: "Plumbers' pay drives the labor part of a quote, and it varies more than you might expect. The table scales our typical labor figures ($150 to $1,000, typically $600, for a home with a loop) by each state's average plumber wage. Parts, the loop, the drain, the outlet and permits are not scaled, and local quotes still vary by city and company." },
+  { kind: 'table', table: SOFTENER_INSTALL_STATE_TABLE },
+  { kind: 'h2', text: 'Installed cost by softener type' },
+  { kind: 'table', table: SOFTENER_INSTALL_TYPE_TABLE },
+  { kind: 'p', text: "Across all types, Angi puts the average at about $1,500 for the softener and installation together, with most homes between $200 and $6,000. Fixr's national average is higher, at $2,500. A dual-tank system costs more mainly because the unit does; the plumbing work is similar." },
+  { kind: 'h2', text: 'DIY or hire a plumber?' },
+  { kind: 'p', text: "Doing it yourself saves the labor charge, $150 to $1,000 by Angi's figures, and a straightforward swap takes a plumber two to four hours. You'll need to cut into the main supply line, fit a bypass valve, run a drain line with an air gap, and plug the softener into an outlet. Fixr calls anything beyond a magnetic or electronic unit a major plumbing job that should be left to professionals. Before you start, check whether your city requires a permit or a licensed plumber; some do (examples: $37 in La Habra, CA; from $84 in St. Paul, MN)." },
+  {
+    kind: 'ul',
+    items: [
+      'DIY makes sense: replacing a softener on an existing loop, with a drain and outlet already there.',
+      'Hire a pro: no loop, no drain within reach, a slab or finished basement, or local rules that require a licensed plumber.',
+    ],
+  },
+  { kind: 'h2', text: 'Big-box and dealer installs' },
+  { kind: 'p', text: "Retailers and dealers sell the softener and installation as a package, so their prices include the unit. Fixr's estimates for installed systems: Lowe's $1,000 to $2,800, The Home Depot $2,500 to $6,000, and Costco $4,000 to $6,000. These are Fixr's estimates, not the retailers' published prices. Ask any seller for an itemized quote so you can compare the installation part with this calculator." },
+];
 
 export const SOFTENER_INSTALL_TABLE: SimpleTable = {
   caption: 'What changes an installation quote',

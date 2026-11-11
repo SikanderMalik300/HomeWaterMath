@@ -423,6 +423,9 @@ export const SOURCES = {
   'esp-viqua-vh200': { id: 'esp-viqua-vh200', name: 'ESP Water Products, VIQUA VH200 ($685)', url: 'https://espwaterproducts.com/collections/viqua-vh200-9-gpm', accessed: '2026-10-26' },
   'homeguide-uv': { id: 'homeguide-uv', name: 'HomeGuide, Water Filtration System Cost (UV light section, 2026)', url: 'https://homeguide.com/costs/water-filtration-system-cost', accessed: '2026-10-26' },
   'angi-uv': { id: 'angi-uv', name: 'Angi, Whole House Water Filtration System Cost (UV)', url: 'https://www.angi.com/articles/whole-house-water-filtration-system-cost.htm', accessed: '2026-10-26' },
+
+  // --- Fix 06 sources (accessed 2026-11-11) ---
+  'bls-oews-472152-may2025': { id: 'bls-oews-472152-may2025', name: 'U.S. Bureau of Labor Statistics, OEWS May 2025, Plumbers, Pipefitters, and Steamfitters (47-2152), mean hourly wage by state', url: 'https://www.bls.gov/oes/current/oes472152.htm', accessed: '2026-11-11' },
 } as const;
 
 export type SourceId = keyof typeof SOURCES;

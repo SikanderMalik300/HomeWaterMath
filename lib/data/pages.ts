@@ -100,7 +100,7 @@ export const PAGES: PageMeta[] = [
     category: 'softeners',
     related: [
       '/water-softener-salt-calculator/',
-      '/water-softener-settings/',
+      '/water-softener-installation-cost/',
       '/water-softener-cost/',
     ],
     lastUpdated: DATE,
@@ -127,9 +127,9 @@ export const PAGES: PageMeta[] = [
   {
     slug: '/water-softener-cost/',
     type: 'tool',
-    title: 'Water Softener Cost Calculator, Installed | HomeWaterMath',
+    title: 'Water Softener Cost Calculator (10-Year) | HomeWaterMath',
     metaDescription:
-      'Estimate water softener cost for your home: unit price, installation, salt and service, with a 10-year total. Compare DIY, plumber and dealer installs.',
+      'Estimate water softener cost for your home: unit price, salt and service, with a 10-year total. Installation is priced on its own page, by state.',
     h1: 'Water Softener Cost Calculator',
     category: 'softeners',
     related: [
@@ -137,7 +137,7 @@ export const PAGES: PageMeta[] = [
       '/water-softener-salt-calculator/',
       '/water-hardness-converter/',
     ],
-    lastUpdated: '2026-10-21',
+    lastUpdated: '2026-11-11',
     published: DATE,
     sources: [
       'thisoldhouse-cost',
@@ -338,17 +338,17 @@ export const PAGES: PageMeta[] = [
   {
     slug: '/water-softener-installation-cost/',
     type: 'tool',
-    title: 'Water Softener Installation Cost Calculator | HomeWaterMath',
+    title: 'Water Softener Installation Cost by State | HomeWaterMath',
     metaDescription:
-      'Estimate water softener installation cost itemized: plumber labor, softener loop, drain, outlet, removal and permit. Check a quote against typical prices.',
+      'Water softener installation cost in your state: plumber labor from BLS wage data, plus loop, drain, outlet and permit, cost by softener type and DIY savings.',
     h1: 'Water Softener Installation Cost Calculator',
     breadcrumb: 'Water softener installation cost',
     category: 'softeners',
     related: ['/water-softener-cost/', '/water-softener-size-calculator/', '/water-softener-vs-salt-free-cost/'],
-    lastUpdated: '2026-10-21',
+    lastUpdated: '2026-11-11',
     published: '2026-10-21',
     sources: [
-      'thisoldhouse-cost', 'fixr-cost', 'angi-install', 'homeadvisor-install', 'homeguide-cost',
+      'bls-oews-472152-may2025', 'thisoldhouse-cost', 'fixr-cost', 'angi-install', 'homeadvisor-install', 'homeguide-cost',
       'homeguide-repair-softener', 'homeguide-ro', 'homeguide-wf', 'homeguide-outlet', 'angi-plumber',
       'lahabra-permit', 'stpaul-permit', 'hd-pentair-kit',
     ],
@@ -604,7 +604,7 @@ export const PAGES: PageMeta[] = [
     h1: 'Water Softener Salt Types: Which One to Buy',
     breadcrumb: 'Water softener salt types',
     category: 'softeners',
-    related: ['/water-softener-salt-calculator/', '/water-softener-salt-bridge/', '/can-you-drink-softened-water/'],
+    related: ['/water-softener-salt-calculator/', '/water-softener-salt-bridge/', '/water-softener-installation-cost/'],
     lastUpdated: '2026-11-03',
     published: '2026-11-03',
     sources: [

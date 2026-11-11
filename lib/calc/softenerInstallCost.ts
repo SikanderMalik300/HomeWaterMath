@@ -1,14 +1,13 @@
 // Water softener installation cost (labor and extras only; not the unit).
 
 import {
-  INSTALL_BASE_LABOR,
-  INSTALL_BASE_TYPICAL,
   INSTALL_REMOVAL,
   INSTALL_LOOP,
   INSTALL_LOOP_TYPICAL,
   INSTALL_DRAIN,
   INSTALL_OUTLET,
 } from '@/lib/data/constants';
+import { stateLabor, US_STATE } from '@/lib/data/plumberWages';
 import { range, addRanges, type Range } from './range';
 
 export type InstallSetup = 'replace' | 'loopInPlace' | 'noLoop';
@@ -19,6 +18,7 @@ export interface SoftenerInstallInput {
   outletNear: boolean;
   permit: number;
   quote: number | null;
+  state?: string; // scales labor by local plumber wage; defaults to US average
 }
 
 export interface SoftenerInstallResult {
@@ -33,7 +33,8 @@ export interface SoftenerInstallResult {
 }
 
 export function softenerInstallCost(input: SoftenerInstallInput): SoftenerInstallResult {
-  const labor = range(INSTALL_BASE_LABOR[0], INSTALL_BASE_LABOR[1], INSTALL_BASE_TYPICAL);
+  const sl = stateLabor(input.state ?? US_STATE);
+  const labor = range(sl.low, sl.high, sl.typical);
   const removal = input.setup === 'replace' ? range(INSTALL_REMOVAL[0], INSTALL_REMOVAL[1]) : null;
   const loop = input.setup === 'noLoop' ? range(INSTALL_LOOP[0], INSTALL_LOOP[1], INSTALL_LOOP_TYPICAL) : null;
   const drain = input.drainInReach ? null : range(INSTALL_DRAIN[0], INSTALL_DRAIN[1]);
